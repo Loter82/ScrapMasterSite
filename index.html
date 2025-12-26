@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ScrapMaster | Новий рік 2026</title>
 
-  <meta name="description" content="ScrapMaster — система управління мережею пунктів прийому: каса, склад, журнали, FIFO, BI, аудит. Вітання зі святами та коротко про можливості." />
+  <meta name="description" content="ScrapMaster — система управління мережею пунктів прийому: каса, склад, журнали, FIFO/LIFO, BI, аудит. Вітання зі святами та коротко про можливості." />
 
-  <link rel="preload" as="image" href="hero-yard.jpg" />
+  <link rel="preload" as="image" href="background.png" />
   <link rel="preload" as="image" href="logo.png" />
   <link rel="preload" as="image" href="app.png" />
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     :root{
-      --primary:#1a5fb4;
-      --primary-dark:#123c73;
+      --primary:#ffd43b;
+      --primary-dark:#f5c62c;
       --secondary:#26a269;
       --dark:#121318;
       --light:#f8f9fa;
@@ -59,30 +59,23 @@
     }
     .logoBox{
       width:42px; height:42px;
-      border-radius:14px;
+      border-radius:50%;
       display:grid;
       place-items:center;
-      background:#fff;
-      border: 1px solid rgba(0,0,0,.06);
+      background:#ffd43b;
       box-shadow: var(--shadow-soft);
       overflow:hidden;
       position:relative;
     }
     .logoBox img{
-      width:28px; height:28px;
-      animation: floatLogo 3.2s ease-in-out infinite;
-      transform-origin:center;
-      filter: drop-shadow(0 14px 24px rgba(0,0,0,.18));
+      width:42px; height:42px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
     }
     .logoBox::before{
-      content:"";
-      position:absolute;
-      inset:-80%;
-      background: linear-gradient(90deg, transparent 35%, rgba(255,255,255,.30) 50%, transparent 65%);
-      transform: rotate(18deg) translateX(-60%);
-      animation: shimmer 5.3s ease-in-out infinite;
-      opacity:.0;
-      pointer-events:none;
+      display:none;
     }
     @keyframes floatLogo{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.04)}}
     @keyframes shimmer{
@@ -139,7 +132,7 @@
         radial-gradient(1200px 600px at 70% 20%, rgba(38,162,105,.18), transparent 55%),
         radial-gradient(900px 500px at 20% 80%, rgba(26,95,180,.22), transparent 55%),
         linear-gradient(135deg, rgba(18,19,24,.86) 0%, rgba(18,19,24,.64) 100%),
-        url("hero-yard.jpg");
+        url("background.png");
       background-size:cover;
       background-position:center;
     }
@@ -223,9 +216,11 @@
     }
     .year-2025{ background:rgba(255,255,255,.14); border: var(--border); }
     .year-2026{
-      background: rgba(38,162,105,.95);
-      border: 1px solid rgba(38,162,105,.55);
-      box-shadow: 0 10px 28px rgba(38,162,105,.18);
+      background: #ffd43b;
+      color:#0e1116;
+      border: 1px solid #f5c62c;
+      box-shadow: 0 10px 28px rgba(255,212,59,.35);
+      font-weight:900;
     }
 
     .hero-text{
@@ -259,9 +254,13 @@
     }
     .btn:hover{ transform: translateY(-2px); }
     .btn-primary{
-      background: linear-gradient(135deg, var(--secondary) 0%, #1f8e5c 100%);
-      color:#fff;
-      box-shadow: 0 14px 35px rgba(38,162,105,.22);
+      background: linear-gradient(135deg, #ffd43b 0%, #f5c62c 100%);
+      color:#0e1116;
+      box-shadow: 0 14px 35px rgba(255,212,59,.35);
+      font-weight:900;
+    }
+    .btn-primary:hover{
+      box-shadow: 0 18px 40px rgba(255,212,59,.45);
     }
     .btn-ghost{
       background: rgba(255,255,255,.10);
@@ -296,14 +295,15 @@
     .kpi{
       padding:14px;
       border-radius:12px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,212,59,.12);
+      border: 1px solid rgba(255,212,59,.35);
     }
     .kpi .num{
       font-size:22px;
       font-weight:900;
       margin-bottom:4px;
       letter-spacing:.3px;
+      color:#ffd43b;
     }
     .kpi .label{
       font-size:13px;
@@ -320,8 +320,8 @@
     /* ===== Sections ===== */
     .section{ padding:80px 0; }
     .section-dark{
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(26,95,180,.14), transparent 60%),
-                  radial-gradient(900px 500px at 80% 70%, rgba(38,162,105,.12), transparent 60%),
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,212,59,.08), transparent 60%),
+                  radial-gradient(900px 500px at 80% 70%, rgba(255,212,59,.06), transparent 60%),
                   var(--dark);
       color:#fff;
     }
@@ -329,7 +329,20 @@
       text-align:center;
       font-size:36px;
       margin-bottom:18px;
-      color: var(--primary);
+      color: #0e1116;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .section-title::after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd43b, #f5c62c);
+      border-radius: 2px;
     }
     .section-dark .section-title{ color:#fff; }
     .section-subtitle{
@@ -353,15 +366,15 @@
       padding:28px;
       box-shadow: var(--shadow-soft);
       transition: transform .25s ease, box-shadow .25s ease;
-      border-top: 4px solid var(--primary);
+      border-top: 4px solid #ffd43b;
     }
     .card:hover{ transform: translateY(-8px); box-shadow: var(--shadow); }
     .card-icon{
       width:52px; height:52px;
       display:flex; align-items:center; justify-content:center;
       border-radius:14px;
-      background: linear-gradient(135deg, rgba(26,95,180,.14) 0%, rgba(26,95,180,.06) 100%);
-      color: var(--primary);
+      background: #ffd43b;
+      color: #0e1116;
       font-size:22px;
       margin-bottom:16px;
     }
@@ -397,14 +410,14 @@
     }
     .miniLogo{
       width:36px; height:36px;
-      border-radius:14px;
+      border-radius:50%;
       background:#fff;
       border: 1px solid rgba(0,0,0,.06);
       display:grid; place-items:center;
       flex:0 0 auto;
       overflow:hidden;
     }
-    .miniLogo img{ width:22px; height:22px; }
+    .miniLogo img{ width:36px; height:36px; border-radius:50%; object-fit:cover; }
     .proof-title{
       font-weight:900;
       font-size:14px;
@@ -438,13 +451,13 @@
       margin-top:38px;
       border-radius: 18px;
       padding:34px;
-      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-      border: 1px solid rgba(26,95,180,.15);
+      background: linear-gradient(135deg, #fffef5 0%, #fffaeb 100%);
+      border: 2px solid #ffd43b;
       box-shadow: var(--shadow-soft);
     }
     .exec h3{
       font-size:26px;
-      color: var(--primary);
+      color: #0e1116;
       margin-bottom:8px;
     }
     .exec p{ color: var(--gray); margin-top:8px; max-width:900px; }
@@ -458,7 +471,7 @@
       background:#fff;
       border-radius:14px;
       padding:16px;
-      border: 1px solid rgba(0,0,0,.06);
+      border: 1px solid rgba(255,212,59,.3);
     }
     .exec-item b{ display:block; margin-bottom:6px; color:#0e1116; }
     .exec-item span{ color: var(--gray); font-size:14px; }
@@ -473,8 +486,8 @@
     .metric{
       border-radius: 14px;
       padding:18px;
-      background: rgba(255,255,255,.06);
-      border: var(--border);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,212,59,.25);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       text-align:left;
@@ -487,9 +500,9 @@
       display:inline-flex;
       padding:6px 10px;
       border-radius:999px;
-      background: rgba(38,162,105,.14);
-      border: 1px solid rgba(38,162,105,.35);
-      color:#d9ffe9;
+      background: rgba(255,212,59,.25);
+      border: 1px solid rgba(255,212,59,.5);
+      color:#ffd43b;
       font-size:12px;
       font-weight:800;
       letter-spacing:.2px;
@@ -512,17 +525,18 @@
       background:#fff;
       border-radius:14px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,.06);
+      border: 1px solid rgba(255,212,59,.3);
     }
     .benefit-check{
       width:38px; height:38px;
       display:flex; align-items:center; justify-content:center;
-      background: var(--secondary);
-      color:#fff;
+      background: #ffd43b;
+      color:#0e1116;
       border-radius:50%;
       flex-shrink:0;
-      box-shadow: 0 12px 26px rgba(38,162,105,.20);
+      box-shadow: 0 12px 26px rgba(255,212,59,.25);
       font-weight:900;
+      font-size:18px;
     }
     .benefit-item h3{ margin-bottom:4px; font-size:18px; color:#0e1116; }
     .benefit-item p{ color: var(--gray); }
@@ -535,7 +549,7 @@
       box-shadow: var(--shadow-soft);
       max-width:980px;
       margin:0 auto;
-      border: 1px solid rgba(0,0,0,.06);
+      border: 2px solid #ffd43b;
     }
     .approach-head{
       display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;
@@ -552,38 +566,77 @@
     .approach-item{
       padding:16px;
       border-radius:14px;
-      border-left: 4px solid var(--primary);
-      background:#f8f9fa;
-      border: 1px solid rgba(0,0,0,.06);
+      border-left: 4px solid #ffd43b;
+      background:#fffef5;
+      border: 1px solid rgba(255,212,59,.3);
     }
     .approach-item h4{ margin-bottom:6px; color:#0e1116; }
     .approach-item p{ color: var(--gray); }
 
     /* ===== Wishes ===== */
     .wishes-container{
-      text-align:center;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      max-width:900px;
+      margin:0 auto;
+      background:#fff;
       border-radius:18px;
-      padding:50px 26px;
-      margin-top:26px;
+      padding:48px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,.05);
+      border: 2px solid #ffd43b;
     }
     .wishes-title{
-      font-size:26px;
-      margin-bottom:18px;
-      color: var(--primary);
+      font-size:28px;
+      margin-bottom:28px;
+      color: #0e1116;
+      font-weight:900;
+      text-align:left;
+    }
+    .wishes-list{
+      list-style:none;
+      margin-bottom:32px;
     }
     .wish-item{
-      display:inline-block;
-      background:#fff;
-      padding:12px 18px;
-      margin:8px;
-      border-radius:999px;
-      box-shadow: var(--shadow-soft);
-      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:16px 0;
+      font-size:17px;
       color:#0e1116;
-      border: 1px solid rgba(0,0,0,.06);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .wish-item:last-child{
+      border-bottom:none;
+    }
+    .wish-icon{
+      width:32px;
+      height:32px;
+      background:#ffd43b;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      flex-shrink:0;
+    }
+    .wish-highlight{
+      background:linear-gradient(135deg, #fffef5 0%, #fffaeb 100%);
+      border-radius:16px;
+      padding:24px 28px;
+      margin-top:24px;
+      border:2px solid #ffd43b;
+      text-align:center;
+    }
+    .wish-highlight-text{
+      font-size:22px;
+      font-weight:900;
+      color:#0e1116;
+      line-height:1.5;
+    }
+    .wish-highlight-text .accent{
+      color:#ffd43b;
+      background:#0e1116;
+      padding:2px 12px;
+      border-radius:6px;
+      display:inline-block;
     }
 
     /* ===== Contact ===== */
@@ -632,11 +685,279 @@
       font-size:14px;
     }
 
+    /* ===== Gallery ===== */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+      gap:12px;
+      padding:16px 0;
+    }
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:8px;
+      cursor:pointer;
+      aspect-ratio:16/10;
+      background:#f5f7fa;
+      border:2px solid rgba(0,0,0,.06);
+      transition:all 0.3s ease;
+    }
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 24px rgba(0,0,0,.15);
+      border-color:var(--primary);
+    }
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .gallery-item-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size:32px;
+      transition:background 0.3s ease;
+      pointer-events:none;
+    }
+    .gallery-item:hover .gallery-item-overlay{
+      background:rgba(0,0,0,.3);
+    }
+    
+    /* ===== Lightbox Modal ===== */
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.95);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .lightbox.active{
+      display:flex;
+    }
+    .lightbox-content{
+      position:relative;
+      max-width:90vw;
+      max-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lightbox-content img{
+      max-width:100%;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .lightbox-close{
+      position:absolute;
+      top:-50px;
+      right:0;
+      background:rgba(255,255,255,.1);
+      border:2px solid rgba(255,255,255,.3);
+      color:#fff;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      font-size:28px;
+      font-weight:300;
+      transition:all 0.2s ease;
+    }
+    .lightbox-close:hover{
+      background:rgba(255,255,255,.2);
+      transform:scale(1.1);
+    }
+    .lightbox-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,.1);
+      border:2px solid rgba(255,255,255,.3);
+      color:#fff;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      font-size:28px;
+      font-weight:900;
+      transition:all 0.2s ease;
+    }
+    .lightbox-nav:hover{
+      background:rgba(255,255,255,.2);
+      transform:translateY(-50%) scale(1.1);
+    }
+    .lightbox-nav.prev{ left:-70px; }
+    .lightbox-nav.next{ right:-70px; }
+    .lightbox-counter{
+      position:absolute;
+      bottom:-45px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#fff;
+      font-size:16px;
+      font-weight:600;
+      background:rgba(255,255,255,.1);
+      padding:8px 16px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.2);
+    }
+
+    /* ===== Preloader ===== */
+    .preloader{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg, #0e1116 0%, #1a1d24 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:99999;
+      transition:opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .preloader.hidden{
+      opacity:0;
+      visibility:hidden;
+    }
+    .preloader-content{
+      text-align:center;
+    }
+    .preloader-logo{
+      width:120px;
+      height:120px;
+      background:#ffd43b;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 24px;
+      box-shadow:0 20px 60px rgba(0,0,0,.15);
+      animation:pulse 2s ease-in-out infinite;
+    }
+    .preloader-logo img{
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      border-radius:50%;
+    }
+    .preloader-text{
+      color:#ffffff;
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+    .preloader-text span{
+      color:#ffd43b;
+    }
+    .preloader-subtitle{
+      color:rgba(255,255,255,.75);
+      font-size:14px;
+      font-weight:600;
+    }
+    .preloader-slogan{
+      color:rgba(255,255,255,.65);
+      font-size:15px;
+      font-weight:500;
+      max-width:500px;
+      margin:16px auto 0;
+      line-height:1.6;
+    }
+    @keyframes pulse{
+      0%, 100%{
+        transform:scale(1);
+        box-shadow:0 20px 60px rgba(0,0,0,.15);
+      }
+      50{
+        transform:scale(1.05);
+        box-shadow:0 25px 70px rgba(0,0,0,.2), 0 0 0 15px rgba(255,212,59,.15);
+      }
+    }
+
+    /* ===== New Year Snow Animation ===== */
+    .snowflakes{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:9999;
+      overflow:hidden;
+    }
+    .snowflake{
+      position:absolute;
+      top:-10px;
+      color:#fff;
+      font-size:1em;
+      opacity:0.8;
+      animation:fall linear infinite;
+      text-shadow:0 0 5px rgba(255,255,255,0.5);
+    }
+    @keyframes fall{
+      0%{
+        transform:translateY(0) rotate(0deg);
+      }
+      100%{
+        transform:translateY(100vh) rotate(360deg);
+      }
+    }
+    .christmas-tree{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      font-size:60px;
+      z-index:9998;
+      animation:treeGlow 2s ease-in-out infinite;
+      filter:drop-shadow(0 0 10px rgba(255, 212, 59, 0.6));
+      cursor:pointer;
+      transition:transform 0.3s ease;
+    }
+    .christmas-tree:hover{
+      transform:scale(1.1) rotate(5deg);
+    }
+    @keyframes treeGlow{
+      0%, 100%{
+        filter:drop-shadow(0 0 10px rgba(255, 212, 59, 0.6));
+      }
+      50%{
+        filter:drop-shadow(0 0 20px rgba(255, 212, 59, 0.9)) drop-shadow(0 0 30px rgba(255, 100, 100, 0.5));
+      }
+    }
+    .sparkle{
+      position:fixed;
+      pointer-events:none;
+      z-index:9997;
+      animation:sparkleAnim 1s ease-out forwards;
+    }
+    @keyframes sparkleAnim{
+      0%{
+        transform:scale(0) rotate(0deg);
+        opacity:1;
+      }
+      100%{
+        transform:scale(1.5) rotate(180deg);
+        opacity:0;
+      }
+    }
+
     /* ===== Motion safety ===== */
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
       .logoBox img{ animation:none !important; }
       .logoBox::before{ animation:none !important; }
+      .snowflake{ animation:none !important; display:none; }
+      .christmas-tree{ animation:none !important; }
     }
 
     /* ===== Responsive ===== */
@@ -645,17 +966,44 @@
       .hero-left h1{ font-size:40px; }
       .exec-grid{ grid-template-columns: 1fr; }
       .approach-list{ grid-template-columns: 1fr; }
+      .gallery-grid{ grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
+      .lightbox-nav.prev{ left:-10px; }
+      .lightbox-nav.next{ right:-10px; }
     }
     @media (max-width: 640px){
       .navLinks{ display:none; }
       .hero-left h1{ font-size:34px; }
       .btn{ width:100%; }
       .kpi-grid{ grid-template-columns: 1fr; }
+      .gallery-grid{ grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); gap:8px; }
+      .lightbox-nav{ width:40px; height:40px; font-size:20px; }
+      .lightbox-close{ top:10px; right:10px; width:36px; height:36px; }
+      .lightbox-counter{ bottom:10px; font-size:14px; }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Snowflakes -->
+  <div class="snowflakes" id="snowflakes"></div>
+
+  <!-- Christmas Tree -->
+  <div class="christmas-tree" id="christmasTree" title="З Новим 2026 роком! 🎄">🎄</div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="snowflakes" style="z-index:100000;"></div>
+    <div style="position:absolute; top:20px; left:50%; transform:translateX(-50%); font-size:40px; z-index:100001;">🎄</div>
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <img src="logo.png" alt="ScrapMaster Logo">
+      </div>
+      <div class="preloader-text">Scrap<span>Master</span></div>
+      <div class="preloader-subtitle">Завантаження...</div>
+      <div class="preloader-slogan">ScrapMaster — коли облік перестає бути проблемою і стає конкурентною перевагою.</div>
+    </div>
+  </div>
 
   <!-- Sticky nav -->
   <div class="nav">
@@ -665,7 +1013,6 @@
           <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
           <div>
             <div class="brandTitle">Scrap<span>Master</span></div>
-            <div class="brandSub">Каса • склад • журнали • FIFO • BI • Audit</div>
           </div>
         </div>
         <div class="navLinks">
@@ -699,7 +1046,7 @@
 
           <p class="hero-text">
             2025 рік — системність і контроль. 2026 — масштабування без хаосу.
-            ScrapMaster робить управління мережею пунктів прийому <b>прозорим, керованим і перевіряємим</b>.
+            ScrapMaster робить управління мережею пунктів прийому <b>прозорим і керованим.</b>.
           </p>
 
           <div class="cta-row">
@@ -710,23 +1057,21 @@
         </div>
 
         <aside class="hero-right">
-          <h3>На 1 екран для директора</h3>
-
           <div class="kpi-grid">
             <div class="kpi">
               <div class="num">24/7</div>
               <div class="label">онлайн-контроль каси, складу, відвантажень</div>
             </div>
             <div class="kpi">
-              <div class="num">Audit</div>
+              <div class="num">АУДИТ</div>
               <div class="label">журнал змін, ролі, відповідальність</div>
             </div>
             <div class="kpi">
-              <div class="num">FIFO</div>
+              <div class="num">FIFO/LIFO</div>
               <div class="label">собівартість на рівні ERP</div>
             </div>
             <div class="kpi">
-              <div class="num">BI</div>
+              <div class="num">ВІЗУАЛІЗАЦІЯ</div>
               <div class="label">прибуток, витрати, залишки, динаміка</div>
             </div>
           </div>
@@ -770,7 +1115,7 @@
       <div class="exec">
         <h3>ScrapMaster — операційний стандарт для мережі пунктів</h3>
         <p>
-          Журнали, каса, склад, FIFO та BI — з ролями, відповідальністю і контролем змін.
+          Журнали, каса, склад, FIFO/LIFO та BI — з ролями, відповідальністю і контролем змін.
           Система підходить для масштабування та аудиту.
         </p>
 
@@ -797,29 +1142,142 @@
     <div class="container">
       <h2 class="section-title">Інтерфейс продукту</h2>
       <p class="section-subtitle" style="margin-bottom:18px;">
-        Клієнту важливо бачити, що система реальна. Ось приклад головної панелі.
+        Клієнту важливо бачити, що система реальна. Ось приклади інтерфейсів. Натисніть на зображення для перегляду у повному розмірі.
       </p>
 
+      <!-- Адміністративна частина -->
       <div class="proof">
         <div class="proof-head">
           <div class="proof-left">
             <div class="miniLogo"><img src="logo.png" alt=""></div>
             <div style="min-width:0;">
-              <div class="proof-title">Головна панель</div>
-              <div class="proof-sub">закупівлі • продажі • відвантаження • витрати • графіки</div>
+              <div class="proof-title">Адміністративна частина</div>
+              <div class="proof-sub">аналітика • звіти • управління • налаштування</div>
             </div>
           </div>
-          <div class="proof-meta">ScrapMaster</div>
+          <div class="proof-meta">ScrapMaster Admin</div>
         </div>
 
-        <img src="app.png" alt="ScrapMaster dashboard screenshot" />
+        <div class="gallery-grid" id="adminGallery">
+          <div class="gallery-item" onclick="openLightbox('admin', 0)">
+            <img src="src/Записати 1.PNG" alt="Admin screenshot 1">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 1)">
+            <img src="src/Записати 2.PNG" alt="Admin screenshot 2">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 2)">
+            <img src="src/Записати 3.PNG" alt="Admin screenshot 3">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 3)">
+            <img src="src/Записати 4.PNG" alt="Admin screenshot 4">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 4)">
+            <img src="src/Записати 5.PNG" alt="Admin screenshot 5">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 5)">
+            <img src="src/Записати 6.PNG" alt="Admin screenshot 6">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 6)">
+            <img src="src/Записати 7.PNG" alt="Admin screenshot 7">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 7)">
+            <img src="src/Записати 8.PNG" alt="Admin screenshot 8">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 8)">
+            <img src="src/Записати 9.PNG" alt="Admin screenshot 9">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('admin', 9)">
+            <img src="src/Записати 10.PNG" alt="Admin screenshot 10">
+            <div class="gallery-item-overlay"></div>
+          </div>
+        </div>
 
         <div class="proof-foot">
-          За потреби додаємо окремі екрани: журнал складу, журнал каси, FIFO-звітність, контроль даних.
+          Адміністративна панель для керівництва: звіти, аналітика, налаштування системи.
+        </div>
+      </div>
+
+      <!-- Операторська частина -->
+      <div class="proof" style="margin-top:24px;">
+        <div class="proof-head">
+          <div class="proof-left">
+            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div style="min-width:0;">
+              <div class="proof-title">Операторська частина</div>
+              <div class="proof-sub">каса • склад • приймання • відпуск • документи</div>
+            </div>
+          </div>
+          <div class="proof-meta">ScrapMaster Operator</div>
+        </div>
+
+        <div class="gallery-grid" id="operGallery">
+          <div class="gallery-item" onclick="openLightbox('oper', 0)">
+            <img src="src/screen_oper/1.PNG" alt="Operator screenshot 1">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 1)">
+            <img src="src/screen_oper/2.PNG" alt="Operator screenshot 2">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 2)">
+            <img src="src/screen_oper/3.PNG" alt="Operator screenshot 3">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 3)">
+            <img src="src/screen_oper/4.PNG" alt="Operator screenshot 4">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 4)">
+            <img src="src/screen_oper/5.PNG" alt="Operator screenshot 5">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 5)">
+            <img src="src/screen_oper/6.PNG" alt="Operator screenshot 6">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 6)">
+            <img src="src/screen_oper/7.PNG" alt="Operator screenshot 7">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 7)">
+            <img src="src/screen_oper/8.PNG" alt="Operator screenshot 8">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 8)">
+            <img src="src/screen_oper/9.PNG" alt="Operator screenshot 9">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 9)">
+            <img src="src/screen_oper/10.PNG" alt="Operator screenshot 10">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 10)">
+            <img src="src/screen_oper/11.PNG" alt="Operator screenshot 11">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 11)">
+            <img src="src/screen_oper/12.PNG" alt="Operator screenshot 12">
+          </div>
+          <div class="gallery-item" onclick="openLightbox('oper', 12)">
+            <img src="src/screen_oper/13.PNG" alt="Operator screenshot 13">
+          </div>
+        </div>
+
+        <div class="proof-foot">
+          Інтерфейс для операторів на пунктах приймання: швидке оформлення, друк документів, облік руху.
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <div class="lightbox-close" onclick="closeLightbox(event)">×</div>
+      <div class="lightbox-nav prev" onclick="navigateLightbox(event, -1)">‹</div>
+      <img id="lightboxImage" src="" alt="Screenshot">
+      <div class="lightbox-nav next" onclick="navigateLightbox(event, 1)">›</div>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+  </div>
 
   <!-- FACTS / METRICS -->
   <section class="section section-dark" id="facts">
@@ -869,7 +1327,7 @@
         <div class="metric">
           <div class="top">
             <span class="pill">ERP-level</span>
-            <span class="value">FIFO</span>
+            <span class="value">FIFO/LIFO</span>
           </div>
           <div style="opacity:.92;font-weight:900;">Собівартість</div>
           <p>Коректна собівартість для продажів і відвантажень — основа реальної маржі.</p>
@@ -905,7 +1363,7 @@
         <div class="benefit-item">
           <div class="benefit-check">✓</div>
           <div>
-            <h3>FIFO / ERP-рівень собівартості</h3>
+            <h3>FIFO/LIFO  розрахунок собівартості</h3>
             <p>Точна собівартість для “shipment” та “sale”. Маржа рахується правильно.</p>
           </div>
         </div>
@@ -983,19 +1441,33 @@
 
       <div class="wishes-container">
         <h3 class="wishes-title">Нехай у 2026 році:</h3>
-        <div class="wish-item">цифри сходяться автоматично</div>
-        <div class="wish-item">рішення приймаються на основі даних</div>
-        <div class="wish-item">бізнес працює як система</div>
-        <div class="wish-item">а не як пожежна команда</div>
+        <ul class="wishes-list">
+          <li class="wish-item">
+            <span class="wish-icon">✓</span>
+            <span>Цифри зходяться автоматично</span>
+          </li>
+          <li class="wish-item">
+            <span class="wish-icon">✓</span>
+            <span>Рішення приймаються на основі даних</span>
+          </li>
+          <li class="wish-item">
+            <span class="wish-icon">✓</span>
+            <span>Процеси стандартизовані і контрольовані</span>
+          </li>
+        </ul>
+        <div class="wish-highlight">
+          <div class="wish-highlight-text">
+            Бізнес працює як система,<br>а не як пожежна команда
+          </div>
+        </div>
       </div>
 
       <div id="contact" style="margin-top:28px; text-align:center;">
         <p style="font-weight:900; font-size:18px; margin-bottom:10px;">Контакти</p>
         <div class="contact">
-          <!-- заміни на реальні -->
-          <a href="mailto:sales@scrapmaster.app">✉️ sales@scrapmaster.app</a>
-          <a href="https://t.me/your_telegram" target="_blank" rel="noopener">💬 Telegram</a>
-          <a href="tel:+380000000000">📞 +38 (000) 000-00-00</a>
+          <a href="mailto:info@scrapmaster.store">✉️ info@scrapmaster.store</a>
+          <a href="https://t.me/Scrap_Master2025" target="_blank" rel="noopener">💬 @Scrap_Master2025</a>
+          <a href="tel:+380675051173">📞 +38 (067) 505-11-73</a>
         </div>
       </div>
     </div>
@@ -1022,6 +1494,14 @@
   </footer>
 
   <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 3000);
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
@@ -1051,6 +1531,165 @@
         setInterval(() => {
           y.style.transform = y.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
         }, 1600);
+      }
+
+      // Add snowflakes to preloader
+      const preloaderSnow = document.querySelector('.preloader .snowflakes');
+      if (preloaderSnow) {
+        const snowflakeSymbols = ['❄', '❅', '❆', '✻', '✼', '❉'];
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            preloaderSnow.appendChild(snowflake);
+          }, i * 100);
+        }
+      }
+    });
+  </script>
+
+  <script>
+    // Lightbox functionality
+    const galleries = {
+      admin: {
+        images: [
+          'src/Записати 1.PNG',
+          'src/Записати 2.PNG',
+          'src/Записати 3.PNG',
+          'src/Записати 4.PNG',
+          'src/Записати 5.PNG',
+          'src/Записати 6.PNG',
+          'src/Записати 7.PNG',
+          'src/Записати 8.PNG',
+          'src/Записати 9.PNG',
+          'src/Записати 10.PNG'
+        ]
+      },
+      oper: {
+        images: [
+          'src/screen_oper/1.PNG',
+          'src/screen_oper/2.PNG',
+          'src/screen_oper/3.PNG',
+          'src/screen_oper/4.PNG',
+          'src/screen_oper/5.PNG',
+          'src/screen_oper/6.PNG',
+          'src/screen_oper/7.PNG',
+          'src/screen_oper/8.PNG',
+          'src/screen_oper/9.PNG',
+          'src/screen_oper/10.PNG',
+          'src/screen_oper/11.PNG',
+          'src/screen_oper/12.PNG',
+          'src/screen_oper/13.PNG'
+        ]
+      }
+    };
+
+    let currentGallery = null;
+    let currentIndex = 0;
+
+    function openLightbox(galleryType, index) {
+      currentGallery = galleryType;
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+        event.stopPropagation();
+      }
+    }
+
+    function navigateLightbox(event, direction) {
+      event.stopPropagation();
+      const gallery = galleries[currentGallery];
+      currentIndex += direction;
+      
+      if (currentIndex < 0) {
+        currentIndex = gallery.images.length - 1;
+      } else if (currentIndex >= gallery.images.length) {
+        currentIndex = 0;
+      }
+      
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const gallery = galleries[currentGallery];
+      document.getElementById('lightboxImage').src = gallery.images[currentIndex];
+      document.getElementById('lightboxCounter').textContent = `${currentIndex + 1} / ${gallery.images.length}`;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        } else if (e.key === 'ArrowLeft') {
+          navigateLightbox(e, -1);
+        } else if (e.key === 'ArrowRight') {
+          navigateLightbox(e, 1);
+        }
+      }
+    });
+  </script>
+
+  <script>
+    // New Year Snow Animation
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const snowflakeSymbols = ['❄', '❅', '❆', '✻', '✼', '❉'];
+    
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+      snowflake.style.left = Math.random() * 100 + '%';
+      snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+      snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+      snowflake.style.animationDuration = (Math.random() * 5 + 10) + 's';
+      snowflake.style.animationDelay = Math.random() * 5 + 's';
+      
+      snowflakesContainer.appendChild(snowflake);
+      
+      setTimeout(() => {
+        snowflake.remove();
+      }, 15000);
+    }
+    
+    // Create initial snowflakes
+    for (let i = 0; i < 30; i++) {
+      setTimeout(createSnowflake, i * 300);
+    }
+    
+    // Continue creating snowflakes
+    setInterval(createSnowflake, 500);
+    
+    // Christmas Tree Sparkle Effect
+    const christmasTree = document.getElementById('christmasTree');
+    christmasTree.addEventListener('click', function(e) {
+      const sparkleSymbols = ['✨', '⭐', '💫', '🌟'];
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.innerHTML = sparkleSymbols[Math.floor(Math.random() * sparkleSymbols.length)];
+          sparkle.style.fontSize = (Math.random() * 20 + 20) + 'px';
+          sparkle.style.left = (e.clientX - 15 + Math.random() * 30) + 'px';
+          sparkle.style.top = (e.clientY - 15 + Math.random() * 30) + 'px';
+          document.body.appendChild(sparkle);
+          
+          setTimeout(() => sparkle.remove(), 1000);
+        }, i * 100);
       }
     });
   </script>
