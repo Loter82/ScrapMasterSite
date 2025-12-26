@@ -122,6 +122,76 @@
     }
     .link:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.09); }
 
+    /* Hamburger Menu */
+    .menu-toggle{
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      padding:8px;
+      background:#fff;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,.1);
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      transition:all 0.3s ease;
+    }
+    .menu-toggle span{
+      display:block;
+      width:24px;
+      height:3px;
+      background:#0e1116;
+      border-radius:2px;
+      transition:all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1){
+      transform:rotate(45deg) translate(8px, 8px);
+    }
+    .menu-toggle.active span:nth-child(2){
+      opacity:0;
+    }
+    .menu-toggle.active span:nth-child(3){
+      transform:rotate(-45deg) translate(7px, -7px);
+    }
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      top:70px;
+      left:0;
+      right:0;
+      background:#fff;
+      box-shadow:0 8px 24px rgba(0,0,0,.15);
+      z-index:9998;
+      padding:20px;
+      animation:slideDown 0.3s ease;
+    }
+    .mobile-menu.active{
+      display:block;
+    }
+    .mobile-menu a{
+      display:block;
+      padding:14px 16px;
+      text-decoration:none;
+      color:#0e1116;
+      font-weight:600;
+      font-size:15px;
+      border-radius:8px;
+      margin-bottom:8px;
+      transition:background 0.2s ease;
+    }
+    .mobile-menu a:hover{
+      background:rgba(255,212,59,0.1);
+    }
+    @keyframes slideDown{
+      from{
+        opacity:0;
+        transform:translateY(-20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
     /* ===== HERO ===== */
     .header{
       position:relative;
@@ -972,6 +1042,7 @@
     }
     @media (max-width: 640px){
       .navLinks{ display:none; }
+      .menu-toggle{ display:flex; }
       .hero-left h1{ font-size:34px; }
       .btn{ width:100%; }
       .kpi-grid{ grid-template-columns: 1fr; }
@@ -1021,8 +1092,21 @@
           <a class="link" href="#enterprise">Enterprise</a>
           <a class="link" href="#contact">Контакти</a>
         </div>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#product" onclick="closeMobileMenu()">Інтерфейс</a>
+    <a href="#facts" onclick="closeMobileMenu()">Можливості</a>
+    <a href="#enterprise" onclick="closeMobileMenu()">Enterprise</a>
+    <a href="#contact" onclick="closeMobileMenu()">Контакти</a>
   </div>
 
   <!-- HERO -->
@@ -1692,6 +1776,20 @@
         }, i * 100);
       }
     });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    function closeMobileMenu() {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    }
   </script>
 
 </body>
