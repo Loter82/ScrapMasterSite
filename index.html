@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScrapMaster | Новий рік 2026</title>
+
+  <meta name="description" content="ScrapMaster — система управління мережею пунктів прийому: каса, склад, журнали, FIFO, BI, аудит. Вітання зі святами та коротко про можливості." />
+
+  <link rel="preload" as="image" href="hero-yard.jpg" />
+  <link rel="preload" as="image" href="logo.png" />
+  <link rel="preload" as="image" href="app.png" />
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    :root{
+      --primary:#1a5fb4;
+      --primary-dark:#123c73;
+      --secondary:#26a269;
+      --dark:#121318;
+      --light:#f8f9fa;
+      --gray:#5e5e5e;
+
+      --shadow:0 14px 40px rgba(0,0,0,.14);
+      --shadow-soft:0 8px 24px rgba(0,0,0,.10);
+      --radius:16px;
+      --radius2:14px;
+      --border:1px solid rgba(255,255,255,.10);
+
+      --text:#0e1116;
+      --muted:#6b7280;
+    }
+
+    body{ background:#f5f7fa; color:var(--text); line-height:1.6; }
+    .container{ max-width:1200px; margin:0 auto; padding:0 20px; }
+
+    /* ===== Topbar (sticky) ===== */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(245,247,250,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav .inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+    .logoBox{
+      width:42px; height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:#fff;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      position:relative;
+    }
+    .logoBox img{
+      width:28px; height:28px;
+      animation: floatLogo 3.2s ease-in-out infinite;
+      transform-origin:center;
+      filter: drop-shadow(0 14px 24px rgba(0,0,0,.18));
+    }
+    .logoBox::before{
+      content:"";
+      position:absolute;
+      inset:-80%;
+      background: linear-gradient(90deg, transparent 35%, rgba(255,255,255,.30) 50%, transparent 65%);
+      transform: rotate(18deg) translateX(-60%);
+      animation: shimmer 5.3s ease-in-out infinite;
+      opacity:.0;
+      pointer-events:none;
+    }
+    @keyframes floatLogo{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.04)}}
+    @keyframes shimmer{
+      0%{transform:rotate(18deg) translateX(-60%); opacity:0}
+      18%{opacity:.45}
+      55%{opacity:.16}
+      100%{transform:rotate(18deg) translateX(60%); opacity:0}
+    }
+
+    .brandTitle{
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .brandTitle span{ color:#ffd43b; }
+    .brandSub{
+      font-size:12.5px;
+      color: rgba(14,17,22,.65);
+      margin-top:3px;
+    }
+
+    .navLinks{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      text-decoration:none;
+      color: rgba(14,17,22,.86);
+      border: 1px solid rgba(0,0,0,.06);
+      background:#fff;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      font-weight:700;
+      font-size:13px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      white-space:nowrap;
+    }
+    .link:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.09); }
+
+    /* ===== HERO ===== */
+    .header{
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      padding:86px 0 74px;
+      background:
+        radial-gradient(1200px 600px at 70% 20%, rgba(38,162,105,.18), transparent 55%),
+        radial-gradient(900px 500px at 20% 80%, rgba(26,95,180,.22), transparent 55%),
+        linear-gradient(135deg, rgba(18,19,24,.86) 0%, rgba(18,19,24,.64) 100%),
+        url("hero-yard.jpg");
+      background-size:cover;
+      background-position:center;
+    }
+    .header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity:.18;
+      pointer-events:none;
+    }
+
+    .topline{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+      margin-bottom:22px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border: var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size:14px;
+      opacity:.95;
+    }
+    .badge b{ color:#fff; font-weight:800; }
+    .badge .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--secondary);
+      box-shadow: 0 0 0 6px rgba(38,162,105,.15);
+    }
+
+    .subtitle{
+      opacity:.92;
+      font-size:18px;
+      margin-top:10px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:stretch;
+      position:relative;
+      z-index:1;
+      margin-top:26px;
+    }
+    .hero-left h1{
+      font-size:50px;
+      line-height:1.05;
+      text-shadow:0 2px 10px rgba(0,0,0,.35);
+      margin-bottom:18px;
+    }
+    .year-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      margin: 10px 0 16px;
+    }
+    .year-2025,.year-2026{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:999px;
+      font-size:14px;
+      letter-spacing:.4px;
+    }
+    .year-2025{ background:rgba(255,255,255,.14); border: var(--border); }
+    .year-2026{
+      background: rgba(38,162,105,.95);
+      border: 1px solid rgba(38,162,105,.55);
+      box-shadow: 0 10px 28px rgba(38,162,105,.18);
+    }
+
+    .hero-text{
+      max-width:720px;
+      font-size:18px;
+      opacity:.95;
+      margin-bottom:22px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:800;
+      font-size:15px;
+      border: 1px solid transparent;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-2px); }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--secondary) 0%, #1f8e5c 100%);
+      color:#fff;
+      box-shadow: 0 14px 35px rgba(38,162,105,.22);
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,.10);
+      border: var(--border);
+      color:#fff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-right{
+      border-radius: var(--radius);
+      padding:22px;
+      background: rgba(255,255,255,.10);
+      border: var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 18px 48px rgba(0,0,0,.22);
+    }
+    .hero-right h3{
+      font-size:16px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      opacity:.9;
+      margin-bottom:14px;
+    }
+    .kpi-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    .kpi{
+      padding:14px;
+      border-radius:12px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .kpi .num{
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:4px;
+      letter-spacing:.3px;
+    }
+    .kpi .label{
+      font-size:13px;
+      opacity:.86;
+      line-height:1.35;
+    }
+    .micro{
+      margin-top:12px;
+      font-size:13px;
+      opacity:.80;
+      line-height:1.5;
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding:80px 0; }
+    .section-dark{
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(26,95,180,.14), transparent 60%),
+                  radial-gradient(900px 500px at 80% 70%, rgba(38,162,105,.12), transparent 60%),
+                  var(--dark);
+      color:#fff;
+    }
+    .section-title{
+      text-align:center;
+      font-size:36px;
+      margin-bottom:18px;
+      color: var(--primary);
+    }
+    .section-dark .section-title{ color:#fff; }
+    .section-subtitle{
+      text-align:center;
+      font-size:18px;
+      color: var(--gray);
+      max-width:860px;
+      margin:0 auto 48px;
+    }
+    .section-dark .section-subtitle{ color: rgba(255,255,255,.78); }
+
+    /* ===== Cards ===== */
+    .cards-container{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap:22px;
+    }
+    .card{
+      background:#fff;
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: var(--shadow-soft);
+      transition: transform .25s ease, box-shadow .25s ease;
+      border-top: 4px solid var(--primary);
+    }
+    .card:hover{ transform: translateY(-8px); box-shadow: var(--shadow); }
+    .card-icon{
+      width:52px; height:52px;
+      display:flex; align-items:center; justify-content:center;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(26,95,180,.14) 0%, rgba(26,95,180,.06) 100%);
+      color: var(--primary);
+      font-size:22px;
+      margin-bottom:16px;
+    }
+    .card-title{ font-size:20px; margin-bottom:10px; color:#101114; }
+    .card-text{ color: var(--gray); }
+
+    /* ===== Proof / Product screenshot ===== */
+    .proof{
+      margin-top:26px;
+      max-width:1050px;
+      margin-left:auto;
+      margin-right:auto;
+      border-radius: 18px;
+      overflow:hidden;
+      background:#fff;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow-soft);
+    }
+    .proof-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 16px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      background: linear-gradient(135deg, #ffffff 0%, #f6f8fb 100%);
+    }
+    .proof-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .miniLogo{
+      width:36px; height:36px;
+      border-radius:14px;
+      background:#fff;
+      border: 1px solid rgba(0,0,0,.06);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+    .miniLogo img{ width:22px; height:22px; }
+    .proof-title{
+      font-weight:900;
+      font-size:14px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .proof-sub{
+      color: rgba(14,17,22,.62);
+      font-size:12.5px;
+      margin-top:2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .proof-meta{
+      font-weight:900;
+      font-size:12px;
+      color: rgba(14,17,22,.60);
+      white-space:nowrap;
+    }
+    .proof img{ width:100%; display:block; }
+    .proof-foot{
+      padding:12px 16px 16px;
+      color: rgba(14,17,22,.68);
+      font-size:14px;
+    }
+
+    /* ===== Exec block ===== */
+    .exec{
+      margin-top:38px;
+      border-radius: 18px;
+      padding:34px;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+      border: 1px solid rgba(26,95,180,.15);
+      box-shadow: var(--shadow-soft);
+    }
+    .exec h3{
+      font-size:26px;
+      color: var(--primary);
+      margin-bottom:8px;
+    }
+    .exec p{ color: var(--gray); margin-top:8px; max-width:900px; }
+    .exec-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .exec-item{
+      background:#fff;
+      border-radius:14px;
+      padding:16px;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .exec-item b{ display:block; margin-bottom:6px; color:#0e1116; }
+    .exec-item span{ color: var(--gray); font-size:14px; }
+
+    /* ===== Metrics dark ===== */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:26px;
+    }
+    .metric{
+      border-radius: 14px;
+      padding:18px;
+      background: rgba(255,255,255,.06);
+      border: var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align:left;
+    }
+    .metric .top{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .metric .pill{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(38,162,105,.14);
+      border: 1px solid rgba(38,162,105,.35);
+      color:#d9ffe9;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .metric .value{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:.3px;
+    }
+    .metric p{ opacity:.86; font-size:14px; margin-top:8px; line-height:1.45; }
+
+    /* ===== Benefits ===== */
+    .benefits-list{ max-width:880px; margin:0 auto; }
+    .benefit-item{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      margin-bottom:18px;
+      padding:18px;
+      background:#fff;
+      border-radius:14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .benefit-check{
+      width:38px; height:38px;
+      display:flex; align-items:center; justify-content:center;
+      background: var(--secondary);
+      color:#fff;
+      border-radius:50%;
+      flex-shrink:0;
+      box-shadow: 0 12px 26px rgba(38,162,105,.20);
+      font-weight:900;
+    }
+    .benefit-item h3{ margin-bottom:4px; font-size:18px; color:#0e1116; }
+    .benefit-item p{ color: var(--gray); }
+
+    /* ===== Enterprise ===== */
+    .approach-container{
+      background:#fff;
+      border-radius:18px;
+      padding:38px;
+      box-shadow: var(--shadow-soft);
+      max-width:980px;
+      margin:0 auto;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .approach-head{
+      display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .approach-head .note{ color: var(--gray); max-width:740px; }
+    .approach-list{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .approach-item{
+      padding:16px;
+      border-radius:14px;
+      border-left: 4px solid var(--primary);
+      background:#f8f9fa;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .approach-item h4{ margin-bottom:6px; color:#0e1116; }
+    .approach-item p{ color: var(--gray); }
+
+    /* ===== Wishes ===== */
+    .wishes-container{
+      text-align:center;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius:18px;
+      padding:50px 26px;
+      margin-top:26px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,.05);
+    }
+    .wishes-title{
+      font-size:26px;
+      margin-bottom:18px;
+      color: var(--primary);
+    }
+    .wish-item{
+      display:inline-block;
+      background:#fff;
+      padding:12px 18px;
+      margin:8px;
+      border-radius:999px;
+      box-shadow: var(--shadow-soft);
+      font-weight:800;
+      color:#0e1116;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    /* ===== Contact ===== */
+    .contact{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .contact a{
+      text-decoration:none;
+      color:#0e1116;
+      background:#fff;
+      padding:12px 14px;
+      border-radius:12px;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-soft);
+      font-weight:800;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .contact a:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    /* ===== Footer ===== */
+    .footer{
+      background: radial-gradient(900px 500px at 20% 20%, rgba(26,95,180,.16), transparent 55%),
+                  radial-gradient(900px 500px at 80% 70%, rgba(38,162,105,.12), transparent 55%),
+                  var(--dark);
+      color:#fff;
+      padding:64px 0 28px;
+      text-align:center;
+    }
+    .footer-logo{ font-size:28px; font-weight:900; margin-bottom:12px; }
+    .footer-tagline{
+      font-size:18px;
+      margin: 12px auto 28px;
+      max-width:860px;
+      opacity:.92;
+      line-height:1.8;
+    }
+    .footer-copyright{
+      margin-top:34px;
+      padding-top:16px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.68);
+      font-size:14px;
+    }
+
+    /* ===== Motion safety ===== */
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+      .logoBox img{ animation:none !important; }
+      .logoBox::before{ animation:none !important; }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-left h1{ font-size:40px; }
+      .exec-grid{ grid-template-columns: 1fr; }
+      .approach-list{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px){
+      .navLinks{ display:none; }
+      .hero-left h1{ font-size:34px; }
+      .btn{ width:100%; }
+      .kpi-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky nav -->
+  <div class="nav">
+    <div class="container">
+      <div class="inner">
+        <div class="brand">
+          <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
+          <div>
+            <div class="brandTitle">Scrap<span>Master</span></div>
+            <div class="brandSub">Каса • склад • журнали • FIFO • BI • Audit</div>
+          </div>
+        </div>
+        <div class="navLinks">
+          <a class="link" href="#product">Інтерфейс</a>
+          <a class="link" href="#facts">Можливості</a>
+          <a class="link" href="#enterprise">Enterprise</a>
+          <a class="link" href="#contact">Контакти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="header" id="top">
+    <div class="container">
+      <div class="topline">
+        <div class="badge"><span class="dot"></span> Enterprise-ready • <b>2026</b></div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="subtitle">З Новим роком та Різдвом! 🎄</div>
+
+          <div class="year-pill">
+            <span class="year-2025">2025</span>
+            <span style="opacity:.9;">→</span>
+            <span class="year-2026">2026</span>
+          </div>
+
+          <h1>Коли облік стає<br/>конкурентною перевагою</h1>
+
+          <p class="hero-text">
+            2025 рік — системність і контроль. 2026 — масштабування без хаосу.
+            ScrapMaster робить управління мережею пунктів прийому <b>прозорим, керованим і перевіряємим</b>.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Запросити демо (30 хв)</a>
+            <a class="btn btn-ghost" href="#enterprise">Отримати комерційну пропозицію</a>
+            <a class="btn btn-ghost" href="#facts">Подивитися можливості</a>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <h3>На 1 екран для директора</h3>
+
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="num">24/7</div>
+              <div class="label">онлайн-контроль каси, складу, відвантажень</div>
+            </div>
+            <div class="kpi">
+              <div class="num">Audit</div>
+              <div class="label">журнал змін, ролі, відповідальність</div>
+            </div>
+            <div class="kpi">
+              <div class="num">FIFO</div>
+              <div class="label">собівартість на рівні ERP</div>
+            </div>
+            <div class="kpi">
+              <div class="num">BI</div>
+              <div class="label">прибуток, витрати, залишки, динаміка</div>
+            </div>
+          </div>
+
+          <p class="micro">
+            Для реальних процесів: прийом, переміщення, продаж, відвантаження, корекції.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Наші побажання на 2026 рік</h2>
+      <p class="section-subtitle">
+        Стабільність в бізнесі, прозорі цифри, сильні рішення та масштабування без хаосу.
+      </p>
+
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3 class="card-title">Менше ручної роботи</h3>
+          <p class="card-text">Автоматизація рутини звільняє час для розвитку мережі і управлінських рішень.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3 class="card-title">Більше контролю</h3>
+          <p class="card-text">Повна видимість операцій у реальному часі — від каси до складу і відвантажень.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Максимум ефективності</h3>
+          <p class="card-text">Прозорі KPI допомагають зменшувати втрати та підвищувати маржу.</p>
+        </div>
+      </div>
+
+      <div class="exec">
+        <h3>ScrapMaster — операційний стандарт для мережі пунктів</h3>
+        <p>
+          Журнали, каса, склад, FIFO та BI — з ролями, відповідальністю і контролем змін.
+          Система підходить для масштабування та аудиту.
+        </p>
+
+        <div class="exec-grid">
+          <div class="exec-item">
+            <b>Операції</b>
+            <span>надходження, продаж, відвантаження, переміщення, корекції</span>
+          </div>
+          <div class="exec-item">
+            <b>Фінанси</b>
+            <span>каса, витрати, прибуток, чистий результат, контроль розривів</span>
+          </div>
+          <div class="exec-item">
+            <b>Аналітика</b>
+            <span>BI-дешборд, динаміка, KPI, підготовка до аудиту</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT PROOF -->
+  <section class="section" id="product" style="padding-top:30px;">
+    <div class="container">
+      <h2 class="section-title">Інтерфейс продукту</h2>
+      <p class="section-subtitle" style="margin-bottom:18px;">
+        Клієнту важливо бачити, що система реальна. Ось приклад головної панелі.
+      </p>
+
+      <div class="proof">
+        <div class="proof-head">
+          <div class="proof-left">
+            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div style="min-width:0;">
+              <div class="proof-title">Головна панель</div>
+              <div class="proof-sub">закупівлі • продажі • відвантаження • витрати • графіки</div>
+            </div>
+          </div>
+          <div class="proof-meta">ScrapMaster</div>
+        </div>
+
+        <img src="app.png" alt="ScrapMaster dashboard screenshot" />
+
+        <div class="proof-foot">
+          За потреби додаємо окремі екрани: журнал складу, журнал каси, FIFO-звітність, контроль даних.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTS / METRICS -->
+  <section class="section section-dark" id="facts">
+    <div class="container">
+      <h2 class="section-title">Ключові можливості ScrapMaster</h2>
+      <p class="section-subtitle">
+        Контроль, прозорість, відповідальність, масштабування.
+      </p>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="top">
+            <span class="pill">Real-time</span>
+            <span class="value">100%</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">Операції в реальному часі</div>
+          <p>Каса, склад, відвантаження, корекції — без “потім”.</p>
+        </div>
+
+        <div class="metric">
+          <div class="top">
+            <span class="pill">Visibility</span>
+            <span class="value">24/7</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">Фінансовий результат щодня</div>
+          <p>Прибуток/витрати/залишки — одразу. Менше сюрпризів в кінці місяця.</p>
+        </div>
+
+        <div class="metric">
+          <div class="top">
+            <span class="pill">Scale</span>
+            <span class="value">N+</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">Підтримка мережі</div>
+          <p>Ролі, доступи, логіка між точками. Підходить для великої кількості локацій.</p>
+        </div>
+
+        <div class="metric">
+          <div class="top">
+            <span class="pill">Audit</span>
+            <span class="value">Log</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">Контроль персоналу</div>
+          <p>Хто, де, коли і що зробив — видно і фіксується.</p>
+        </div>
+
+        <div class="metric">
+          <div class="top">
+            <span class="pill">ERP-level</span>
+            <span class="value">FIFO</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">Собівартість</div>
+          <p>Коректна собівартість для продажів і відвантажень — основа реальної маржі.</p>
+        </div>
+
+        <div class="metric">
+          <div class="top">
+            <span class="pill">BI</span>
+            <span class="value">Dash</span>
+          </div>
+          <div style="opacity:.92;font-weight:900;">BI та KPI</div>
+          <p>Тренди, динаміка, індикатори — керівнику вистачає хвилини, щоб зрозуміти стан.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section" id="benefits">
+    <div class="container">
+      <h2 class="section-title">Що даємо клієнтам у 2026 році</h2>
+      <p class="section-subtitle">Функції, які реально економлять час і гроші.</p>
+
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <div>
+            <h3>BI-дешборд</h3>
+            <p>Прибуток, витрати, залишки, динаміка — для швидких управлінських рішень.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <div>
+            <h3>FIFO / ERP-рівень собівартості</h3>
+            <p>Точна собівартість для “shipment” та “sale”. Маржа рахується правильно.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <div>
+            <h3>Онлайн-доступ власнику</h3>
+            <p>Контроль бізнесу з будь-якої країни в будь-який час.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <div>
+            <h3>Інтеграції</h3>
+            <p>Telegram / автоматичні звіти / аналітика — мінімум ручної роботи.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <div>
+            <h3>Готовність до аудиту</h3>
+            <p>Журнал змін, ролі, прозорі дані й контроль доступів.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTERPRISE -->
+  <section class="section" style="background:#f8f9fa;" id="enterprise">
+    <div class="container">
+      <h2 class="section-title">Для великих клієнтів — індивідуальний підхід</h2>
+      <p class="section-subtitle">Великий бізнес потребує акуратного впровадження.</p>
+
+      <div class="approach-container">
+        <div class="approach-head">
+          <div class="note">
+            Поетапний запуск, адаптація під ваші процеси та KPI, супровід і розвиток системи.
+          </div>
+          <a class="btn btn-primary" href="#contact">Запросити демо</a>
+        </div>
+
+        <div class="approach-list">
+          <div class="approach-item">
+            <h4>Адаптація під ваші процеси</h4>
+            <p>Операції, довідники, доступи, ролі, звіти, логіка корекцій.</p>
+          </div>
+
+          <div class="approach-item">
+            <h4>Поетапне впровадження</h4>
+            <p>Запуск локація за локацією без зупинки роботи.</p>
+          </div>
+
+          <div class="approach-item">
+            <h4>Аналітика під KPI</h4>
+            <p>Маржа, оборотність, втрати, контроль каси і складу.</p>
+          </div>
+
+          <div class="approach-item">
+            <h4>Супровід та розвиток</h4>
+            <p>Підтримка і розвиток разом із ростом вашої мережі.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISHES + CONTACT -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Наше новорічне побажання</h2>
+
+      <div class="wishes-container">
+        <h3 class="wishes-title">Нехай у 2026 році:</h3>
+        <div class="wish-item">цифри сходяться автоматично</div>
+        <div class="wish-item">рішення приймаються на основі даних</div>
+        <div class="wish-item">бізнес працює як система</div>
+        <div class="wish-item">а не як пожежна команда</div>
+      </div>
+
+      <div id="contact" style="margin-top:28px; text-align:center;">
+        <p style="font-weight:900; font-size:18px; margin-bottom:10px;">Контакти</p>
+        <div class="contact">
+          <!-- заміни на реальні -->
+          <a href="mailto:sales@scrapmaster.app">✉️ sales@scrapmaster.app</a>
+          <a href="https://t.me/your_telegram" target="_blank" rel="noopener">💬 Telegram</a>
+          <a href="tel:+380000000000">📞 +38 (000) 000-00-00</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Scrap<span style="color:#ffd43b;">Master</span></div>
+
+      <div class="footer-tagline">
+        ScrapMaster — коли облік перестає бути проблемою і стає конкурентною перевагою.
+      </div>
+
+      <div style="margin-top: 22px; font-size: 17px; opacity: 0.92;">
+        <p>З Новим 2026 роком та щасливих свят! 🎁</p>
+        <p style="margin-top: 8px;">Ваша команда ScrapMaster</p>
+      </div>
+
+      <div class="footer-copyright">
+        © 2025–2026 ScrapMaster. Усі права захищені.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      // soft reveal
+      const items = document.querySelectorAll('.card, .metric, .benefit-item, .approach-item, .exec, .hero-right, .proof');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(14px)';
+        el.style.transition = 'opacity .55s ease, transform .55s ease';
+        obs.observe(el);
+      });
+
+      // year pulse
+      const y = document.querySelector('.year-2026');
+      if (y) {
+        setInterval(() => {
+          y.style.transform = y.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
+        }, 1600);
+      }
+    });
+  </script>
+
+</body>
+</html>
