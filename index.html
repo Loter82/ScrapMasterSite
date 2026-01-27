@@ -6,7 +6,28 @@
   <title>ScrapMaster | Система управління металобрухтом</title>
 
   <meta name="description" content="ScrapMaster — система управління мережею пунктів прийому: каса, склад, журнали, FIFO/LIFO, BI, аудит. Професійний облік металобрухту." />
+  <meta name="keywords" content="ScrapMaster, облік металобрухту, система управління, пункти прийому, автоматизація, FIFO, LIFO, BI аналітика" />
+  
+  <!-- Open Graph для соцмереж -->
+  <meta property="og:title" content="ScrapMaster | Система управління металобрухтом" />
+  <meta property="og:description" content="Автоматизація обліку • Контроль фінансів • Збільшення прибутку" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scrapmaster.store" />
+  <meta property="og:image" content="https://scrapmaster.store/logo.png" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15JQHHNRLX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-15JQHHNRLX');
+  </script>
+  
+  <!-- Google Ads Conversion Tracking -->
+  <!-- Місце для Google Ads код конверсії -->
+  
   <link rel="preload" as="image" href="background.png" />
   <link rel="preload" as="image" href="logo.png" />
   <link rel="preload" as="image" href="app.png" />
@@ -717,6 +738,205 @@
     }
     .contact a:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
 
+    /* ===== Sticky CTA Button ===== */
+    .sticky-cta{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:100;
+      opacity:0;
+      visibility:hidden;
+      transform:scale(0.8) translateY(20px);
+      transition:all 0.3s ease;
+    }
+    .sticky-cta.visible{
+      opacity:1;
+      visibility:visible;
+      transform:scale(1) translateY(0);
+    }
+    .sticky-cta-btn{
+      background:linear-gradient(135deg, #ffd43b 0%, #f5c62c 100%);
+      color:#0e1116;
+      border:none;
+      padding:16px 24px;
+      border-radius:50px;
+      font-size:16px;
+      font-weight:900;
+      box-shadow:0 8px 24px rgba(255,212,59,.4), 0 4px 12px rgba(0,0,0,.2);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:all 0.3s ease;
+      animation:pulse 2s ease-in-out infinite;
+    }
+    .sticky-cta-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 32px rgba(255,212,59,.5), 0 6px 16px rgba(0,0,0,.25);
+    }
+    @keyframes pulse{
+      0%, 100%{ box-shadow:0 8px 24px rgba(255,212,59,.4), 0 4px 12px rgba(0,0,0,.2); }
+      50%{ box-shadow:0 8px 32px rgba(255,212,59,.6), 0 4px 16px rgba(0,0,0,.25); }
+    }
+
+    /* ===== Modal ===== */
+    .modal{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.6);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      z-index:1000;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      animation:fadeIn 0.3s ease;
+    }
+    .modal.active{
+      display:flex;
+    }
+    @keyframes fadeIn{
+      from{ opacity:0; }
+      to{ opacity:1; }
+    }
+    .modal-content{
+      background:#fff;
+      border-radius:20px;
+      max-width:500px;
+      width:100%;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:0 20px 60px rgba(0,0,0,.3);
+      animation:slideUp 0.3s ease;
+      position:relative;
+    }
+    @keyframes slideUp{
+      from{ transform:translateY(30px); opacity:0; }
+      to{ transform:translateY(0); opacity:1; }
+    }
+    .modal-header{
+      padding:28px 28px 20px;
+      border-bottom:1px solid rgba(0,0,0,.08);
+      position:relative;
+    }
+    .modal-close{
+      position:absolute;
+      top:20px;
+      right:20px;
+      background:none;
+      border:none;
+      font-size:28px;
+      cursor:pointer;
+      color:#5e5e5e;
+      width:36px;
+      height:36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      transition:all 0.2s ease;
+    }
+    .modal-close:hover{
+      background:rgba(0,0,0,.08);
+      color:#0e1116;
+    }
+    .modal-title{
+      font-size:26px;
+      font-weight:900;
+      margin-bottom:8px;
+      color:#0e1116;
+    }
+    .modal-subtitle{
+      font-size:15px;
+      color:#6b7280;
+      line-height:1.5;
+    }
+    .modal-body{
+      padding:28px;
+    }
+    .form-group{
+      margin-bottom:20px;
+    }
+    .form-label{
+      display:block;
+      font-size:14px;
+      font-weight:700;
+      color:#0e1116;
+      margin-bottom:8px;
+    }
+    .form-label .required{
+      color:#e74c3c;
+      margin-left:3px;
+    }
+    .form-input{
+      width:100%;
+      padding:12px 16px;
+      border:2px solid rgba(0,0,0,.1);
+      border-radius:12px;
+      font-size:15px;
+      transition:all 0.2s ease;
+      font-family:inherit;
+    }
+    .form-input:focus{
+      outline:none;
+      border-color:#ffd43b;
+      box-shadow:0 0 0 4px rgba(255,212,59,.1);
+    }
+    .form-textarea{
+      resize:vertical;
+      min-height:100px;
+      font-family:inherit;
+    }
+    .form-submit{
+      width:100%;
+      padding:16px;
+      background:linear-gradient(135deg, #ffd43b 0%, #f5c62c 100%);
+      color:#0e1116;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:900;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      box-shadow:0 4px 12px rgba(255,212,59,.3);
+    }
+    .form-submit:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(255,212,59,.4);
+    }
+    .form-submit:disabled{
+      opacity:0.6;
+      cursor:not-allowed;
+      transform:none;
+    }
+    .form-success{
+      display:none;
+      text-align:center;
+      padding:40px 20px;
+    }
+    .form-success.active{
+      display:block;
+    }
+    .form-success-icon{
+      font-size:64px;
+      margin-bottom:16px;
+    }
+    .form-success-title{
+      font-size:24px;
+      font-weight:900;
+      color:#26a269;
+      margin-bottom:8px;
+    }
+    .form-success-text{
+      font-size:16px;
+      color:#6b7280;
+      line-height:1.6;
+    }
+
     /* ===== Footer ===== */
     .footer{
       background: radial-gradient(900px 500px at 20% 20%, rgba(26,95,180,.16), transparent 55%),
@@ -996,6 +1216,11 @@
       .lightbox-nav{ width:40px; height:40px; font-size:20px; }
       .lightbox-close{ top:10px; right:10px; width:36px; height:36px; }
       .lightbox-counter{ bottom:10px; font-size:14px; }
+      .sticky-cta{ bottom:10px; right:10px; }
+      .sticky-cta-btn{ padding:14px 20px; font-size:14px; }
+      .modal-content{ border-radius:16px; margin:10px; }
+      .modal-header, .modal-body{ padding:20px; }
+      .modal-title{ font-size:22px; }
     }
   </style>
 </head>
@@ -1064,7 +1289,7 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn btn-primary" href="#contact">Запросити демо</a>
+            <button class="btn btn-primary" onclick="openModal()">Запросити демо</button>
             <a class="btn btn-ghost" href="#facts">Можливості системи</a>
           </div>
         </div>
@@ -1486,6 +1711,66 @@
     </div>
   </section>
 
+  <!-- Sticky CTA Button -->
+  <div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-btn" onclick="openModal()">
+      <span>🚀</span>
+      <span>Запросити демо</span>
+    </button>
+  </div>
+
+  <!-- Modal Form -->
+  <div class="modal" id="demoModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <h3 class="modal-title">Запит на демонстрацію</h3>
+        <p class="modal-subtitle">Заповніть форму і ми зв'яжемося з вами протягом 24 годин</p>
+      </div>
+      <div class="modal-body">
+        <form id="demoForm" class="demo-form" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label class="form-label">Ім'я<span class="required">*</span></label>
+            <input type="text" class="form-input" name="name" required placeholder="Ваше ім'я" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Телефон<span class="required">*</span></label>
+            <input type="tel" class="form-input" name="phone" required placeholder="+380" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" name="email" placeholder="your@email.com" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Компанія</label>
+            <input type="text" class="form-input" name="company" placeholder="Назва компанії" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Кількість пунктів прийому</label>
+            <input type="number" class="form-input" name="points" min="1" placeholder="1" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Коментар</label>
+            <textarea class="form-input form-textarea" name="message" placeholder="Розкажіть про ваші потреби..."></textarea>
+          </div>
+          
+          <button type="submit" class="form-submit">Відправити заявку</button>
+        </form>
+        
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">✓</div>
+          <h4 class="form-success-title">Заявку відправлено!</h4>
+          <p class="form-success-text">Дякуємо за вашу заявку. Наш менеджер зв'яжеться з вами найближчим часом.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -1653,6 +1938,133 @@
   </script>
 
   <script>
+    // Modal Functions
+    function openModal() {
+      const modal = document.getElementById('demoModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Google Ads Event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-XXXXXXX/XXXXXX', // Замініть на ваш ID конверсії
+          'event_category': 'Form',
+          'event_label': 'Demo Request Started'
+        });
+      }
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('demoModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      // Reset form after closing
+      setTimeout(() => {
+        document.getElementById('demoForm').reset();
+        document.getElementById('formSuccess').classList.remove('active');
+        document.getElementById('demoForm').style.display = 'block';
+      }, 300);
+    }
+    
+    // Close modal on outside click
+    document.getElementById('demoModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+    
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+    
+    // Form submission
+    function submitForm(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitButton = form.querySelector('.form-submit');
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Disable button during submission
+      submitButton.disabled = true;
+      submitButton.textContent = 'Відправка...';
+      
+      // Відправка даних в Google Sheets
+      fetch('https://script.google.com/macros/s/AKfycbz7TFBQs0rEztPeujR5Onk-EII9a0lOTTveWr5zhMcusbKWKvcq2LpX7IvdD1JZJym64g/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        console.log('Form submitted successfully');
+        
+        // Google Ads Conversion
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/XXXXXX', // Замініть на ваш ID конверсії
+            'event_category': 'Form',
+            'event_label': 'Demo Request Submitted',
+            'value': 1.0,
+            'currency': 'UAH'
+          });
+        }
+        
+        // Facebook Pixel Event (якщо використовуєте)
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Demo Request',
+            content_category: 'Form Submission'
+          });
+        }
+        
+        // Show success message
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('active');
+        
+        // Close modal after 3 seconds
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Even if error (no-cors mode), show success
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('active');
+        
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Відправити заявку';
+      });
+    }
+    
+    // Sticky CTA Button
+    const stickyCta = document.getElementById('stickyCta');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Show sticky button after scrolling 500px down
+      if (currentScroll > 500) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
