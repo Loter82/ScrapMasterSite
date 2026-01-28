@@ -2003,10 +2003,13 @@
       .then(() => {
         console.log('Form submitted successfully');
         
-        // Google Ads Conversion
+        // Google Ads Conversion Event - Submit Lead Form
         if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion_event_submit_lead_form');
+          
+          // Додатково для старої версії трекінгу (якщо потрібно)
           gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXX/XXXXXX', // Замініть на ваш ID конверсії
+            'send_to': 'AW-XXXXXXX/XXXXXX', // Замініть на ваш ID конверсії, якщо потрібен
             'event_category': 'Form',
             'event_label': 'Demo Request Submitted',
             'value': 1.0,
