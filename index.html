@@ -32,7 +32,24 @@
   </script>
   
   <!-- Google Ads Conversion Tracking -->
-  <!-- Місце для Google Ads код конверсії -->
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+  <script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion_event_submit_lead_form_1', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
   
   <link rel="preload" as="image" href="background.png" />
   <link rel="preload" as="image" href="logo.png" />
@@ -1949,12 +1966,11 @@
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
       
-      // Google Ads Event
+      // Google Ads Conversion Event - Form Opened
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-XXXXXXX/XXXXXX', // Замініть на ваш ID конверсії
+        gtag('event', 'conversion_event_submit_lead_form_1', {
           'event_category': 'Form',
-          'event_label': 'Demo Request Started'
+          'event_label': 'Demo Request Form Opened'
         });
       }
     }
