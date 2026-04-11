@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /src/
+Disallow: /seo-pages/
+Disallow: /memory-bank/
 
 Sitemap: https://scrapmaster.store/sitemap.xml

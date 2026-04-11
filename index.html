@@ -283,6 +283,8 @@
       white-space:nowrap;
     }
     .link:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.09); }
+    .link-cta{ background:linear-gradient(135deg,#ffd43b,#f59f00); color:#1a1a2e; border:none; }
+    .link-cta:hover{ box-shadow:0 12px 28px rgba(255,212,59,.4); }
 
     /* Hamburger Menu */
     .menu-toggle{
@@ -1392,10 +1394,11 @@
           </div>
         </div>
         <div class="navLinks">
-          <a class="link" href="#product">Інтерфейс</a>
-          <a class="link" href="#facts">Можливості</a>
-          <a class="link" href="#enterprise">Enterprise</a>
-          <button class="link" onclick="openModal()" style="border:none;">Контакти</button>
+          <a class="link" href="features.html">Можливості</a>
+          <a class="link" href="pricing.html">Тарифи</a>
+          <a class="link" href="use-cases.html">Кейси</a>
+          <a class="link" href="blog.html">Блог</a>
+          <a class="link link-cta" href="contact.html">Запросити демо</a>
         </div>
         <div class="menu-toggle" id="menuToggle">
           <span></span>
@@ -1408,10 +1411,11 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#product" onclick="closeMobileMenu()">Інтерфейс</a>
-    <a href="#facts" onclick="closeMobileMenu()">Можливості</a>
-    <a href="#enterprise" onclick="closeMobileMenu()">Enterprise</a>
-    <a href="javascript:void(0)" onclick="closeMobileMenu(); openModal();">Контакти</a>
+    <a href="features.html" onclick="closeMobileMenu()">Можливості</a>
+    <a href="pricing.html" onclick="closeMobileMenu()">Тарифи</a>
+    <a href="use-cases.html" onclick="closeMobileMenu()">Кейси</a>
+    <a href="blog.html" onclick="closeMobileMenu()">Блог</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Запросити демо</a>
   </div>
 
   <!-- HERO -->
@@ -1919,9 +1923,21 @@
         ScrapMaster — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.
       </div>
 
+      <div class="footer-nav" style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px 24px; margin:24px 0;">
+        <a href="features.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Можливості</a>
+        <a href="pricing.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Тарифи</a>
+        <a href="use-cases.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Кейси</a>
+        <a href="blog.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Блог</a>
+        <a href="about.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Про нас</a>
+        <a href="faq.html" style="color:rgba(255,255,255,.85); text-decoration:none;">FAQ</a>
+        <a href="contact.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Контакти</a>
+      </div>
+
       <div class="footer-copyright">
         © 2025–2026 ScrapMaster. Усі права захищені.<br/>
         <a href="privacy.html" style="color:rgba(255,255,255,.75); text-decoration:none; margin-top:8px; display:inline-block;">Політика конфіденційності</a>
+        <span style="color:rgba(255,255,255,.4); margin:0 8px;">|</span>
+        <a href="terms.html" style="color:rgba(255,255,255,.75); text-decoration:none;">Умови використання</a>
       </div>
     </div>
   </footer>
