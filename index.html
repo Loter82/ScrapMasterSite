@@ -285,6 +285,8 @@
     .link:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.09); }
     .link-cta{ background:linear-gradient(135deg,#ffd43b,#f59f00); color:#1a1a2e; border:none; }
     .link-cta:hover{ box-shadow:0 12px 28px rgba(255,212,59,.4); }
+    .link-login{ background:transparent !important; box-shadow:none !important; border:1.5px solid rgba(14,17,22,.22) !important; color:rgba(14,17,22,.65) !important; }
+    .link-login:hover{ background:rgba(14,17,22,.05) !important; box-shadow:none !important; }
 
     /* Hamburger Menu */
     .menu-toggle{
@@ -1405,7 +1407,9 @@
           <a class="link" href="pricing.html">Тарифи</a>
           <a class="link" href="use-cases.html">Кейси</a>
           <a class="link" href="blog.html">Блог</a>
-          <a class="link link-cta" href="contact.html">Запросити демо</a>
+          <a class="link" href="contact.html">Запросити демо</a>
+          <a class="link link-login" href="https://cabinet.scrapmaster.store/login">Увійти</a>
+          <a class="link link-cta" href="https://cabinet.scrapmaster.store/register">Почати безкоштовно</a>
         </div>
         <div class="menu-toggle" id="menuToggle">
           <span></span>
@@ -1423,26 +1427,28 @@
     <a href="use-cases.html" onclick="closeMobileMenu()">Кейси</a>
     <a href="blog.html" onclick="closeMobileMenu()">Блог</a>
     <a href="contact.html" onclick="closeMobileMenu()">Запросити демо</a>
+    <a href="https://cabinet.scrapmaster.store/login" onclick="closeMobileMenu()" style="border:1.5px solid rgba(14,17,22,.2);">Увійти</a>
+    <a href="https://cabinet.scrapmaster.store/register" onclick="closeMobileMenu()" style="background:#ffd43b; color:#1a1a2e; font-weight:900;">Почати безкоштовно</a>
   </div>
 
   <!-- HERO -->
   <header class="header" id="top">
     <div class="container">
       <div class="topline">
-        <div class="badge"><span class="dot"></span> Enterprise-ready • <b>Pro</b></div>
+        <div class="badge"><span class="dot"></span> Новий стандарт галузі • <b>Відкритий доступ</b></div>
       </div>
 
       <div class="hero-grid">
         <div class="hero-left">
-          <h1>ScrapMaster — програма для обліку металобрухту<br/><span style="font-size:0.55em; display:block; margin-top:12px; font-weight:600; opacity:0.85;">Автоматизація управління пунктами прийому металобрухту</span></h1>
+          <h1>ScrapMaster — програма для обліку металобрухту<br/><span style="font-size:0.55em; display:block; margin-top:12px; font-weight:600; opacity:0.85;">Інструмент для прийняття рішень та зручність для власників приймальних пунктів</span></h1>
 
           <p class="hero-text" style="font-size:18px; font-weight:600; margin-bottom:20px; margin-top:18px;">
-            Програма для металобрухту: облік • контроль фінансів • збільшення прибутку
+            Не бухгалтерська програма — весь бізнес на одному екрані: облік • каса • аналітика • прибуток
           </p>
 
           <div class="cta-row">
-            <button class="btn btn-primary" onclick="openModal()">Запросити демо</button>
-            <a class="btn btn-ghost" href="#facts">Можливості системи</a>
+            <a class="btn btn-primary" href="https://cabinet.scrapmaster.store/register">Почати безкоштовно</a>
+            <button class="btn btn-ghost" onclick="openModal()">Запросити демо</button>
           </div>
         </div>
 
@@ -1503,11 +1509,10 @@
       </div>
 
       <div class="exec">
-        <h3>ScrapMaster — операційний стандарт для мережі пунктів</h3>
-        <p>
-          Журнали, каса, склад, FIFO/LIFO та BI — з ролями, відповідальністю і контролем змін.
-          Система підходить для масштабування та аудиту.
-        </p>
+          <h3>ScrapMaster — майбутній стандарт галузі</h3>
+          <p>
+            Це не бухгалтерська програма — це інструмент для прийняття рішень і зручність для власників приймальних пунктів.
+            Каса, склад, FIFO/LIFO, аналітика, аудит і ролі — все на одному екрані без відкриття додаткових інструментів.
 
         <div class="exec-grid">
           <div class="exec-item">
@@ -1827,7 +1832,7 @@
   <!-- CONTACT -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Місія ScrapMaster — автоматизація обліку металобрухту</h2>
+      <h2 class="section-title">Місія ScrapMaster — новий стандарт для ломозаготівлі</h2>
 
       <div class="wishes-container">
         <h3 class="wishes-title">Ми допомагаємо компаніям:</h3>
@@ -1847,7 +1852,7 @@
         </ul>
         <div class="wish-highlight">
           <div class="wish-highlight-text">
-            Бізнес працює як система,<br>а не як пожежна команда
+            Власник бачить ціфри, а не здогадується,<br>все на одному екрані
           </div>
         </div>
       </div>
@@ -1856,10 +1861,10 @@
 
   <!-- Sticky CTA Button -->
   <div class="sticky-cta" id="stickyCta">
-    <button class="sticky-cta-btn" onclick="openModal()">
+    <a class="sticky-cta-btn" href="https://cabinet.scrapmaster.store/register">
       <span>🚀</span>
-      <span>Запросити демо</span>
-    </button>
+      <span>Почати безкоштовно</span>
+    </a>
   </div>
 
   <!-- Modal Form -->

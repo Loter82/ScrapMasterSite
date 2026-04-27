@@ -59,6 +59,13 @@ body { background:#f5f7fa; color:var(--text); line-height:1.7; }
   box-shadow:0 8px 20px rgba(255,212,59,.3);
 }
 .link-cta:hover { box-shadow:0 12px 28px rgba(255,212,59,.4); }
+.link-login {
+  background:transparent !important;
+  box-shadow:none !important;
+  border:1.5px solid rgba(14,17,22,.22) !important;
+  color:rgba(14,17,22,.65) !important;
+}
+.link-login:hover { background:rgba(14,17,22,.05) !important; box-shadow:none !important; }
 
 /* Mobile menu */
 .menu-toggle {
