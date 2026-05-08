@@ -1363,34 +1363,33 @@
     }
     .phone-frame{
       background:linear-gradient(145deg,#2c2c2c 0%,#1a1a1a 100%);
-      border-radius:44px;
-      padding:16px 10px 12px;
+      border-radius:32px;
+      padding:8px 6px 7px;
       box-shadow:
         0 0 0 1px #111,
-        0 0 0 3px #555,
-        0 0 0 4px #222,
-        0 20px 56px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.12);
+        0 0 0 2px #444,
+        0 14px 40px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.10);
       position:relative;
     }
     .phone-frame::before{
       content:'';
       position:absolute;
-      top:16px;
+      top:10px;
       left:50%;
       transform:translateX(-50%);
-      width:72px;
-      height:6px;
-      background:#333;
-      border-radius:3px;
+      width:44px;
+      height:4px;
+      background:#3a3a3a;
+      border-radius:2px;
     }
     .phone-screen-area{
-      border-radius:30px;
+      border-radius:22px;
       overflow:hidden;
       position:relative;
       aspect-ratio:9/19;
       background:#000;
-      margin-top:10px;
+      margin-top:6px;
       cursor:zoom-in;
     }
     .phone-slides-track{
@@ -1413,11 +1412,143 @@
       pointer-events:none;
     }
     .phone-home-indicator{
-      width:80px;
+      width:60px;
+      height:3px;
+      background:rgba(255,255,255,.25);
+      border-radius:2px;
+      margin:5px auto 0;
+    }
+
+    /* ===== Laptop Carousel (Admin screenshots) ===== */
+    .laptop-carousel-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:28px 20px 20px;
+    }
+    .laptop-mockup{
+      width:100%;
+      max-width:700px;
+      position:relative;
+    }
+    .laptop-lid{
+      background:linear-gradient(170deg,#2e2e2e 0%,#1c1c1c 100%);
+      border-radius:12px 12px 0 0;
+      padding:10px 14px 6px;
+      box-shadow:
+        0 0 0 1px #111,
+        inset 0 1px 0 rgba(255,255,255,.10);
+      position:relative;
+    }
+    .laptop-lid::before{
+      content:'';
+      position:absolute;
+      top:6px;
+      left:50%;
+      transform:translateX(-50%);
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#3a3a3a;
+      border:1px solid #555;
+    }
+    .laptop-screen-area{
+      border-radius:4px;
+      overflow:hidden;
+      position:relative;
+      aspect-ratio:16/10;
+      background:#0a0a0a;
+      cursor:zoom-in;
+    }
+    .laptop-slides-track{
+      display:flex;
+      height:100%;
+      transition:transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change:transform;
+    }
+    .laptop-slide-item{
+      min-width:100%;
+      height:100%;
+      flex-shrink:0;
+    }
+    .laptop-slide-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top center;
+      display:block;
+      pointer-events:none;
+    }
+    .laptop-base{
+      background:linear-gradient(180deg,#323232 0%,#242424 100%);
+      height:14px;
+      border-radius:0 0 4px 4px;
+      position:relative;
+      box-shadow:0 2px 0 #111;
+    }
+    .laptop-base::before{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:22%;
+      height:4px;
+      background:#1a1a1a;
+      border-radius:0 0 4px 4px;
+    }
+    .laptop-stand{
+      width:28%;
+      height:6px;
+      background:linear-gradient(180deg,#2a2a2a,#1c1c1c);
+      margin:0 auto;
+      border-radius:0 0 3px 3px;
+    }
+    .laptop-feet{
+      width:60%;
       height:5px;
-      background:rgba(255,255,255,.3);
-      border-radius:3px;
-      margin:8px auto 0;
+      background:linear-gradient(180deg,#252525,#191919);
+      margin:0 auto;
+      border-radius:0 0 6px 6px;
+      box-shadow:0 2px 8px rgba(0,0,0,.35);
+    }
+    .laptop-nav-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      margin-top:16px;
+    }
+    .laptop-carousel-counter{
+      font-size:13px;
+      color:rgba(14,17,22,.45);
+      min-width:46px;
+      text-align:center;
+    }
+    .laptop-dots-wrap{
+      display:flex;
+      gap:6px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .laptop-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:rgba(0,0,0,.18);
+      cursor:pointer;
+      transition:all 0.25s;
+      border:none;
+      padding:0;
+    }
+    .laptop-dot.active{
+      background:var(--primary);
+      transform:scale(1.45);
+    }
+    @media (max-width:640px){
+      .laptop-lid{ padding:7px 10px 4px; }
+      .laptop-base{ height:10px; }
     }
     .phone-nav-btn{
       background:#fff;
@@ -1472,8 +1603,8 @@
       .phone-mockup-outer{ width:210px; }
       .phone-nav-btn{ width:38px; height:38px; font-size:20px; }
       .phone-carousel-row{ gap:12px; }
-      .phone-frame{ border-radius:36px; padding:12px 8px 10px; }
-      .phone-screen-area{ border-radius:24px; }
+      .phone-frame{ border-radius:26px; padding:6px 5px 5px; }
+      .phone-screen-area{ border-radius:18px; }
     }
 
     /* ===== Motion safety ===== */
@@ -1687,7 +1818,7 @@
       </p>
 
       <!-- Адміністративна частина -->
-      <div class="proof">
+      <div class="proof" style="overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
             <div class="miniLogo"><img src="logo.png" alt=""></div>
@@ -1699,47 +1830,34 @@
           <div class="proof-meta">ScrapMaster Admin</div>
         </div>
 
-        <div class="gallery-grid" id="adminGallery">
-          <div class="gallery-item" onclick="openLightbox('admin', 0)">
-            <img src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту">
-            <div class="gallery-item-overlay"></div>
+        <div class="laptop-carousel-wrap">
+          <div class="laptop-mockup">
+            <div class="laptop-lid">
+              <div class="laptop-screen-area" id="laptopScreenArea">
+                <div class="laptop-slides-track" id="laptopTrack">
+                  <div class="laptop-slide-item"><img src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 4.PNG" alt="Admin screenshot 4"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 5.PNG" alt="Admin screenshot 5"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 6.PNG" alt="Admin screenshot 6"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 7.PNG" alt="Admin screenshot 7"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 8.PNG" alt="Admin screenshot 8"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 9.PNG" alt="Admin screenshot 9"></div>
+                  <div class="laptop-slide-item"><img src="src/Записати 10.PNG" alt="Admin screenshot 10"></div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+            <div class="laptop-stand"></div>
+            <div class="laptop-feet"></div>
           </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 1)">
-            <img src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту">
-            <div class="gallery-item-overlay"></div>
+          <div class="laptop-nav-row">
+            <button class="phone-nav-btn" onclick="laptopSlideTo(-1)" aria-label="Попередній екран">&#8249;</button>
+            <span class="laptop-carousel-counter" id="laptopCounter">1 / 10</span>
+            <button class="phone-nav-btn" onclick="laptopSlideTo(1)" aria-label="Наступний екран">&#8250;</button>
           </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 2)">
-            <img src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 3)">
-            <img src="src/Записати 4.PNG" alt="Admin screenshot 4">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 4)">
-            <img src="src/Записати 5.PNG" alt="Admin screenshot 5">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 5)">
-            <img src="src/Записати 6.PNG" alt="Admin screenshot 6">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 6)">
-            <img src="src/Записати 7.PNG" alt="Admin screenshot 7">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 7)">
-            <img src="src/Записати 8.PNG" alt="Admin screenshot 8">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 8)">
-            <img src="src/Записати 9.PNG" alt="Admin screenshot 9">
-            <div class="gallery-item-overlay"></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('admin', 9)">
-            <img src="src/Записати 10.PNG" alt="Admin screenshot 10">
-            <div class="gallery-item-overlay"></div>
-          </div>
+          <div class="laptop-dots-wrap" id="laptopDots"></div>
         </div>
 
         <div class="proof-foot">
@@ -2312,6 +2430,85 @@
           current = (current + 1) % TOTAL;
           update();
         }, 3800);
+      }
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+      startAuto();
+    })();
+  </script>
+
+  <script>
+    // Laptop Carousel — Admin screenshots
+    (function() {
+      var TOTAL = 10;
+      var current = 0;
+      var autoTimer = null;
+      var wasSwiping = false;
+      var touchStartX = 0;
+
+      var track      = document.getElementById('laptopTrack');
+      var counter    = document.getElementById('laptopCounter');
+      var dotsWrap   = document.getElementById('laptopDots');
+      var screenArea = document.getElementById('laptopScreenArea');
+
+      // Build dots
+      for (var i = 0; i < TOTAL; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'laptop-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Слайд ' + (i + 1));
+        dot.dataset.idx = i;
+        dotsWrap.appendChild(dot);
+      }
+      dotsWrap.addEventListener('click', function(e) {
+        var b = e.target.closest('.laptop-dot');
+        if (b) laptopGoTo(parseInt(b.dataset.idx));
+      });
+
+      function update() {
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        counter.textContent = (current + 1) + ' / ' + TOTAL;
+        dotsWrap.querySelectorAll('.laptop-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      window.laptopSlideTo = function(dir) {
+        resetAuto();
+        current = (current + dir + TOTAL) % TOTAL;
+        update();
+      };
+      window.laptopGoTo = function(idx) {
+        resetAuto();
+        current = idx;
+        update();
+      };
+
+      // Touch / swipe
+      screenArea.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        wasSwiping = false;
+      }, { passive: true });
+      screenArea.addEventListener('touchmove', function(e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 8) wasSwiping = true;
+      }, { passive: true });
+      screenArea.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) laptopSlideTo(dx < 0 ? 1 : -1);
+      }, { passive: true });
+
+      // Click on screen → open lightbox
+      screenArea.addEventListener('click', function() {
+        if (!wasSwiping) openLightbox('admin', current);
+      });
+
+      // Auto-play
+      function startAuto() {
+        autoTimer = setInterval(function() {
+          current = (current + 1) % TOTAL;
+          update();
+        }, 4200);
       }
       function resetAuto() {
         clearInterval(autoTimer);
