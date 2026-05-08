@@ -1334,6 +1334,148 @@
 
 
 
+    /* ===== Intro hero image ===== */
+    .intro-hero-img{
+      margin:28px auto 32px;
+      max-width:960px;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 40px rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .intro-hero-img img{ width:100%; height:auto; display:block; }
+
+    /* ===== Phone Carousel (Operator screenshots) ===== */
+    .phone-carousel-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:32px 20px 20px;
+    }
+    .phone-carousel-row{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    .phone-mockup-outer{
+      width:268px;
+      flex:0 0 auto;
+    }
+    .phone-frame{
+      background:linear-gradient(145deg,#2c2c2c 0%,#1a1a1a 100%);
+      border-radius:44px;
+      padding:16px 10px 12px;
+      box-shadow:
+        0 0 0 1px #111,
+        0 0 0 3px #555,
+        0 0 0 4px #222,
+        0 20px 56px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.12);
+      position:relative;
+    }
+    .phone-frame::before{
+      content:'';
+      position:absolute;
+      top:16px;
+      left:50%;
+      transform:translateX(-50%);
+      width:72px;
+      height:6px;
+      background:#333;
+      border-radius:3px;
+    }
+    .phone-screen-area{
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      aspect-ratio:9/19;
+      background:#000;
+      margin-top:10px;
+      cursor:zoom-in;
+    }
+    .phone-slides-track{
+      display:flex;
+      height:100%;
+      transition:transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change:transform;
+    }
+    .phone-slide-item{
+      min-width:100%;
+      height:100%;
+      flex-shrink:0;
+    }
+    .phone-slide-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top center;
+      display:block;
+      pointer-events:none;
+    }
+    .phone-home-indicator{
+      width:80px;
+      height:5px;
+      background:rgba(255,255,255,.3);
+      border-radius:3px;
+      margin:8px auto 0;
+    }
+    .phone-nav-btn{
+      background:#fff;
+      border:none;
+      border-radius:50%;
+      width:48px;
+      height:48px;
+      font-size:24px;
+      cursor:pointer;
+      box-shadow:0 4px 18px rgba(0,0,0,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#333;
+      transition:all 0.2s;
+      flex-shrink:0;
+      line-height:1;
+    }
+    .phone-nav-btn:hover{
+      background:var(--primary);
+      color:#111;
+      transform:scale(1.1);
+    }
+    .phone-carousel-counter{
+      font-size:13px;
+      color:rgba(14,17,22,.45);
+      margin-top:14px;
+    }
+    .phone-dots-wrap{
+      display:flex;
+      gap:6px;
+      justify-content:center;
+      flex-wrap:wrap;
+      max-width:220px;
+      margin-top:8px;
+    }
+    .phone-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:rgba(0,0,0,.18);
+      cursor:pointer;
+      transition:all 0.25s;
+      border:none;
+      padding:0;
+    }
+    .phone-dot.active{
+      background:var(--primary);
+      transform:scale(1.45);
+    }
+    @media (max-width:640px){
+      .phone-mockup-outer{ width:210px; }
+      .phone-nav-btn{ width:38px; height:38px; font-size:20px; }
+      .phone-carousel-row{ gap:12px; }
+      .phone-frame{ border-radius:36px; padding:12px 8px 10px; }
+      .phone-screen-area{ border-radius:24px; }
+    }
+
     /* ===== Motion safety ===== */
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
@@ -1488,6 +1630,10 @@
         Стабільність в бізнесі, прозорі цифри, сильні рішення та масштабування без хаосу. ScrapMaster — програма для автоматизації металобрухту.
       </p>
 
+      <div class="intro-hero-img">
+        <img src="src/header2026.png" alt="ScrapMaster 2026 — інтерфейс програми обліку металобрухту">
+      </div>
+
       <div class="cards-container">
         <div class="card">
           <div class="card-icon">🤝</div>
@@ -1602,7 +1748,7 @@
       </div>
 
       <!-- Операторська частина -->
-      <div class="proof" style="margin-top:24px;">
+      <div class="proof" style="margin-top:24px; overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
             <div class="miniLogo"><img src="logo.png" alt=""></div>
@@ -1614,46 +1760,37 @@
           <div class="proof-meta">ScrapMaster Operator</div>
         </div>
 
-        <div class="gallery-grid" id="operGallery">
-          <div class="gallery-item" onclick="openLightbox('oper', 0)">
-            <img src="src/screen_oper/1.PNG" alt="Програма обліку металобрухту — операторський інтерфейс прийому">
+        <div class="phone-carousel-wrap">
+          <div class="phone-carousel-row">
+            <button class="phone-nav-btn" onclick="phoneSlideTo(-1)" aria-label="Попередній екран">&#8249;</button>
+
+            <div class="phone-mockup-outer">
+              <div class="phone-frame">
+                <div class="phone-screen-area" id="phoneScreenArea">
+                  <div class="phone-slides-track" id="phoneTrack">
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper1.PNG" alt="Операторський інтерфейс ScrapMaster — екран 1"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper2.PNG" alt="Операторський інтерфейс ScrapMaster — екран 2"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper3.PNG" alt="Операторський інтерфейс ScrapMaster — екран 3"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper4.PNG" alt="Операторський інтерфейс ScrapMaster — екран 4"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper5.PNG" alt="Операторський інтерфейс ScrapMaster — екран 5"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper6.PNG" alt="Операторський інтерфейс ScrapMaster — екран 6"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper7.PNG" alt="Операторський інтерфейс ScrapMaster — екран 7"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper8.PNG" alt="Операторський інтерфейс ScrapMaster — екран 8"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper9.PNG" alt="Операторський інтерфейс ScrapMaster — екран 9"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper10.PNG" alt="Операторський інтерфейс ScrapMaster — екран 10"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper11.PNG" alt="Операторський інтерфейс ScrapMaster — екран 11"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper12.PNG" alt="Операторський інтерфейс ScrapMaster — екран 12"></div>
+                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper13.PNG" alt="Операторський інтерфейс ScrapMaster — екран 13"></div>
+                  </div>
+                </div>
+                <div class="phone-home-indicator"></div>
+              </div>
+            </div>
+
+            <button class="phone-nav-btn" onclick="phoneSlideTo(1)" aria-label="Наступний екран">&#8250;</button>
           </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 1)">
-            <img src="src/screen_oper/2.PNG" alt="Облік металобрухту — каса та фінансові операції">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 2)">
-            <img src="src/screen_oper/3.PNG" alt="Програма для металобрухту — складський облік">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 3)">
-            <img src="src/screen_oper/4.PNG" alt="Operator screenshot 4">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 4)">
-            <img src="src/screen_oper/5.PNG" alt="Operator screenshot 5">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 5)">
-            <img src="src/screen_oper/6.PNG" alt="Operator screenshot 6">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 6)">
-            <img src="src/screen_oper/7.PNG" alt="Operator screenshot 7">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 7)">
-            <img src="src/screen_oper/8.PNG" alt="Operator screenshot 8">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 8)">
-            <img src="src/screen_oper/9.PNG" alt="Operator screenshot 9">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 9)">
-            <img src="src/screen_oper/10.PNG" alt="Operator screenshot 10">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 10)">
-            <img src="src/screen_oper/11.PNG" alt="Operator screenshot 11">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 11)">
-            <img src="src/screen_oper/12.PNG" alt="Operator screenshot 12">
-          </div>
-          <div class="gallery-item" onclick="openLightbox('oper', 12)">
-            <img src="src/screen_oper/13.PNG" alt="Operator screenshot 13">
-          </div>
+          <div class="phone-carousel-counter" id="phoneCounter">1 / 13</div>
+          <div class="phone-dots-wrap" id="phoneDots"></div>
         </div>
 
         <div class="proof-foot">
@@ -2033,19 +2170,19 @@
       },
       oper: {
         images: [
-          'src/screen_oper/1.PNG',
-          'src/screen_oper/2.PNG',
-          'src/screen_oper/3.PNG',
-          'src/screen_oper/4.PNG',
-          'src/screen_oper/5.PNG',
-          'src/screen_oper/6.PNG',
-          'src/screen_oper/7.PNG',
-          'src/screen_oper/8.PNG',
-          'src/screen_oper/9.PNG',
-          'src/screen_oper/10.PNG',
-          'src/screen_oper/11.PNG',
-          'src/screen_oper/12.PNG',
-          'src/screen_oper/13.PNG'
+          'src/screen_oper_new/oper1.PNG',
+          'src/screen_oper_new/oper2.PNG',
+          'src/screen_oper_new/oper3.PNG',
+          'src/screen_oper_new/oper4.PNG',
+          'src/screen_oper_new/oper5.PNG',
+          'src/screen_oper_new/oper6.PNG',
+          'src/screen_oper_new/oper7.PNG',
+          'src/screen_oper_new/oper8.PNG',
+          'src/screen_oper_new/oper9.PNG',
+          'src/screen_oper_new/oper10.PNG',
+          'src/screen_oper_new/oper11.PNG',
+          'src/screen_oper_new/oper12.PNG',
+          'src/screen_oper_new/oper13.PNG'
         ]
       }
     };
@@ -2103,6 +2240,85 @@
         }
       }
     });
+  </script>
+
+  <script>
+    // Phone Carousel — Operator screenshots
+    (function() {
+      var TOTAL = 13;
+      var current = 0;
+      var autoTimer = null;
+      var wasSwiping = false;
+      var touchStartX = 0;
+
+      var track    = document.getElementById('phoneTrack');
+      var counter  = document.getElementById('phoneCounter');
+      var dotsWrap = document.getElementById('phoneDots');
+      var screenArea = document.getElementById('phoneScreenArea');
+
+      // Build dots
+      for (var i = 0; i < TOTAL; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'phone-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Екран ' + (i + 1));
+        dot.dataset.idx = i;
+        dotsWrap.appendChild(dot);
+      }
+      dotsWrap.addEventListener('click', function(e) {
+        var b = e.target.closest('.phone-dot');
+        if (b) phoneGoTo(parseInt(b.dataset.idx));
+      });
+
+      function update() {
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        counter.textContent = (current + 1) + ' / ' + TOTAL;
+        dotsWrap.querySelectorAll('.phone-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      window.phoneSlideTo = function(dir) {
+        resetAuto();
+        current = (current + dir + TOTAL) % TOTAL;
+        update();
+      };
+      window.phoneGoTo = function(idx) {
+        resetAuto();
+        current = idx;
+        update();
+      };
+
+      // Touch / swipe
+      screenArea.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        wasSwiping = false;
+      }, { passive: true });
+      screenArea.addEventListener('touchmove', function(e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 8) wasSwiping = true;
+      }, { passive: true });
+      screenArea.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) phoneSlideTo(dx < 0 ? 1 : -1);
+      }, { passive: true });
+
+      // Click on screen → open lightbox (only if not swiping)
+      screenArea.addEventListener('click', function() {
+        if (!wasSwiping) openLightbox('oper', current);
+      });
+
+      // Auto-play
+      function startAuto() {
+        autoTimer = setInterval(function() {
+          current = (current + 1) % TOTAL;
+          update();
+        }, 3800);
+      }
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+      startAuto();
+    })();
   </script>
 
   <script>
