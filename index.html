@@ -1334,16 +1334,163 @@
 
 
 
-    /* ===== Intro hero image ===== */
-    .intro-hero-img{
-      margin:28px auto 32px;
-      max-width:960px;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 8px 40px rgba(0,0,0,.12);
-      border:1px solid rgba(0,0,0,.06);
+    /* ===== Intro Flow Diagram ===== */
+    .flow-diagram{
+      margin:36px auto 8px;
+      max-width:980px;
+      background:linear-gradient(135deg,#f8f9fb 0%,#ffffff 100%);
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,.07);
+      box-shadow:0 4px 32px rgba(0,0,0,.07);
+      padding:36px 28px 32px;
     }
-    .intro-hero-img img{ width:100%; height:auto; display:block; }
+    .flow-columns{
+      display:grid;
+      grid-template-columns:1fr 56px 180px 56px 1fr;
+      align-items:center;
+      gap:0;
+    }
+    .flow-col{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+    .flow-col-title{
+      font-size:10.5px;
+      font-weight:700;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:rgba(14,17,22,.38);
+      margin-bottom:6px;
+      text-align:center;
+    }
+    .flow-node{
+      background:#fff;
+      border:1.5px solid rgba(0,0,0,.08);
+      border-radius:10px;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-size:13px;
+      font-weight:600;
+      color:#1a1d22;
+      box-shadow:0 2px 8px rgba(0,0,0,.045);
+      transition:all 0.22s;
+    }
+    .flow-node:hover{
+      border-color:var(--primary);
+      box-shadow:0 4px 16px rgba(255,212,59,.22);
+      transform:translateY(-2px);
+    }
+    .flow-node-icon{ font-size:17px; flex-shrink:0; }
+    .flow-arrow-col{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .flow-arrow-col svg{
+      width:38px;
+      height:38px;
+      flex-shrink:0;
+    }
+    .flow-core-col{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .flow-core{
+      background:linear-gradient(145deg,#ffd43b 0%,#f0a700 100%);
+      border-radius:18px;
+      padding:22px 18px 18px;
+      text-align:center;
+      box-shadow:0 8px 32px rgba(255,212,59,.40), 0 0 0 4px rgba(255,212,59,.15);
+      width:100%;
+    }
+    .flow-core-logo{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.12);
+      overflow:hidden;
+    }
+    .flow-core-logo img{ width:40px; height:40px; border-radius:50%; object-fit:cover; }
+    .flow-core-title{
+      font-size:16px;
+      font-weight:900;
+      color:#111;
+      line-height:1.2;
+    }
+    .flow-core-sub{
+      font-size:10.5px;
+      color:rgba(0,0,0,.5);
+      margin-top:3px;
+      font-weight:600;
+      letter-spacing:.04em;
+    }
+    .flow-core-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:5px;
+      justify-content:center;
+      margin-top:12px;
+    }
+    .flow-core-tag{
+      background:rgba(0,0,0,.12);
+      border-radius:6px;
+      padding:3px 8px;
+      font-size:10px;
+      font-weight:700;
+      color:#111;
+    }
+    .flow-node.out{ border-color:rgba(255,212,59,.3); background:linear-gradient(135deg,#fffdf0 0%,#fff 100%); }
+    .flow-node.out:hover{ border-color:var(--primary); }
+    .flow-legend{
+      display:flex;
+      justify-content:space-between;
+      margin-top:20px;
+      padding-top:16px;
+      border-top:1px solid rgba(0,0,0,.06);
+      gap:8px;
+    }
+    .flow-legend-item{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      font-size:12px;
+      color:rgba(14,17,22,.55);
+      font-weight:600;
+    }
+    .flow-legend-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      flex-shrink:0;
+    }
+    @media(max-width:860px){
+      .flow-columns{
+        grid-template-columns:1fr 40px 160px 40px 1fr;
+      }
+      .flow-node{ font-size:12px; padding:8px 10px; }
+      .flow-core{ padding:18px 12px 14px; }
+      .flow-core-title{ font-size:14px; }
+    }
+    @media(max-width:640px){
+      .flow-diagram{ padding:20px 14px 18px; }
+      .flow-columns{
+        grid-template-columns:1fr;
+        gap:6px;
+      }
+      .flow-arrow-col svg{ transform:rotate(90deg); width:28px; height:28px; }
+      .flow-core-col{ flex-direction:row; flex-wrap:wrap; justify-content:center; }
+      .flow-core{ max-width:220px; }
+      .flow-legend{ flex-wrap:wrap; justify-content:center; }
+    }
 
     /* ===== Phone Carousel (Operator screenshots) ===== */
     .phone-carousel-wrap{
@@ -1761,8 +1908,66 @@
         Стабільність в бізнесі, прозорі цифри, сильні рішення та масштабування без хаосу. ScrapMaster — програма для автоматизації металобрухту.
       </p>
 
-      <div class="intro-hero-img">
-        <img src="src/header2026.png" alt="ScrapMaster 2026 — інтерфейс програми обліку металобрухту">
+      <div class="flow-diagram">
+        <div class="flow-columns">
+
+          <!-- Ліва колонка — вхідні операції -->
+          <div class="flow-col">
+            <div class="flow-col-title">Що відбувається</div>
+            <div class="flow-node"><span class="flow-node-icon">🔩</span>Прийом металу</div>
+            <div class="flow-node"><span class="flow-node-icon">🚛</span>Відвантаження</div>
+            <div class="flow-node"><span class="flow-node-icon">💸</span>Продажі</div>
+            <div class="flow-node"><span class="flow-node-icon">🏪</span>Каса й витрати</div>
+            <div class="flow-node"><span class="flow-node-icon">🔄</span>Переміщення</div>
+          </div>
+
+          <!-- Стрілка → -->
+          <div class="flow-arrow-col">
+            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 19h22M22 12l8 7-8 7" stroke="#ffd43b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Центр — ScrapMaster -->
+          <div class="flow-core-col">
+            <div class="flow-core">
+              <div class="flow-core-logo"><img src="logo.png" alt="ScrapMaster"></div>
+              <div class="flow-core-title">Scrap<span style="color:#7a4f00;">Master</span></div>
+              <div class="flow-core-sub">ядро системи</div>
+              <div class="flow-core-tags">
+                <span class="flow-core-tag">FIFO/LIFO</span>
+                <span class="flow-core-tag">Склад</span>
+                <span class="flow-core-tag">Ролі</span>
+                <span class="flow-core-tag">Real-time</span>
+                <span class="flow-core-tag">Аудит</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Стрілка → -->
+          <div class="flow-arrow-col">
+            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 19h22M22 12l8 7-8 7" stroke="#ffd43b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Права колонка — результати -->
+          <div class="flow-col">
+            <div class="flow-col-title">Ви отримуєте</div>
+            <div class="flow-node out"><span class="flow-node-icon">📊</span>BI-Дешборд</div>
+            <div class="flow-node out"><span class="flow-node-icon">💰</span>Реальний прибуток</div>
+            <div class="flow-node out"><span class="flow-node-icon">🔍</span>Аудит-журнал</div>
+            <div class="flow-node out"><span class="flow-node-icon">👥</span>Контроль персоналу</div>
+            <div class="flow-node out"><span class="flow-node-icon">📈</span>KPI та аналітика</div>
+          </div>
+
+        </div>
+
+        <div class="flow-legend">
+          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#e2e6eb;"></div>Оператор фіксує операцію</div>
+          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#ffd43b;"></div>ScrapMaster обробляє дані</div>
+          <div class="flow-legend-item"><div class="flow-legend-dot" style="background:#4caf50;"></div>Власник бачить результат</div>
+        </div>
       </div>
 
       <div class="cards-container">
