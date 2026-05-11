@@ -1,5 +1,7 @@
 /* ScrapMaster — shared styles for subpages */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css');
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 :root {
   --primary:#ffd43b;
   --primary-dark:#f5c62c;
@@ -262,9 +264,14 @@ body { background:#f5f7fa; color:var(--text); line-height:1.7; }
 }
 .blog-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
 .blog-card-img {
-  width:100%; height:200px; object-fit:cover; display:block;
-  background:linear-gradient(135deg,#fffef5 0%,#fffaeb 100%);
+  width:100%; height:200px; overflow:hidden; display:block;
+  background:linear-gradient(135deg,#0e1116 0%,#1a1d26 100%);
 }
+.blog-card-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .3s ease;
+}
+.blog-card:hover .blog-card-img img { transform:scale(1.04); }
 .blog-card-body { padding:24px; }
 .blog-card-tag {
   display:inline-block; padding:4px 12px; border-radius:999px;
@@ -282,7 +289,11 @@ body { background:#f5f7fa; color:var(--text); line-height:1.7; }
   max-width:800px; margin:0 auto; padding:40px 20px;
 }
 .article-wrap h1 { font-size:34px; font-weight:900; margin-bottom:12px; color:#0e1116; }
-.article-meta { color:var(--muted); font-size:14px; margin-bottom:28px; padding-bottom:20px; border-bottom:2px solid #ffd43b; }
+.article-meta { color:var(--muted); font-size:14px; margin-bottom:28px; padding-bottom:20px; border-bottom:2px solid #ffd43b; display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+.article-meta span { display:inline-flex; align-items:center; gap:6px; }
+.article-meta .ti { font-size:15px; color:#ffd43b; }
+.article-cover { width:100%; border-radius:16px; overflow:hidden; margin-bottom:32px; aspect-ratio:1200/630; }
+.article-cover img { width:100%; height:100%; object-fit:cover; display:block; border-radius:16px; }
 .article-wrap h2 { font-size:24px; margin:32px 0 14px; color:#0e1116; font-weight:800; position:relative; padding-left:18px; }
 .article-wrap h2::before { content:''; position:absolute; left:0; top:4px; bottom:4px; width:4px; background:#ffd43b; border-radius:2px; }
 .article-wrap h3 { font-size:19px; margin:24px 0 10px; color:#0e1116; font-weight:700; }

@@ -40,6 +40,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="logo.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
   <link rel="shortcut icon" href="logo.png" />
+
+  <!-- Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <!-- Icons: Tabler Icons (modern B2B SVG icon set) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-15JQHHNRLX"></script>
@@ -174,7 +182,7 @@
   </script>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     :root{
       --primary:#ffd43b;
       --primary-dark:#f5c62c;
@@ -598,8 +606,9 @@
       border-radius:14px;
       background: #ffd43b;
       color: #0e1116;
-      font-size:22px;
-      margin-bottom:16px;
+      font-size:24px;
+      margin-bottom:20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card-title{ font-size:20px; margin-bottom:10px; color:#101114; }
     .card-text{ color: var(--gray); }
@@ -751,15 +760,14 @@
       border: 1px solid rgba(255,212,59,.3);
     }
     .benefit-check{
-      width:38px; height:38px;
+      width:42px; height:42px;
       display:flex; align-items:center; justify-content:center;
       background: #ffd43b;
       color:#0e1116;
-      border-radius:50%;
+      border-radius:12px;
       flex-shrink:0;
-      box-shadow: 0 12px 26px rgba(255,212,59,.25);
-      font-weight:900;
-      font-size:18px;
+      box-shadow: 0 6px 16px rgba(255,212,59,.30);
+      font-size:20px;
     }
     .benefit-item h3{ margin-bottom:4px; font-size:18px; color:#0e1116; }
     .benefit-item p{ color: var(--gray); }
@@ -830,10 +838,10 @@
       border-bottom:none;
     }
     .wish-icon{
-      width:32px;
-      height:32px;
+      width:36px;
+      height:36px;
       background:#ffd43b;
-      border-radius:50%;
+      border-radius:10px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -1383,7 +1391,7 @@
       box-shadow:0 4px 16px rgba(255,212,59,.22);
       transform:translateY(-2px);
     }
-    .flow-node-icon{ font-size:17px; flex-shrink:0; }
+    .flow-node-icon{ font-size:17px; flex-shrink:0; display:inline-flex; align-items:center; }
     .flow-arrow-col{
       display:flex;
       align-items:center;
@@ -1914,11 +1922,11 @@
           <!-- Ліва колонка — вхідні операції -->
           <div class="flow-col">
             <div class="flow-col-title">Що відбувається</div>
-            <div class="flow-node"><span class="flow-node-icon">🔩</span>Прийом металу</div>
-            <div class="flow-node"><span class="flow-node-icon">🚛</span>Відвантаження</div>
-            <div class="flow-node"><span class="flow-node-icon">💸</span>Продажі</div>
-            <div class="flow-node"><span class="flow-node-icon">🏪</span>Каса й витрати</div>
-            <div class="flow-node"><span class="flow-node-icon">🔄</span>Переміщення</div>
+            <div class="flow-node"><span class="flow-node-icon"><i class="ti ti-tool"></i></span>Прийом металу</div>
+            <div class="flow-node"><span class="flow-node-icon"><i class="ti ti-truck"></i></span>Відвантаження</div>
+            <div class="flow-node"><span class="flow-node-icon"><i class="ti ti-cash"></i></span>Продажі</div>
+            <div class="flow-node"><span class="flow-node-icon"><i class="ti ti-building-store"></i></span>Каса й витрати</div>
+            <div class="flow-node"><span class="flow-node-icon"><i class="ti ti-transfer"></i></span>Переміщення</div>
           </div>
 
           <!-- Стрілка → -->
@@ -1954,11 +1962,11 @@
           <!-- Права колонка — результати -->
           <div class="flow-col">
             <div class="flow-col-title">Ви отримуєте</div>
-            <div class="flow-node out"><span class="flow-node-icon">📊</span>BI-Дешборд</div>
-            <div class="flow-node out"><span class="flow-node-icon">💰</span>Реальний прибуток</div>
-            <div class="flow-node out"><span class="flow-node-icon">🔍</span>Аудит-журнал</div>
-            <div class="flow-node out"><span class="flow-node-icon">👥</span>Контроль персоналу</div>
-            <div class="flow-node out"><span class="flow-node-icon">📈</span>KPI та аналітика</div>
+            <div class="flow-node out"><span class="flow-node-icon"><i class="ti ti-chart-bar"></i></span>BI-Дешборд</div>
+            <div class="flow-node out"><span class="flow-node-icon"><i class="ti ti-currency-dollar"></i></span>Реальний прибуток</div>
+            <div class="flow-node out"><span class="flow-node-icon"><i class="ti ti-clipboard-check"></i></span>Аудит-журнал</div>
+            <div class="flow-node out"><span class="flow-node-icon"><i class="ti ti-users"></i></span>Контроль персоналу</div>
+            <div class="flow-node out"><span class="flow-node-icon"><i class="ti ti-trending-up"></i></span>KPI та аналітика</div>
           </div>
 
         </div>
@@ -1972,19 +1980,19 @@
 
       <div class="cards-container">
         <div class="card">
-          <div class="card-icon">🤝</div>
+          <div class="card-icon"><i class="ti ti-settings-automation"></i></div>
           <h3 class="card-title">Автоматизація обліку металобрухту</h3>
           <p class="card-text">Програма бере на себе рутину обліку — звільняє час для розвитку мережі прийому металобрухту.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">📈</div>
+          <div class="card-icon"><i class="ti ti-chart-line"></i></div>
           <h3 class="card-title">Контроль пунктів прийому</h3>
           <p class="card-text">Повна видимість операцій у реальному часі — від каси до складу і відвантажень металобрухту.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">⚡</div>
+          <div class="card-icon"><i class="ti ti-bolt"></i></div>
           <h3 class="card-title">Ефективне управління ломом</h3>
           <p class="card-text">Прозорі KPI з обліку металобрухту допомагають зменшувати втрати та підвищувати маржу.</p>
         </div>
@@ -2208,7 +2216,7 @@
 
       <div class="benefits-list">
         <div class="benefit-item">
-          <div class="benefit-check">✓</div>
+          <div class="benefit-check"><i class="ti ti-chart-dots"></i></div>
           <div>
             <h3>BI-дешборд</h3>
             <p>Прибуток, витрати, залишки, динаміка — для швидких управлінських рішень.</p>
@@ -2216,7 +2224,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-check">✓</div>
+          <div class="benefit-check"><i class="ti ti-calculator"></i></div>
           <div>
             <h3>FIFO/LIFO  розрахунок собівартості</h3>
             <p>Точна собівартість для “shipment” та “sale”. Маржа рахується правильно.</p>
@@ -2224,7 +2232,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-check">✓</div>
+          <div class="benefit-check"><i class="ti ti-device-laptop"></i></div>
           <div>
             <h3>Онлайн-доступ власнику</h3>
             <p>Контроль бізнесу з будь-якої країни в будь-який час.</p>
@@ -2232,7 +2240,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-check">✓</div>
+          <div class="benefit-check"><i class="ti ti-plug-connected"></i></div>
           <div>
             <h3>Інтеграції</h3>
             <p>Telegram / автоматичні звіти / аналітика — мінімум ручної роботи.</p>
@@ -2240,7 +2248,7 @@
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-check">✓</div>
+          <div class="benefit-check"><i class="ti ti-shield-check"></i></div>
           <div>
             <h3>Готовність до аудиту</h3>
             <p>Журнал змін, ролі, прозорі дані й контроль доступів.</p>
@@ -2298,15 +2306,15 @@
         <h3 class="wishes-title">Ми допомагаємо компаніям:</h3>
         <ul class="wishes-list">
           <li class="wish-item">
-            <span class="wish-icon">✓</span>
+            <span class="wish-icon"><i class="ti ti-check"></i></span>
             <span>Автоматизувати облік та звести цифри без помилок</span>
           </li>
           <li class="wish-item">
-            <span class="wish-icon">✓</span>
+            <span class="wish-icon"><i class="ti ti-check"></i></span>
             <span>Приймати рішення на основі точних даних</span>
           </li>
           <li class="wish-item">
-            <span class="wish-icon">✓</span>
+            <span class="wish-icon"><i class="ti ti-check"></i></span>
             <span>Стандартизувати процеси та налагодити контроль</span>
           </li>
         </ul>
@@ -2322,7 +2330,7 @@
   <!-- Sticky CTA Button -->
   <div class="sticky-cta" id="stickyCta">
     <a class="sticky-cta-btn" href="https://cabinet.scrapmaster.store/register">
-      <span>🚀</span>
+      <i class="ti ti-rocket" style="font-size:18px;"></i>
       <span>Почати безкоштовно</span>
     </a>
   </div>
@@ -2378,7 +2386,7 @@
         </form>
         
         <div class="form-success" id="formSuccess">
-          <div class="form-success-icon">✓</div>
+          <div class="form-success-icon"><i class="ti ti-circle-check" style="color:#26a269;font-size:64px;"></i></div>
           <h4 class="form-success-title">Заявку відправлено!</h4>
           <p class="form-success-text">Дякуємо за вашу заявку. Наш менеджер зв'яжеться з вами найближчим часом.</p>
         </div>

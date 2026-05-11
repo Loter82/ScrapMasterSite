@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1116"/>
+      <stop offset="100%" style="stop-color:#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="970" cy="120" r="200" fill="rgba(255,212,59,0.05)"/>
+  <circle cx="1080" cy="500" r="130" fill="rgba(255,212,59,0.04)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Network nodes (scaling) -->
+  <g transform="translate(800, 60)">
+    <!-- Central hub -->
+    <circle cx="180" cy="170" r="36" fill="#ffd43b"/>
+    <text x="162" y="178" fill="#0e1116" font-family="sans-serif" font-size="13" font-weight="800">HUB</text>
+
+    <!-- Node 1 - top left -->
+    <circle cx="70" cy="70" r="26" fill="rgba(255,212,59,0.35)" stroke="#ffd43b" stroke-width="1.5"/>
+    <text x="57" y="76" fill="#ffd43b" font-family="sans-serif" font-size="10" font-weight="700">Точка 1</text>
+    <line x1="92" y1="90" x2="150" y2="145" stroke="#ffd43b" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+    <!-- Node 2 - top right -->
+    <circle cx="300" cy="70" r="26" fill="rgba(255,212,59,0.35)" stroke="#ffd43b" stroke-width="1.5"/>
+    <text x="287" y="76" fill="#ffd43b" font-family="sans-serif" font-size="10" font-weight="700">Точка 2</text>
+    <line x1="278" y1="90" x2="212" y2="145" stroke="#ffd43b" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+    <!-- Node 3 - bottom left -->
+    <circle cx="60" cy="280" r="26" fill="rgba(255,212,59,0.35)" stroke="#ffd43b" stroke-width="1.5"/>
+    <text x="47" y="286" fill="#ffd43b" font-family="sans-serif" font-size="10" font-weight="700">Точка 3</text>
+    <line x1="84" y1="262" x2="150" y2="196" stroke="#ffd43b" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+    <!-- Node 4 - bottom right -->
+    <circle cx="300" cy="280" r="26" fill="rgba(255,212,59,0.35)" stroke="#ffd43b" stroke-width="1.5"/>
+    <text x="287" y="286" fill="#ffd43b" font-family="sans-serif" font-size="10" font-weight="700">Точка N</text>
+    <line x1="276" y1="262" x2="210" y2="196" stroke="#ffd43b" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+    <!-- Node 5 - right -->
+    <circle cx="360" cy="170" r="22" fill="rgba(255,212,59,0.2)" stroke="rgba(255,212,59,0.5)" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="351" y="176" fill="rgba(255,212,59,0.7)" font-family="sans-serif" font-size="10">+N</text>
+    <line x1="338" y1="170" x2="218" y2="170" stroke="rgba(255,212,59,0.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- Growth arrow -->
+    <path d="M 40 340 Q 180 310 320 330" stroke="#ffd43b" stroke-width="2" fill="none"/>
+    <polygon points="316,320 328,334 314,344" fill="#ffd43b"/>
+    <text x="130" y="366" fill="rgba(255,212,59,0.8)" font-family="sans-serif" font-size="13" font-weight="600">Масштабування без болю</text>
+  </g>
+
+  <rect x="60" y="56" width="166" height="30" rx="8" fill="rgba(255,212,59,0.15)"/>
+  <text x="76" y="75" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1">МАСШТАБУВАННЯ</text>
+
+  <text x="60" y="200" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Масштабування</text>
+  <text x="60" y="270" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">мережі пунктів</text>
+  <text x="60" y="340" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">прийому лому</text>
+
+  <text x="60" y="420" fill="rgba(255,255,255,0.65)" font-family="'Segoe UI', sans-serif" font-size="22">Як система обліку допомагає розширювати бізнес</text>
+  <rect x="60" y="460" width="80" height="4" rx="2" fill="#ffd43b"/>
+
+  <text x="60" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">ScrapMaster</text>
+  <text x="180" y="570" fill="rgba(255,255,255,0.2)" font-family="'Segoe UI', sans-serif" font-size="18">•</text>
+  <text x="200" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">scrapmaster.store</text>
+</svg>

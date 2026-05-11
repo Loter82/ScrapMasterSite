@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /src/
+Disallow: /src/screen_oper/
+Disallow: /src/screen_oper_new/
 Disallow: /seo-pages/
 Disallow: /memory-bank/
 

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1116"/>
+      <stop offset="100%" style="stop-color:#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="150" r="220" fill="rgba(255,212,59,0.06)"/>
+  <circle cx="900" cy="520" r="140" fill="rgba(255,212,59,0.04)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Icon: Laptop/software screen -->
+  <g transform="translate(820, 100)">
+    <!-- Laptop base -->
+    <rect x="0" y="200" width="260" height="18" rx="6" fill="rgba(255,212,59,0.25)"/>
+    <rect x="30" y="195" width="200" height="8" rx="4" fill="rgba(255,212,59,0.15)"/>
+    <!-- Laptop screen -->
+    <rect x="20" y="30" width="220" height="166" rx="12" fill="rgba(255,212,59,0.1)" stroke="#ffd43b" stroke-width="1.5"/>
+    <!-- Screen content - rows of data -->
+    <rect x="36" y="50" width="188" height="22" rx="5" fill="rgba(255,212,59,0.3)"/>
+    <rect x="36" y="82" width="130" height="10" rx="3" fill="rgba(255,255,255,0.15)"/>
+    <rect x="36" y="100" width="100" height="10" rx="3" fill="rgba(255,255,255,0.1)"/>
+    <rect x="36" y="118" width="150" height="10" rx="3" fill="rgba(255,255,255,0.1)"/>
+    <rect x="36" y="136" width="80" height="10" rx="3" fill="rgba(255,255,255,0.1)"/>
+    <!-- Status dots -->
+    <circle cx="48" cy="61" r="5" fill="#ffd43b"/>
+    <text x="62" y="66" fill="#0e1116" font-family="sans-serif" font-size="12" font-weight="700">ScrapMaster</text>
+    <!-- Green check indicator -->
+    <rect x="160" y="82" width="54" height="12" rx="4" fill="rgba(38,162,105,0.6)"/>
+    <text x="168" y="92" fill="#fff" font-family="sans-serif" font-size="9" font-weight="600">Онлайн</text>
+    <!-- Hinge -->
+    <rect x="120" y="194" width="20" height="8" rx="3" fill="rgba(255,212,59,0.3)"/>
+  </g>
+
+  <rect x="60" y="56" width="90" height="30" rx="8" fill="rgba(255,212,59,0.15)"/>
+  <text x="76" y="75" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1">СОФТ</text>
+
+  <text x="60" y="200" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Програма для</text>
+  <text x="60" y="270" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">прийому лому:</text>
+  <text x="60" y="340" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">огляд рішень</text>
+
+  <text x="60" y="420" fill="rgba(255,255,255,0.65)" font-family="'Segoe UI', sans-serif" font-size="22">Що шукати в програмі та як обрати правильно</text>
+  <rect x="60" y="460" width="80" height="4" rx="2" fill="#ffd43b"/>
+
+  <text x="60" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">ScrapMaster</text>
+  <text x="180" y="570" fill="rgba(255,255,255,0.2)" font-family="'Segoe UI', sans-serif" font-size="18">•</text>
+  <text x="200" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">scrapmaster.store</text>
+</svg>

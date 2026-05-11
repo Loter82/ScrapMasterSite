@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1116"/>
+      <stop offset="100%" style="stop-color:#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c80"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="130" r="210" fill="rgba(255,212,59,0.05)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- BI Dashboard: bar chart + KPI cards -->
+  <g transform="translate(800, 60)">
+    <!-- Dashboard panel -->
+    <rect x="0" y="20" width="340" height="280" rx="16" fill="rgba(255,212,59,0.07)" stroke="rgba(255,212,59,0.2)" stroke-width="1.5"/>
+    <!-- Title bar -->
+    <rect x="0" y="20" width="340" height="36" rx="16" fill="rgba(255,212,59,0.18)"/>
+    <rect x="0" y="44" width="340" height="12" fill="rgba(255,212,59,0.18)"/>
+    <text x="20" y="44" fill="#ffd43b" font-family="sans-serif" font-size="13" font-weight="700">BI Dashboard — ScrapMaster</text>
+    <!-- KPI mini-cards row -->
+    <rect x="12" y="72" width="96" height="48" rx="8" fill="rgba(255,212,59,0.2)"/>
+    <text x="20" y="89" fill="#ffd43b" font-family="sans-serif" font-size="9">Прибуток</text>
+    <text x="20" y="110" fill="#ffd43b" font-family="sans-serif" font-size="16" font-weight="800">+24%</text>
+    <rect x="120" y="72" width="96" height="48" rx="8" fill="rgba(255,212,59,0.12)"/>
+    <text x="128" y="89" fill="rgba(255,212,59,0.8)" font-family="sans-serif" font-size="9">Залишок</text>
+    <text x="128" y="110" fill="#ffd43b" font-family="sans-serif" font-size="16" font-weight="800">12.4т</text>
+    <rect x="228" y="72" width="100" height="48" rx="8" fill="rgba(255,212,59,0.12)"/>
+    <text x="236" y="89" fill="rgba(255,212,59,0.8)" font-family="sans-serif" font-size="9">Маржа</text>
+    <text x="236" y="110" fill="#ffd43b" font-family="sans-serif" font-size="16" font-weight="800">18.2%</text>
+    <!-- Bar chart -->
+    <text x="12" y="148" fill="rgba(255,255,255,0.4)" font-family="sans-serif" font-size="9">Обсяг прийому по місяцях (тонн)</text>
+    <!-- Bars -->
+    <rect x="20" y="200" width="22" height="55" rx="4" fill="rgba(255,212,59,0.4)"/>
+    <rect x="52" y="180" width="22" height="75" rx="4" fill="rgba(255,212,59,0.5)"/>
+    <rect x="84" y="165" width="22" height="90" rx="4" fill="rgba(255,212,59,0.6)"/>
+    <rect x="116" y="175" width="22" height="80" rx="4" fill="rgba(255,212,59,0.5)"/>
+    <rect x="148" y="155" width="22" height="100" rx="4" fill="url(#bar1)"/>
+    <rect x="180" y="158" width="22" height="97" rx="4" fill="rgba(255,212,59,0.7)"/>
+    <rect x="212" y="145" width="22" height="110" rx="4" fill="#ffd43b"/>
+    <rect x="244" y="150" width="22" height="105" rx="4" fill="rgba(255,212,59,0.8)"/>
+    <rect x="276" y="140" width="22" height="115" rx="4" fill="#ffd43b"/>
+    <!-- Baseline -->
+    <line x1="12" y1="258" x2="328" y2="258" stroke="rgba(255,212,59,0.2)" stroke-width="1"/>
+    <!-- Trend line -->
+    <path d="M 31 218 Q 130 195 180 175 Q 220 158 287 143" stroke="#ffd43b" stroke-width="2" fill="none" stroke-dasharray="none"/>
+    <circle cx="287" cy="143" r="5" fill="#ffd43b"/>
+    <text x="296" y="140" fill="#ffd43b" font-family="sans-serif" font-size="9" font-weight="700">+↑</text>
+  </g>
+
+  <rect x="60" y="56" width="100" height="30" rx="8" fill="rgba(255,212,59,0.15)"/>
+  <text x="76" y="75" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1">BI</text>
+
+  <text x="60" y="200" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">BI-аналітика</text>
+  <text x="60" y="270" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">для металобрухту:</text>
+  <text x="60" y="340" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">рішення на даних</text>
+
+  <text x="60" y="420" fill="rgba(255,255,255,0.65)" font-family="'Segoe UI', sans-serif" font-size="22">KPI, тренди, прогнози — управління без здогадок</text>
+  <rect x="60" y="460" width="80" height="4" rx="2" fill="#ffd43b"/>
+
+  <text x="60" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">ScrapMaster</text>
+  <text x="180" y="570" fill="rgba(255,255,255,0.2)" font-family="'Segoe UI', sans-serif" font-size="18">•</text>
+  <text x="200" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">scrapmaster.store</text>
+</svg>
