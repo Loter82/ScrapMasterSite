@@ -231,73 +231,58 @@
     body{ background:#F4F1E8; color:var(--text); line-height:1.6; }
     .container{ max-width:1200px; margin:0 auto; padding:0 20px; }
 
-    /* ===== Topbar (sticky) ===== */
+    /* ===== Topbar (sticky) — matches welcome.html / page-styles.css exactly ===== */
     .nav{
       position:sticky;
       top:0;
       z-index:50;
-      background: rgba(244,241,232,.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,.06);
+      background:rgba(244,241,232,.88);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
     }
     .nav .inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding:12px 0;
+      padding:16px 0;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
-      min-width:260px;
+      gap:11px;
+      min-width:0;
     }
     .logoBox{
-      width:42px; height:42px;
+      width:34px; height:34px;
       border-radius:50%;
       display:grid;
       place-items:center;
-      background:#FFC72C;
-      box-shadow: var(--shadow-soft);
+      background:transparent;
       overflow:hidden;
-      position:relative;
     }
     .logoBox img{
-      width:42px; height:42px;
+      width:34px; height:34px;
       border-radius:50%;
       object-fit:cover;
       object-position:center;
       display:block;
     }
-    .logoBox::before{
-      display:none;
-    }
-    @keyframes floatLogo{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.04)}}
-    @keyframes shimmer{
-      0%{transform:rotate(18deg) translateX(-60%); opacity:0}
-      18%{opacity:.45}
-      55%{opacity:.16}
-      100%{transform:rotate(18deg) translateX(60%); opacity:0}
-    }
 
     .brandTitle{
-      font-weight:900;
-      font-size:18px;
-      letter-spacing:.2px;
+      font-family:'Oswald',sans-serif;
+      font-weight:600;
+      font-size:17px;
+      letter-spacing:.02em;
       line-height:1.1;
     }
-    .brandTitle span{ color:#FFC72C; }
-    .brandSub{
-      font-size:12.5px;
-      color: rgba(24,20,15,.65);
-      margin-top:3px;
-    }
+    .brandTitle span{ color:var(--yellow-deep); font-weight:700; }
 
     .navLinks{
       display:flex;
-      gap:8px;
+      align-items:center;
+      gap:6px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
@@ -305,23 +290,21 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
+      padding:9px 14px;
+      border-radius:8px;
       text-decoration:none;
-      color: rgba(24,20,15,.86);
-      border: 1px solid rgba(0,0,0,.06);
-      background:#fff;
-      box-shadow: 0 6px 16px rgba(0,0,0,.06);
-      font-weight:700;
+      color:var(--steel);
+      border:1px solid transparent;
+      background:transparent;
+      font-weight:600;
       font-size:13px;
-      transition: transform .18s ease, box-shadow .18s ease;
+      transition:color .15s ease, background .15s ease;
       white-space:nowrap;
     }
-    .link:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.09); }
-    .link-cta{ background:linear-gradient(135deg,#FFC72C,#C98A0A); color:#18140F; border:none; }
-    .link-cta:hover{ box-shadow:0 12px 28px rgba(255,199,44,.4); }
-    .link-login{ background:transparent !important; box-shadow:none !important; border:1.5px solid rgba(24,20,15,.22) !important; color:rgba(24,20,15,.65) !important; }
-    .link-login:hover{ background:rgba(24,20,15,.05) !important; box-shadow:none !important; }
+    .link:hover{ color:var(--ink); background:var(--paper-2); }
+    .link-cta{ background:var(--ink) !important; color:var(--paper) !important; border:none !important; font-weight:700; }
+    .link-cta:hover{ background:#000 !important; }
+    /* .link-login intentionally plain — same as every other nav link */
 
     /* Hamburger Menu */
     .menu-toggle{
@@ -330,18 +313,12 @@
       gap:5px;
       cursor:pointer;
       padding:8px;
-      background:#fff;
-      border-radius:8px;
-      border:1px solid rgba(0,0,0,.1);
-      box-shadow:0 4px 12px rgba(0,0,0,.08);
-      transition:all 0.3s ease;
     }
     .menu-toggle span{
       display:block;
-      width:24px;
-      height:3px;
-      background:#18140F;
-      border-radius:2px;
+      width:22px;
+      height:2px;
+      background:var(--ink);
       transition:all 0.3s ease;
     }
     .menu-toggle.active span:nth-child(1){
@@ -356,13 +333,13 @@
     .mobile-menu{
       display:none;
       position:fixed;
-      top:70px;
+      top:66px;
       left:0;
       right:0;
-      background:#fff;
-      box-shadow:0 8px 24px rgba(0,0,0,.15);
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
       z-index:9998;
-      padding:20px;
+      padding:12px;
       animation:slideDown 0.3s ease;
     }
     .mobile-menu.active{
@@ -370,22 +347,22 @@
     }
     .mobile-menu a{
       display:block;
-      padding:14px 16px;
+      padding:13px 14px;
       text-decoration:none;
-      color:#18140F;
+      color:var(--ink);
       font-weight:600;
       font-size:15px;
       border-radius:8px;
-      margin-bottom:8px;
+      margin-bottom:6px;
       transition:background 0.2s ease;
     }
     .mobile-menu a:hover{
-      background:rgba(255,199,44,0.1);
+      background:var(--paper-2);
     }
     @keyframes slideDown{
       from{
         opacity:0;
-        transform:translateY(-20px);
+        transform:translateY(-14px);
       }
       to{
         opacity:1;
@@ -1117,29 +1094,54 @@
       line-height:1.6;
     }
 
-    /* ===== Footer ===== */
+    /* ===== Footer — matches welcome.html / page-styles.css exactly ===== */
     .footer{
-      background: radial-gradient(900px 500px at 20% 20%, rgba(255,199,44,.16), transparent 55%),
-                  radial-gradient(900px 500px at 80% 70%, rgba(74,124,63,.12), transparent 55%),
-                  var(--dark);
-      color:#fff;
-      padding:64px 0 28px;
-      text-align:center;
+      background:var(--dark);
+      color:rgba(244,241,232,.65);
+      padding:56px 0 28px;
+      text-align:left;
     }
-    .footer-logo{ font-size:28px; font-weight:900; margin-bottom:12px; }
+    .footer .container{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      grid-template-areas:
+        "logo nav"
+        "tagline nav"
+        "legal copyright";
+      column-gap:40px;
+      row-gap:8px;
+    }
+    .footer-logo{
+      grid-area:logo; font-size:20px; font-weight:600; margin:0 0 8px; color:var(--paper);
+    }
     .footer-tagline{
-      font-size:18px;
-      margin: 12px auto 28px;
-      max-width:860px;
-      opacity:.92;
-      line-height:1.8;
+      grid-area:tagline; font-size:14px; max-width:34ch; margin:0; opacity:.8; line-height:1.6;
     }
+    .footer-nav{
+      grid-area:nav; align-self:start; display:flex; flex-wrap:wrap;
+      gap:8px 22px; justify-content:flex-end; margin:0; max-width:380px;
+    }
+    .footer-nav a{ color:rgba(244,241,232,.7); text-decoration:none; font-size:13.5px; font-weight:500; transition:color .2s ease; }
+    .footer-nav a:hover{ color:var(--yellow); }
+    .footer-legal{
+      grid-area:legal; display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-start;
+      margin:0; padding-top:22px; border-top:1px solid rgba(244,241,232,.12);
+    }
+    .footer-legal a{ color:rgba(244,241,232,.5); text-decoration:none; font-size:12.5px; margin-right:18px; transition:color .2s; }
+    .footer-legal a:hover{ color:var(--yellow); }
     .footer-copyright{
-      margin-top:34px;
-      padding-top:16px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.68);
-      font-size:14px;
+      grid-area:copyright; margin:0; padding-top:22px; border-top:1px solid rgba(244,241,232,.12);
+      color:rgba(244,241,232,.5); font-size:12.5px; letter-spacing:.02em; text-align:right; align-self:start;
+    }
+    @media (max-width:640px){
+      .footer{ text-align:center; }
+      .footer .container{
+        grid-template-columns:1fr;
+        grid-template-areas:"logo" "tagline" "nav" "legal" "copyright";
+        justify-items:center;
+      }
+      .footer-nav, .footer-legal{ justify-content:center; }
+      .footer-copyright{ text-align:center; }
     }
 
     /* ===== Gallery ===== */
@@ -2456,23 +2458,22 @@
         ScrapMaster — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.
       </div>
 
-      <div class="footer-nav" style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px 24px; margin:24px 0;">
-        <a href="features.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Можливості</a>
-        <a href="pricing.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Тарифи</a>
-        <a href="use-cases.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Кейси</a>
-        <a href="zhurnal-pryymalnyka.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Журнал приймальника</a>
-        <a href="blog.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Блог</a>
-        <a href="about.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Про нас</a>
-        <a href="faq.html" style="color:rgba(255,255,255,.85); text-decoration:none;">FAQ</a>
-        <a href="contact.html" style="color:rgba(255,255,255,.85); text-decoration:none;">Контакти</a>
+      <div class="footer-nav">
+        <a href="features.html">Можливості</a>
+        <a href="pricing.html">Тарифи</a>
+        <a href="use-cases.html">Кейси</a>
+        <a href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
+        <a href="blog.html">Блог</a>
+        <a href="about.html">Про нас</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Контакти</a>
       </div>
 
-      <div class="footer-copyright">
-        © 2025–2026 ScrapMaster. Усі права захищені.<br/>
-        <a href="privacy.html" style="color:rgba(255,255,255,.75); text-decoration:none; margin-top:8px; display:inline-block;">Політика конфіденційності</a>
-        <span style="color:rgba(255,255,255,.4); margin:0 8px;">|</span>
-        <a href="terms.html" style="color:rgba(255,255,255,.75); text-decoration:none;">Умови використання</a>
+      <div class="footer-legal">
+        <a href="terms.html">Умови використання</a>
+        <a href="privacy.html">Політика конфіденційності</a>
       </div>
+      <div class="footer-copyright">© 2025–2026 ScrapMaster. Усі права захищені.</div>
     </div>
   </footer>
 
