@@ -12,7 +12,7 @@
   <meta property="og:description" content="Три кроки, щоб почати вести облік металобрухту в ScrapMaster." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://scrapmaster.store/welcome.html" />
-  <meta property="og:image" content="https://scrapmaster.store/logo.png" />
+  <meta property="og:image" content="https://scrapmaster.store/hero-yard.jpg" />
   <meta property="og:locale" content="uk_UA" />
   <meta property="og:site_name" content="ScrapMaster" />
   <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
@@ -35,130 +35,345 @@
     gtag('js', new Date());
     gtag('config', 'G-9KBLQ7XG8V');
   </script>
-  <link rel="stylesheet" href="page-styles.css" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+
+  <style>
+    :root{
+      --paper:#F4F1E8;
+      --paper-2:#EBE5D4;
+      --ink:#18140F;
+      --steel:#6B6355;
+      --steel-soft:#9A9280;
+      --line:#DBD3BE;
+      --yellow:#FFC72C;
+      --yellow-deep:#C98A0A;
+      --white:#FFFFFF;
+      --max:1180px;
+    }
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+    h1,h2,h3{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.01em; text-wrap:balance; }
+    a{ color:inherit; }
+    img{ max-width:100%; display:block; }
+
+    .eyebrow{
+      font-family:'IBM Plex Mono',ui-monospace,monospace;
+      font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--yellow-deep);
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    .eyebrow::before{ content:''; width:22px; height:2px; background:var(--yellow-deep); display:inline-block; }
+
+    /* ===== Nav ===== */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:rgba(244,241,232,.88);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .inner{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 0; }
+    .brand{ display:flex; align-items:center; gap:11px; text-decoration:none; }
+    .brand img{ width:34px; height:34px; border-radius:50%; }
+    .brand-name{ font-family:'Oswald',sans-serif; font-weight:600; font-size:17px; letter-spacing:0.02em; }
+    .brand-name b{ color:var(--yellow-deep); font-weight:700; }
+    .navLinks{ display:flex; align-items:center; gap:6px; }
+    .navLinks a{
+      font-size:13px; font-weight:600; text-decoration:none; color:var(--steel);
+      padding:9px 14px; border-radius:8px; transition:color .15s ease, background .15s ease;
+    }
+    .navLinks a:hover{ color:var(--ink); background:var(--paper-2); }
+    .navLinks a.cta{
+      background:var(--ink); color:var(--paper) !important; font-weight:700;
+    }
+    .navLinks a.cta:hover{ background:#000; }
+    .menu-toggle{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; }
+    .menu-toggle span{ display:block; width:22px; height:2px; background:var(--ink); }
+    .mobile-menu{ display:none; position:fixed; top:66px; left:0; right:0; background:var(--paper); border-bottom:1px solid var(--line); z-index:60; padding:12px; }
+    .mobile-menu.active{ display:block; }
+    .mobile-menu a{ display:block; padding:13px 14px; text-decoration:none; color:var(--ink); font-weight:600; border-radius:8px; }
+    .mobile-menu a:hover{ background:var(--paper-2); }
+
+    /* ===== Hero ===== */
+    .hero{
+      position:relative; overflow:hidden;
+      min-height:min(88vh, 720px);
+      display:flex; align-items:flex-end;
+      color:var(--white);
+    }
+    .hero-media{ position:absolute; inset:0; z-index:0; }
+    .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:60% 40%; }
+    .hero-media::after{
+      content:''; position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,13,9,.94) 0%, rgba(15,13,9,.78) 32%, rgba(15,13,9,.30) 62%, rgba(15,13,9,.12) 100%),
+        linear-gradient(0deg, rgba(15,13,9,.55) 0%, rgba(15,13,9,0) 40%);
+    }
+    .hero-inner{ position:relative; z-index:1; padding:96px 0 56px; width:100%; }
+    .hero .eyebrow{ color:var(--yellow); margin-bottom:20px; }
+    .hero .eyebrow::before{ background:var(--yellow); }
+    .hero h1{
+      font-size:clamp(36px,5.6vw,64px); font-weight:700; line-height:1.02;
+      max-width:14ch; margin-bottom:22px;
+    }
+    .hero p{
+      font-size:18px; color:rgba(244,241,232,.86); max-width:46ch; margin-bottom:34px; line-height:1.6;
+    }
+    .hero-actions{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.02em; text-transform:uppercase;
+      padding:17px 30px; border-radius:999px; text-decoration:none; cursor:pointer; border:1px solid transparent;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover{ transform:translateY(-2px); }
+    .btn-primary{ background:var(--yellow); color:var(--ink); box-shadow:0 16px 32px -12px rgba(255,199,44,.55); }
+    .btn-primary:hover{ background:#FFD75C; box-shadow:0 20px 40px -12px rgba(255,199,44,.6); }
+    .btn-line{ background:transparent; color:var(--white); border-color:rgba(244,241,232,.4); }
+    .btn-line:hover{ border-color:var(--white); background:rgba(244,241,232,.08); }
+    .btn-outline-dark{ background:transparent; color:var(--ink); border-color:var(--ink); }
+    .btn-outline-dark:hover{ background:var(--ink); color:var(--paper); }
+
+    .trust-line{
+      font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:rgba(244,241,232,.7);
+      letter-spacing:0.02em;
+    }
+
+    /* ===== Steps ===== */
+    .section{ padding:88px 0; }
+    .section-head{ max-width:640px; margin-bottom:56px; }
+    .section-head h2{ font-size:clamp(26px,3.4vw,38px); margin-top:14px; }
+
+    .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); }
+    .step{ padding:36px 32px 36px 0; border-right:1px solid var(--line); }
+    .step:last-child{ border-right:none; padding-right:0; }
+    .step:not(:first-child){ padding-left:32px; }
+    .step-num{
+      font-family:'Oswald',sans-serif; font-size:52px; font-weight:700; color:var(--paper-2);
+      -webkit-text-stroke:1.5px var(--ink); color:transparent;
+      line-height:1; margin-bottom:18px;
+    }
+    .step h3{ font-size:19px; font-weight:600; margin-bottom:10px; letter-spacing:0; text-transform:none; }
+    .step p{ color:var(--steel); font-size:15px; }
+
+    .steps-cta{ display:flex; align-items:center; gap:22px; margin-top:52px; flex-wrap:wrap; }
+
+    /* ===== Proof (product screenshot) ===== */
+    .proof-section{ background:var(--ink); color:var(--paper); }
+    .proof-section .eyebrow{ color:var(--yellow); }
+    .proof-section .eyebrow::before{ background:var(--yellow); }
+    .proof-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; }
+    .proof-grid h2{ color:var(--paper); font-size:clamp(24px,3vw,32px); margin:14px 0 18px; }
+    .proof-grid p{ color:rgba(244,241,232,.72); font-size:16px; margin-bottom:14px; }
+    .proof-shot{
+      border-radius:10px; overflow:hidden; border:1px solid rgba(244,241,232,.14);
+      box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+    }
+    .proof-shot img{ display:block; width:100%; }
+
+    /* ===== Secondary CTA ===== */
+    .alt-path{ background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .alt-path .wrap{ display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; padding:44px 24px; }
+    .alt-path h3{ font-size:20px; font-weight:600; text-transform:none; letter-spacing:0; margin-bottom:6px; }
+    .alt-path p{ color:var(--steel); font-size:15px; max-width:44ch; }
+
+    /* ===== FAQ ===== */
+    .faq-list{ max-width:760px; }
+    .faq-item{ border-bottom:1px solid var(--line); }
+    .faq-item:first-child{ border-top:1px solid var(--line); }
+    .faq-q{
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+      padding:24px 2px; cursor:pointer; font-weight:600; font-size:17px;
+    }
+    .faq-mark{
+      font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--yellow-deep);
+      flex-shrink:0; transition:transform .25s ease; width:18px; text-align:center;
+    }
+    .faq-item.open .faq-mark{ transform:rotate(45deg); }
+    .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+    .faq-item.open .faq-a{ max-height:300px; }
+    .faq-a p{ padding:0 2px 24px; color:var(--steel); font-size:15px; max-width:70ch; }
+    .faq-a a{ color:var(--yellow-deep); font-weight:600; text-decoration:underline; }
+
+    /* ===== Footer ===== */
+    .footer{ background:var(--ink); color:rgba(244,241,232,.65); padding:56px 0 28px; }
+    .footer-top{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:36px; }
+    .footer-brand{ font-family:'Oswald',sans-serif; font-size:20px; color:var(--paper); font-weight:600; margin-bottom:8px; }
+    .footer-brand b{ color:var(--yellow); }
+    .footer-tagline{ max-width:34ch; font-size:14px; }
+    .footer-nav{ display:flex; flex-wrap:wrap; gap:8px 22px; }
+    .footer-nav a{ text-decoration:none; color:rgba(244,241,232,.65); font-size:13.5px; }
+    .footer-nav a:hover{ color:var(--yellow); }
+    .footer-bottom{
+      border-top:1px solid rgba(244,241,232,.12); padding-top:22px;
+      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      font-size:12.5px;
+    }
+    .footer-bottom a{ text-decoration:none; color:rgba(244,241,232,.5); margin-right:18px; }
+    .footer-bottom a:hover{ color:var(--yellow); }
+
+    .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+    .reveal.visible{ opacity:1; transform:none; }
+
+    @media (max-width:860px){
+      .steps{ grid-template-columns:1fr; }
+      .step{ border-right:none; border-bottom:1px solid var(--line); padding:28px 0 !important; }
+      .step:last-child{ border-bottom:none; }
+      .proof-grid{ grid-template-columns:1fr; gap:32px; }
+      .navLinks{ display:none; }
+      .menu-toggle{ display:flex; }
+      .hero{ min-height:auto; padding-top:20px; }
+      .hero-inner{ padding:60px 0 40px; }
+      .alt-path .wrap{ flex-direction:column; align-items:flex-start; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Nav -->
   <div class="nav">
-    <div class="container">
-      <div class="inner">
-        <div class="brand">
-          <a href="./">
-            <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
-            <div><div class="brandTitle">Scrap<span>Master</span></div></div>
-          </a>
-        </div>
-        <div class="navLinks">
-          <a class="link" href="features.html">Можливості</a>
-          <a class="link" href="pricing.html">Тарифи</a>
-          <a class="link" href="use-cases.html">Кейси</a>
-          <a class="link" href="blog.html">Блог</a>
-          <a class="link link-login" href="https://cabinet.scrapmaster.com.ua/login">Увійти</a>
-          <a class="link link-cta" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
-        </div>
-        <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    <div class="wrap inner">
+      <a class="brand" href="./">
+        <img src="logo.png" alt="ScrapMaster">
+        <span class="brand-name">Scrap<b>Master</b></span>
+      </a>
+      <div class="navLinks">
+        <a href="features.html">Можливості</a>
+        <a href="pricing.html">Тарифи</a>
+        <a href="blog.html">Блог</a>
+        <a href="https://cabinet.scrapmaster.com.ua/login">Увійти</a>
+        <a class="cta" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
       </div>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="./">Головна</a>
     <a href="features.html">Можливості</a>
     <a href="pricing.html">Тарифи</a>
-    <a href="use-cases.html">Кейси</a>
     <a href="blog.html">Блог</a>
-    <a href="https://cabinet.scrapmaster.com.ua/login" style="border:1.5px solid rgba(14,17,22,.2);">Увійти</a>
-    <a href="https://cabinet.scrapmaster.com.ua/register" style="background:#ffd43b; color:#1a1a2e; font-weight:900;">Почати безкоштовно</a>
+    <a href="https://cabinet.scrapmaster.com.ua/login">Увійти</a>
+    <a href="https://cabinet.scrapmaster.com.ua/register" style="background:var(--yellow); font-weight:700;">Почати безкоштовно</a>
   </div>
 
   <!-- Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="./">Головна</a> <span>›</span> <span>Ласкаво просимо</span>
-      </div>
-      <h1>Раді, що зацікавились ScrapMaster 👋</h1>
-      <p>Ви отримали лист про ScrapMaster — або просто шукаєте, з чого почати. Ось три кроки до першого прийому металу в системі.</p>
+  <header class="hero">
+    <div class="hero-media">
+      <img src="hero-yard.jpg" alt="Пункт прийому металобрухту" loading="eager">
     </div>
-  </section>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Вітаємо на борту</span>
+      <h1>Раді, що зацікавились ScrapMaster</h1>
+      <p>Ви отримали лист про ScrapMaster — або просто шукаєте, з чого почати. Нижче — три кроки до першого прийому металу в системі.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
+        <span class="trust-line">БЕЗ КАРТКИ · 14 ДНІВ ПОВНОГО ДОСТУПУ</span>
+      </div>
+    </div>
+  </header>
 
-  <!-- 3 steps -->
+  <!-- Steps -->
   <section class="section">
-    <div class="container">
-      <h2 class="section-title">Що робити далі</h2>
-      <p class="section-subtitle">Жодних дзвінків і очікування — почати можна прямо зараз, самостійно.</p>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Що далі</span>
+        <h2>Три кроки — і ви працюєте</h2>
+      </div>
 
-      <div class="benefits-list">
-        <div class="benefit-item">
-          <div class="benefit-check">1</div>
-          <div>
-            <h3>Зареєструйтесь безкоштовно</h3>
-            <p>2 хвилини, без банківської картки. Одразу отримуєте 14 днів повного доступу до системи.</p>
-          </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Реєструєтесь</h3>
+          <p>2 хвилини, без банківської картки. Одразу — 14 днів повного доступу до системи.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check">2</div>
-          <div>
-            <h3>Оберіть свій режим роботи</h3>
-            <p>Самі ведете облік на одній точці прийому — чи керуєте мережею з кількох. Система одразу підлаштовується під вас.</p>
-          </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Обираєте режим</h3>
+          <p>Самі ведете облік на одній точці — чи керуєте мережею з кількох. Система підлаштовується під вас.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check">3</div>
-          <div>
-            <h3>Почніть приймати метал</h3>
-            <p>Прийом, каса, залишки і прибуток — на одному екрані, з першого дня роботи.</p>
-          </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Приймаєте метал</h3>
+          <p>Прийом, каса, залишки і прибуток — на одному екрані, з першого дня роботи.</p>
         </div>
       </div>
 
-      <div style="text-align:center; margin-top:40px;">
-        <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register" style="font-size:17px; padding:18px 40px;">Почати безкоштовно →</a>
-        <p style="margin-top:14px; color:var(--muted); font-size:14px;">Без картки · 14 днів повного доступу · Скасувати можна будь-коли</p>
+      <div class="steps-cta reveal">
+        <a class="btn btn-outline-dark" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
+        <span style="color:var(--steel); font-size:14px;">Скасувати можна будь-коли</span>
       </div>
     </div>
   </section>
 
-  <!-- Not ready yet — secondary path, deliberately quieter than the main CTA -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="info-box" style="max-width:720px; margin:0 auto; text-align:center;">
-        <h3 style="margin-bottom:8px;">Ще не готові реєструватись самостійно?</h3>
-        <p style="color:var(--gray); margin-bottom:20px;">Запросіть демонстрацію — менеджер покаже систему на ваших даних і відповість на запитання.</p>
-        <a class="btn btn-outline" href="contact.html">Запросити демо</a>
+  <!-- Proof -->
+  <section class="section proof-section">
+    <div class="wrap proof-grid">
+      <div class="reveal">
+        <span class="eyebrow">Як це виглядає</span>
+        <h2>Все, що відбувається на точці — на одному екрані</h2>
+        <p>Закупівлі, продажі, відвантаження, витрати. Графік динаміки цін і закупівель. Курси валют. Ніяких окремих зошитів чи Excel-файлів.</p>
+        <p>Той самий екран бачите ви, керуючи з дому чи іншого міста — дані оновлюються в реальному часі.</p>
+      </div>
+      <div class="proof-shot reveal">
+        <img src="app.PNG" alt="Головна панель ScrapMaster" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Mini FAQ -->
+  <!-- Secondary path -->
+  <div class="alt-path">
+    <div class="wrap">
+      <div>
+        <h3>Ще не готові реєструватись самостійно?</h3>
+        <p>Менеджер покаже систему на ваших даних і відповість на запитання.</p>
+      </div>
+      <a class="btn btn-outline-dark" href="contact.html">Запросити демо</a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
   <section class="section">
-    <div class="container">
-      <h2 class="section-title">Коротко про головне</h2>
-      <div class="faq-list">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Коротко</span>
+        <h2>Найчастіші запитання</h2>
+      </div>
+
+      <div class="faq-list reveal">
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span>Підходить, якщо в мене лише одна точка прийому?</span>
-            <span class="faq-arrow">▼</span>
+            <span class="faq-mark">+</span>
           </div>
-          <div class="faq-answer">
-            <p>Так. Під час реєстрації ви обираєте режим «Сам веду облік» — і потрапляєте у просту, орієнтовану на щоденні операції версію інтерфейсу: прийом, каса, залишки, звіт. Захочете відкрити другу точку чи найняти персонал — переключитесь на повний режим будь-коли, без повторної реєстрації.</p>
+          <div class="faq-a">
+            <p>Так. Під час реєстрації ви обираєте режим «Сам веду облік» — і потрапляєте у просту версію інтерфейсу: прийом, каса, залишки, звіт. Захочете відкрити другу точку чи найняти персонал — переключитесь на повний режим будь-коли, без повторної реєстрації.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span>Скільки це коштує?</span>
-            <span class="faq-arrow">▼</span>
+            <span class="faq-mark">+</span>
           </div>
-          <div class="faq-answer">
-            <p>Перші 14 днів — повністю безкоштовно, з повним функціоналом. Після цього тарифи підбираються індивідуально під розмір вашого бізнесу — деталі на сторінці <a href="pricing.html" style="color:var(--primary-dark); font-weight:700;">тарифів</a>.</p>
+          <div class="faq-a">
+            <p>Перші 14 днів — повністю безкоштовно, з повним функціоналом. Далі тарифи підбираються індивідуально під розмір бізнесу — деталі на сторінці <a href="pricing.html">тарифів</a>.</p>
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span>Скільки часу займає почати роботу?</span>
-            <span class="faq-arrow">▼</span>
+            <span class="faq-mark">+</span>
           </div>
-          <div class="faq-answer">
+          <div class="faq-a">
             <p>Реєстрація — 2 хвилини. Далі система одразу пропонує створити вашу першу точку прийому — і можна проводити операції того ж дня.</p>
           </div>
         </div>
@@ -168,25 +383,31 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">Scrap<span style="color:#ffd43b;">Master</span></div>
-      <div class="footer-tagline">ScrapMaster — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.</div>
-      <div class="footer-nav">
-        <a href="./">Головна</a>
-        <a href="features.html">Можливості</a>
-        <a href="pricing.html">Тарифи</a>
-        <a href="use-cases.html">Кейси</a>
-        <a href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
-        <a href="blog.html">Блог</a>
-        <a href="about.html">Про нас</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Контакти</a>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Scrap<b>Master</b></div>
+          <div class="footer-tagline">Облік перестає бути проблемою і стає конкурентною перевагою.</div>
+        </div>
+        <nav class="footer-nav">
+          <a href="./">Головна</a>
+          <a href="features.html">Можливості</a>
+          <a href="pricing.html">Тарифи</a>
+          <a href="use-cases.html">Кейси</a>
+          <a href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
+          <a href="blog.html">Блог</a>
+          <a href="about.html">Про нас</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Контакти</a>
+        </nav>
       </div>
-      <div class="footer-legal">
-        <a href="terms.html">Умови використання</a>
-        <a href="privacy.html">Політика конфіденційності</a>
+      <div class="footer-bottom">
+        <div>
+          <a href="terms.html">Умови використання</a>
+          <a href="privacy.html">Політика конфіденційності</a>
+        </div>
+        <div>© 2025–2026 ScrapMaster. Усі права захищені.</div>
       </div>
-      <div class="footer-copyright">© 2025–2026 ScrapMaster. Усі права захищені.</div>
     </div>
   </footer>
 
