@@ -2,6 +2,23 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Визначаємо аудиторію (соло / мережа) до першого малювання сторінки —
+    // щоб не було спалаху "не того" контенту. ?audience=... в URL (для
+    // майбутніх сегментованих посилань у розсилках) має пріоритет і
+    // одразу зберігається як нове збережене значення.
+    (function () {
+      try {
+        var qp = new URLSearchParams(location.search).get('audience');
+        var stored = localStorage.getItem('sm.audience');
+        var audience = (qp === 'solo' || qp === 'network') ? qp : stored;
+        if (audience === 'solo' || audience === 'network') {
+          document.documentElement.setAttribute('data-audience', audience);
+          if (qp && qp !== stored) localStorage.setItem('sm.audience', qp);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c7850b18-c7ed-4902-920d-022a92d4d283" type="text/javascript" async></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ласкаво просимо — ScrapMaster</title>
@@ -242,6 +259,81 @@
     .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
     .reveal.visible{ opacity:1; transform:none; }
 
+    /* ===== Audience gate ("одна точка" vs "мережа") ===== */
+    /* Поки вибір не зроблено — ховаємо основний контент і показуємо гейт;
+       щойно html отримує [data-audience] (з localStorage, ?audience= або
+       кліку по картці) — CSS сам перемикає видимість, без миготіння. */
+    html:not([data-audience]) #mainContent{ display:none; }
+    html[data-audience] #audienceGate{ display:none; }
+    html[data-audience="solo"] .aud-network{ display:none !important; }
+    html[data-audience="network"] .aud-solo{ display:none !important; }
+
+    .gate{
+      min-height:calc(100vh - 66px);
+      display:flex; align-items:center; justify-content:center;
+      background:var(--ink); color:var(--paper); padding:60px 24px;
+    }
+    .gate-inner{ max-width:760px; width:100%; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; }
+    .gate-logo{ width:56px; height:56px; border-radius:50%; margin-bottom:24px; }
+    .gate .eyebrow{ color:var(--yellow); margin-bottom:16px; }
+    .gate .eyebrow::before{ background:var(--yellow); }
+    .gate-h1{ font-size:clamp(26px,4.2vw,40px); margin-bottom:14px; }
+    .gate-sub{ color:rgba(244,241,232,.7); font-size:16px; margin-bottom:44px; }
+    .gate-options{ display:grid; grid-template-columns:1fr 1fr; gap:20px; width:100%; }
+    .gate-card{
+      text-align:left; background:rgba(244,241,232,.04); border:1px solid rgba(244,241,232,.16);
+      border-radius:16px; padding:28px 26px; cursor:pointer; font-family:inherit; color:inherit;
+      display:flex; flex-direction:column; gap:10px;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .gate-card:hover{ transform:translateY(-3px); border-color:var(--yellow); background:rgba(244,241,232,.07); }
+    .gate-card:focus-visible{ outline:2px solid var(--yellow); outline-offset:3px; }
+    .gate-card-title{ font-family:'Oswald',sans-serif; font-size:19px; font-weight:600; text-transform:uppercase; letter-spacing:.01em; }
+    .gate-card-desc{ color:rgba(244,241,232,.68); font-size:14.5px; line-height:1.55; }
+    .gate-card-cta{
+      margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+      letter-spacing:.05em; text-transform:uppercase; color:var(--yellow);
+    }
+
+    /* ===== Desktop-screenshot proof (мережа) ===== */
+    .proof-shot-desktop{ padding:0; display:block; }
+    .proof-shot-desktop img{
+      position:static; width:100%; margin:0; filter:none; opacity:1;
+      border-radius:14px; border:1px solid rgba(244,241,232,.16);
+      box-shadow:0 40px 80px -28px rgba(0,0,0,.65);
+    }
+
+    /* ===== Features grid (переваги під аудиторію) ===== */
+    .features-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:1px;
+      background:var(--line); border:1px solid var(--line);
+    }
+    .feature-card{ background:var(--paper); padding:30px 32px; }
+    .feature-card h3{ font-size:18px; font-weight:600; letter-spacing:0; text-transform:none; margin-bottom:8px; }
+    .feature-card p{ color:var(--steel); font-size:14.5px; line-height:1.6; }
+
+    /* ===== Audience switch pill ===== */
+    .audience-switch{
+      display:none; position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+      z-index:40; align-items:center; gap:6px;
+      background:var(--ink); color:rgba(244,241,232,.7);
+      border-radius:999px; padding:6px 8px 6px 14px;
+      font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.03em;
+      box-shadow:0 16px 40px -16px rgba(0,0,0,.55);
+    }
+    html[data-audience] .audience-switch{ display:inline-flex; }
+    .audience-switch button{
+      font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0;
+      border:none; border-radius:999px; padding:6px 13px; cursor:pointer;
+      background:transparent; color:rgba(244,241,232,.6); transition:background .15s ease, color .15s ease;
+    }
+    .audience-switch button:hover{ color:var(--paper); }
+    .audience-switch button:focus-visible{ outline:2px solid var(--yellow); outline-offset:2px; }
+    html[data-audience="solo"] .audience-switch button[data-aud="solo"],
+    html[data-audience="network"] .audience-switch button[data-aud="network"]{
+      background:var(--yellow); color:var(--ink);
+    }
+
     @media (max-width:860px){
       .steps{ grid-template-columns:1fr; }
       .step{ border-right:none; border-bottom:1px solid var(--line); padding:28px 0 !important; }
@@ -254,6 +346,11 @@
       .hero{ min-height:auto; padding-top:20px; }
       .hero-inner{ padding-top:60px; padding-bottom:40px; }
       .alt-path .wrap{ flex-direction:column; align-items:flex-start; }
+      .gate-options{ grid-template-columns:1fr; }
+      .gate{ padding:44px 20px; }
+      .features-grid{ grid-template-columns:1fr; }
+      .audience-switch{ font-size:10.5px; padding:6px 6px 6px 12px; }
+      .audience-switch span{ display:none; }
     }
   </style>
 </head>
@@ -285,6 +382,32 @@
     <a href="https://cabinet.scrapmaster.com.ua/register" style="background:var(--yellow); font-weight:700;">Почати безкоштовно</a>
   </div>
 
+  <!-- Audience gate: перш ніж показати лендінг, питаємо як людина працює —
+       сама на одній точці, чи керує мережею. Від відповіді залежить, які
+       переваги й скріни додатку побачить нижче (operator UI vs admin UI). -->
+  <div id="audienceGate" class="gate">
+    <div class="gate-inner">
+      <img class="gate-logo" src="logo.png" alt="ScrapMaster">
+      <span class="eyebrow">Перш ніж покажемо деталі</span>
+      <h1 class="gate-h1">Як ви працюєте?</h1>
+      <p class="gate-sub">Оберіть — і покажемо саме те, що вам потрібно.</p>
+      <div class="gate-options">
+        <button type="button" class="gate-card" onclick="chooseAudience('solo')">
+          <span class="gate-card-title">Одна точка — веду сам</span>
+          <span class="gate-card-desc">Сам приймаю метал, рахую касу і стежу за залишками на своїй точці.</span>
+          <span class="gate-card-cta">Показати →</span>
+        </button>
+        <button type="button" class="gate-card" onclick="chooseAudience('network')">
+          <span class="gate-card-title">Мережа точок</span>
+          <span class="gate-card-desc">Кілька пунктів прийому, є прийомники чи адміністратори — хочу бачити все з одного місця.</span>
+          <span class="gate-card-cta">Показати →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainContent">
+
   <!-- Hero -->
   <header class="hero">
     <div class="hero-media">
@@ -293,7 +416,8 @@
     <div class="wrap hero-inner">
       <span class="eyebrow">Вітаємо на борту</span>
       <h1>Раді, що зацікавились ScrapMaster</h1>
-      <p>Ви отримали лист про ScrapMaster — або просто шукаєте, з чого почати. Нижче — три кроки до першого прийому металу в системі.</p>
+      <p class="aud-solo">Ви отримали лист про ScrapMaster — або просто шукаєте, з чого почати. Нижче — все, що потрібно, щоб вести свою точку з телефону.</p>
+      <p class="aud-network">Ви отримали лист про ScrapMaster — або просто шукаєте, з чого почати. Нижче — як тримати всю мережу точок під контролем з одного місця.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
         <span class="trust-line">БЕЗ КАРТКИ · 14 ДНІВ ПОВНОГО ДОСТУПУ</span>
@@ -334,8 +458,8 @@
     </div>
   </section>
 
-  <!-- Proof -->
-  <section class="section proof-section">
+  <!-- Proof: одна точка -->
+  <section class="section proof-section aud-solo">
     <div class="wrap proof-grid">
       <div class="reveal">
         <span class="eyebrow">Як це виглядає</span>
@@ -350,6 +474,81 @@
       <div class="proof-shot reveal">
         <img class="proof-shot-back" src="operator-cash.png" alt="Каса та залишки в мобільному додатку ScrapMaster" loading="lazy">
         <img class="proof-shot-front" src="operator-receive.png" alt="Швидкий прийом металу з телефону в ScrapMaster" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof: мережа -->
+  <section class="section proof-section aud-network">
+    <div class="wrap proof-grid">
+      <div class="reveal">
+        <span class="eyebrow">Як це виглядає</span>
+        <h2>Вся мережа — на одному екрані</h2>
+        <p>Скільки б точок не було — заходите і бачите кожну: прийом, каса, залишки, прибуток. Без дзвінків прийомникам і без збирання Excel-файлів окремо по кожній точці.</p>
+        <ul class="proof-list">
+          <li>Фільтруйте звіт хоч по одній точці, хоч по всій мережі одразу</li>
+          <li>Права доступу — оператор бачить свою точку, ви бачите все</li>
+          <li>Дані оновлюються в реальному часі, поки ви дивитесь</li>
+        </ul>
+      </div>
+      <div class="proof-shot proof-shot-desktop reveal">
+        <img src="app.PNG" alt="Панель керування мережею точок прийому в ScrapMaster" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Переваги: одна точка -->
+  <section class="section aud-solo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Чому саме так</span>
+        <h2>Зроблено для тих, хто сам стоїть на точці</h2>
+      </div>
+      <div class="features-grid reveal">
+        <div class="feature-card">
+          <h3>Працюєте з телефону</h3>
+          <p>Не потрібен комп'ютер чи окрема каса на точці — все в кишені.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Прибуток видно щодня</h3>
+          <p>Не наприкінці тижня, коли вже пізно щось міняти.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ціни завжди під рукою</h3>
+          <p>Не треба дзвонити в офіс чи звірятись із зошитом.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Просто, як месенджер</h3>
+          <p>Розберетесь за 10 хвилин, без навчання чи бухгалтера.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Переваги: мережа -->
+  <section class="section aud-network">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Чому саме так</span>
+        <h2>Зроблено для тих, хто керує мережею точок</h2>
+      </div>
+      <div class="features-grid reveal">
+        <div class="feature-card">
+          <h3>Кожна точка в реальному часі</h3>
+          <p>Бачите прийом, касу і залишки на будь-якій локації — з дому чи офісу.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ролі та права доступу</h3>
+          <p>Прийомник бачить свою точку, ви — всю мережу одразу.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ніхто нічого не підітре</h3>
+          <p>Журнал фіксує, хто і що зробив — на кожній точці окремо.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Зведена звітність</h3>
+          <p>Один звіт по всій мережі — без ручного зведення Excel-файлів.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -435,7 +634,23 @@
     </div>
   </footer>
 
+  </div><!-- /#mainContent -->
+
+  <!-- Дрібний перемикач: з'являється щойно вибір зроблено, дозволяє
+       передумати без повторного показу повноекранного гейту. -->
+  <div class="audience-switch" id="audienceSwitch">
+    <span>Показуємо:</span>
+    <button type="button" data-aud="solo" onclick="chooseAudience('solo')">Одна точка</button>
+    <button type="button" data-aud="network" onclick="chooseAudience('network')">Мережа</button>
+  </div>
+
   <script>
+    function chooseAudience(aud){
+      document.documentElement.setAttribute('data-audience', aud);
+      try { localStorage.setItem('sm.audience', aud); } catch(e){}
+      window.scrollTo(0, 0);
+      if (typeof gtag === 'function') gtag('event', 'choose_audience', { audience: aud });
+    }
     const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobileMenu');
     mt.addEventListener('click',()=>{mt.classList.toggle('active');mm.classList.toggle('active');});
     document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{mt.classList.remove('active');mm.classList.remove('active');}));
