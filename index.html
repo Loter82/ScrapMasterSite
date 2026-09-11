@@ -603,6 +603,7 @@
       border-top: 4px solid #FFC72C;
     }
     .card:hover{ transform: translateY(-8px); box-shadow: var(--shadow); }
+    .card[role="button"]:focus-visible{ outline:2px solid var(--primary-dark); outline-offset:3px; }
     .card-icon{
       width:52px; height:52px;
       display:flex; align-items:center; justify-content:center;
@@ -1962,6 +1963,31 @@
     </div>
   </section>
 
+  <!-- AUDIENCE PICKER: не блокує решту сторінки — просто допомагає одразу
+       побачити приклад під свій сценарій. "Мережа" гортає до контенту нижче
+       (він і так написаний під власника мережі); "Одна точка" веде на
+       спрощену welcome.html, заточену під самостійного прийомника. -->
+  <section class="section" id="audiencePicker" style="padding:52px 0;">
+    <div class="container">
+      <h2 class="section-title">Як ви працюєте?</h2>
+      <p class="section-subtitle">Оберіть — і покажемо приклади саме для вашого сценарію.</p>
+      <div class="cards-container" style="max-width:860px; margin:0 auto;">
+        <div class="card" style="cursor:pointer;" onclick="pickHomeAudience('solo')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')pickHomeAudience('solo')">
+          <div class="card-icon"><i class="ti ti-device-mobile"></i></div>
+          <h3 class="card-title">Одна точка — веду сам</h3>
+          <p class="card-text">Сам приймаю метал, рахую касу і стежу за залишками на своїй точці.</p>
+          <p style="margin-top:14px; font-weight:800; color:var(--primary-dark); font-size:14.5px;">Показати спрощений варіант →</p>
+        </div>
+        <div class="card" style="cursor:pointer;" onclick="pickHomeAudience('network')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')pickHomeAudience('network')">
+          <div class="card-icon"><i class="ti ti-building-skyscraper"></i></div>
+          <h3 class="card-title">Мережа точок</h3>
+          <p class="card-text">Кілька пунктів прийому, є прийомники чи адміністратори — хочу бачити все з одного місця.</p>
+          <p style="margin-top:14px; font-weight:800; color:var(--primary-dark); font-size:14.5px;">Читати далі на цій сторінці ↓</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INTRO -->
   <section class="section">
     <div class="container">
@@ -2927,6 +2953,24 @@
     function closeMobileMenu() {
       menuToggle.classList.remove('active');
       mobileMenu.classList.remove('active');
+    }
+
+    // Секція "Як ви працюєте?" одразу після hero — не блокує сторінку
+    // (важливо: index.html індексується, весь основний контент завжди
+    // видимий). "Одна точка" веде на спрощену welcome.html; "Мережа"
+    // просто гортає далі, бо решта сторінки й так написана під власника
+    // мережі.
+    function pickHomeAudience(aud) {
+      try { localStorage.setItem('sm.audience', aud); } catch (e) {}
+      if (typeof gtag === 'function') gtag('event', 'choose_audience_home', { audience: aud });
+      if (aud === 'solo') {
+        window.location.href = 'welcome.html?audience=solo&src=home';
+      } else {
+        const picker = document.getElementById('audiencePicker');
+        if (picker && picker.nextElementSibling) {
+          picker.nextElementSibling.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     }
   </script>
 
