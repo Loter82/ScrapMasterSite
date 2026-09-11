@@ -230,6 +230,16 @@
     body{ background:#F4F1E8; color:var(--text); line-height:1.6; }
     .container{ max-width:1200px; margin:0 auto; padding:0 20px; }
 
+    /* ===== Eyebrow label — matches welcome.html exactly ===== */
+    .eyebrow{
+      font-family:'IBM Plex Mono',ui-monospace,monospace;
+      font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--yellow-deep);
+      display:inline-flex; align-items:center; gap:10px;
+      margin-bottom:14px;
+    }
+    .eyebrow::before{ content:''; width:22px; height:2px; background:var(--yellow-deep); display:inline-block; }
+
     /* ===== Topbar (sticky) — matches welcome.html / page-styles.css exactly ===== */
     .nav{
       position:sticky;
@@ -374,248 +384,162 @@
       position:relative;
       overflow:hidden;
       color:#fff;
-      padding:86px 0 74px;
-      background:
-        radial-gradient(1200px 600px at 70% 20%, rgba(74,124,63,.18), transparent 55%),
-        radial-gradient(900px 500px at 20% 80%, rgba(255,199,44,.22), transparent 55%),
-        linear-gradient(135deg, rgba(24,20,15,.86) 0%, rgba(24,20,15,.64) 100%),
-        url("background.png");
-      background-size:cover;
-      background-position:center;
-    }
-    .header::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity:.18;
-      pointer-events:none;
-    }
-
-    .topline{
+      min-height:min(82vh, 660px);
       display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      position:relative;
-      z-index:1;
-      margin-bottom:22px;
+      align-items:flex-end;
+    }
+    .header .hero-media{ position:absolute; inset:0; z-index:0; }
+    .header .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:60% 45%; }
+    .header .hero-media::after{
+      content:''; position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,13,9,.94) 0%, rgba(15,13,9,.80) 32%, rgba(15,13,9,.32) 62%, rgba(15,13,9,.14) 100%),
+        linear-gradient(0deg, rgba(15,13,9,.55) 0%, rgba(15,13,9,0) 40%);
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border: var(--border);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-size:14px;
-      opacity:.95;
-    }
-    .badge b{ color:#fff; font-weight:800; }
-    .badge .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--secondary);
-      box-shadow: 0 0 0 6px rgba(74,124,63,.15);
-    }
+    .header .container{ position:relative; z-index:1; padding-top:88px; padding-bottom:52px; }
 
-    .subtitle{
-      opacity:.92;
-      font-size:16px;
-      margin-top:10px;
-      font-weight:600;
-    }
+    .header .eyebrow{ color:var(--yellow); }
+    .header .eyebrow::before{ background:var(--yellow); }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:28px;
-      align-items:start;
-      position:relative;
-      z-index:1;
-      margin-top:26px;
-    }
+    .hero-grid{ max-width:760px; }
     .hero-left h1{
-      font-size:42px;
-      line-height:1.15;
-      text-shadow:0 2px 10px rgba(0,0,0,.35);
-      margin-bottom:16px;
-      font-weight:900;
+      font-family:'Oswald',sans-serif;
+      font-size:clamp(32px,4.6vw,54px);
+      line-height:1.08;
+      font-weight:700;
+      letter-spacing:.01em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      text-wrap:balance;
     }
-
 
     .hero-text{
-      max-width:720px;
-      font-size:16px;
-      opacity:.95;
-      margin-bottom:18px;
+      max-width:640px;
+      font-size:18px;
+      color:rgba(244,241,232,.86);
+      margin-bottom:30px;
       line-height:1.6;
     }
 
     .cta-row{
       display:flex;
-      gap:12px;
+      align-items:center;
+      gap:20px;
       flex-wrap:wrap;
-      margin-top:12px;
+      margin-top:4px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:14px 18px;
-      border-radius:12px;
+      font-family:'Oswald',sans-serif;
+      font-weight:600; font-size:15px; letter-spacing:.02em; text-transform:uppercase;
+      padding:17px 30px;
+      border-radius:999px;
       text-decoration:none;
-      font-weight:800;
-      font-size:15px;
       border: 1px solid transparent;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
       cursor:pointer;
       user-select:none;
       white-space:nowrap;
     }
     .btn:hover{ transform: translateY(-2px); }
     .btn-primary{
-      background: linear-gradient(135deg, #FFC72C 0%, #C98A0A 100%);
-      color:#18140F;
-      box-shadow: 0 14px 35px rgba(255,199,44,.35);
-      font-weight:900;
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 0 16px 32px -12px rgba(255,199,44,.55);
     }
-    .btn-primary:hover{
-      box-shadow: 0 18px 40px rgba(255,199,44,.45);
-    }
+    .btn-primary:hover{ background:#FFD75C; box-shadow: 0 20px 40px -12px rgba(255,199,44,.6); }
     .btn-ghost{
-      background: rgba(255,255,255,.10);
-      border: var(--border);
+      background: transparent;
+      border: 1px solid rgba(244,241,232,.4);
       color:#fff;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    }
+    .btn-ghost:hover{ border-color:#fff; background:rgba(244,241,232,.08); }
+
+    .trust-line{
+      font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:rgba(244,241,232,.7);
+      letter-spacing:.02em;
     }
 
-    .hero-right{
-      border-radius: var(--radius);
-      padding:22px;
-      background: rgba(255,255,255,.10);
-      border: var(--border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 18px 48px rgba(0,0,0,.22);
-      display:flex;
-      flex-direction:column;
-      height:fit-content;
+    /* Stat strip: заміна glassmorphism KPI-плиток — плаский рядок фактів
+       одразу під hero, без блюру/рамок/світіння. */
+    .stat-strip{
+      background:var(--ink); color:var(--paper);
+      border-top:1px solid rgba(244,241,232,.12);
     }
-    .hero-right h3{
-      font-size:16px;
-      letter-spacing:.4px;
-      text-transform:uppercase;
-      opacity:.9;
-      margin-bottom:14px;
+    .stat-strip .container{
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:0;
     }
-    .kpi-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-bottom:12px;
+    .stat{
+      padding:26px 22px;
+      border-left:1px solid rgba(244,241,232,.12);
     }
-    .kpi{
-      padding:16px;
-      border-radius:12px;
-      background: rgba(255,199,44,.12);
-      border: 1px solid rgba(255,199,44,.35);
+    .stat:first-child{ border-left:none; padding-left:0; }
+    .stat .num{
+      font-family:'Oswald',sans-serif; font-size:19px; font-weight:600;
+      letter-spacing:.02em; color:var(--yellow); margin-bottom:6px;
     }
-    .kpi .num{
-      font-size:20px;
-      font-weight:900;
-      margin-bottom:6px;
-      letter-spacing:.3px;
-      color:#FFC72C;
-    }
-    .kpi .label{
-      font-size:13px;
-      opacity:.86;
-      line-height:1.4;
-      font-weight:500;
-    }
-    .micro{
-      font-size:13px;
-      opacity:.80;
-      line-height:1.5;
-      margin-top:0;
-      font-weight:500;
-    }
+    .stat .label{ font-size:13px; color:rgba(244,241,232,.68); line-height:1.4; }
 
     /* ===== Sections ===== */
-    .section{ padding:80px 0; }
-    .section-dark{
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,199,44,.08), transparent 60%),
-                  radial-gradient(900px 500px at 80% 70%, rgba(255,199,44,.06), transparent 60%),
-                  var(--dark);
-      color:#fff;
-    }
+    .section{ padding:88px 0; }
+    .section-dark{ background:var(--ink); color:var(--paper); }
+    .section-head{ max-width:640px; margin:0 auto 52px; text-align:left; }
+    .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+    .section-head.center .eyebrow{ justify-content:center; }
     .section-title{
-      text-align:center;
-      font-size:36px;
-      margin-bottom:18px;
-      color: #18140F;
-      position: relative;
-      padding-bottom: 12px;
+      font-family:'Oswald',sans-serif;
+      font-size:clamp(26px,3.2vw,36px);
+      font-weight:700; text-transform:uppercase; letter-spacing:.01em;
+      color:var(--ink);
+      text-wrap:balance;
     }
-    .section-title::after{
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, #FFC72C, #C98A0A);
-      border-radius: 2px;
-    }
-    .section-dark .section-title{ color:#fff; }
+    .section-dark .section-title{ color:var(--paper); }
+    .section-dark .eyebrow{ color:var(--yellow); }
+    .section-dark .eyebrow::before{ background:var(--yellow); }
     .section-subtitle{
-      text-align:center;
-      font-size:18px;
-      color: var(--gray);
-      max-width:860px;
-      margin:0 auto 48px;
+      font-size:16.5px;
+      color:var(--steel);
+      max-width:640px;
+      margin-top:12px;
     }
-    .section-dark .section-subtitle{ color: rgba(255,255,255,.78); }
+    .section-head.center .section-subtitle{ margin-left:auto; margin-right:auto; }
+    .section-dark .section-subtitle{ color: rgba(244,241,232,.72); }
 
-    /* ===== Cards ===== */
+    /* ===== Cards: hairline editorial grid — не rounded+тінь+акцентна смужка ===== */
     .cards-container{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap:22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
     }
     .card{
-      background:#fff;
-      border-radius: var(--radius);
-      padding:28px;
-      box-shadow: var(--shadow-soft);
-      transition: transform .25s ease, box-shadow .25s ease;
-      border-top: 4px solid #FFC72C;
+      background:var(--paper);
+      padding:30px 28px;
+      transition: background .18s ease;
     }
-    .card:hover{ transform: translateY(-8px); box-shadow: var(--shadow); }
-    .card[role="button"]:focus-visible{ outline:2px solid var(--primary-dark); outline-offset:3px; }
+    a.card, .card[role="button"]{ text-decoration:none; color:inherit; cursor:pointer; }
+    .card[role="button"]:hover, a.card:hover{ background:var(--paper-2); }
+    .card[role="button"]:focus-visible{ outline:2px solid var(--yellow-deep); outline-offset:-2px; }
     .card-icon{
-      width:52px; height:52px;
+      width:22px; height:22px;
       display:flex; align-items:center; justify-content:center;
-      border-radius:14px;
-      background: #FFC72C;
-      color: #18140F;
-      font-size:24px;
-      margin-bottom:20px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: var(--yellow-deep);
+      font-size:20px;
+      margin-bottom:18px;
     }
-    .card-title{ font-size:20px; margin-bottom:10px; color:#18140F; }
-    .card-text{ color: var(--gray); }
+    .card-title{
+      font-size:18px; font-weight:600; letter-spacing:0; text-transform:none;
+      margin-bottom:8px; color:var(--ink);
+    }
+    .card-text{ color: var(--steel); font-size:14.5px; line-height:1.6; }
+    .cards-container-2col{ grid-template-columns:1fr 1fr; }
+    @media (max-width:640px){ .cards-container-2col{ grid-template-columns:1fr; } }
 
     /* ===== Proof / Product screenshot ===== */
     .proof{
@@ -623,11 +547,9 @@
       max-width:1050px;
       margin-left:auto;
       margin-right:auto;
-      border-radius: 18px;
       overflow:hidden;
-      background:#fff;
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: var(--shadow-soft);
+      background:var(--paper);
+      border: 1px solid var(--line);
     }
     .proof-head{
       display:flex;
@@ -635,8 +557,8 @@
       justify-content:space-between;
       gap:14px;
       padding:14px 16px;
-      border-bottom: 1px solid rgba(0,0,0,.06);
-      background: linear-gradient(135deg, #ffffff 0%, #EBE5D4 100%);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-2);
     }
     .proof-left{
       display:flex;
@@ -648,21 +570,21 @@
       width:36px; height:36px;
       border-radius:50%;
       background:#fff;
-      border: 1px solid rgba(0,0,0,.06);
+      border: 1px solid var(--line);
       display:grid; place-items:center;
       flex:0 0 auto;
       overflow:hidden;
     }
     .miniLogo img{ width:36px; height:36px; border-radius:50%; object-fit:cover; }
     .proof-title{
-      font-weight:900;
+      font-weight:600;
       font-size:14px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
     .proof-sub{
-      color: rgba(24,20,15,.62);
+      color: var(--steel);
       font-size:12.5px;
       margin-top:2px;
       white-space:nowrap;
@@ -670,182 +592,170 @@
       text-overflow:ellipsis;
     }
     .proof-meta{
-      font-weight:900;
+      font-weight:600;
       font-size:12px;
-      color: rgba(24,20,15,.60);
+      color: var(--steel);
       white-space:nowrap;
+      font-family:'IBM Plex Mono',monospace;
     }
     .proof img{ width:100%; display:block; }
     .proof-foot{
       padding:12px 16px 16px;
-      color: rgba(24,20,15,.68);
+      color: var(--steel);
       font-size:14px;
     }
 
     /* ===== Exec block ===== */
     .exec{
-      margin-top:38px;
-      border-radius: 18px;
-      padding:34px;
-      background: linear-gradient(135deg, #EBE5D4 0%, #EBE5D4 100%);
-      border: 2px solid #FFC72C;
-      box-shadow: var(--shadow-soft);
+      margin-top:44px;
+      padding:36px 0 0;
+      border-top:1px solid var(--line);
     }
     .exec h3{
-      font-size:26px;
-      color: #18140F;
-      margin-bottom:8px;
+      font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.01em;
+      font-size:24px;
+      color: var(--ink);
+      margin-bottom:10px;
     }
-    .exec p{ color: var(--gray); margin-top:8px; max-width:900px; }
+    .exec p{ color: var(--steel); margin-top:8px; max-width:820px; font-size:15.5px; }
     .exec-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:18px;
+      gap:1px;
+      margin-top:26px;
+      background:var(--line);
+      border:1px solid var(--line);
     }
     .exec-item{
-      background:#fff;
-      border-radius:14px;
-      padding:16px;
-      border: 1px solid rgba(255,199,44,.3);
+      background:var(--paper);
+      padding:18px 20px;
     }
-    .exec-item b{ display:block; margin-bottom:6px; color:#18140F; }
-    .exec-item span{ color: var(--gray); font-size:14px; }
+    .exec-item b{ display:block; margin-bottom:6px; color:var(--ink); font-weight:600; }
+    .exec-item span{ color: var(--steel); font-size:14px; }
 
-    /* ===== Metrics dark ===== */
+    /* ===== Metrics dark: hairline grid, без блюру й світіння ===== */
     .metrics{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap:1px;
       margin-top:26px;
+      background:rgba(244,241,232,.14);
+      border:1px solid rgba(244,241,232,.14);
     }
     .metric{
-      border-radius: 14px;
-      padding:18px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,199,44,.25);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      padding:22px;
+      background:var(--ink);
       text-align:left;
     }
     .metric .top{
       display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
     .metric .pill{
       display:inline-flex;
-      padding:6px 10px;
-      border-radius:999px;
-      background: rgba(255,199,44,.25);
-      border: 1px solid rgba(255,199,44,.5);
-      color:#FFC72C;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.2px;
+      padding:5px 10px;
+      background: rgba(244,241,232,.1);
+      color:rgba(244,241,232,.7);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-family:'IBM Plex Mono',monospace;
     }
     .metric .value{
-      font-size:26px;
-      font-weight:900;
-      letter-spacing:.3px;
+      font-family:'Oswald',sans-serif;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:.01em;
+      color:var(--yellow);
     }
-    .metric p{ opacity:.86; font-size:14px; margin-top:8px; line-height:1.45; }
+    .metric p{ color:rgba(244,241,232,.7); font-size:14px; margin-top:8px; line-height:1.5; }
 
-    /* ===== Benefits ===== */
-    .benefits-list{ max-width:880px; margin:0 auto; }
+    /* ===== Benefits: hairline list, без карток-з-тінню ===== */
+    .benefits-list{ max-width:760px; }
     .benefit-item{
       display:flex;
       align-items:flex-start;
-      gap:16px;
-      margin-bottom:18px;
-      padding:18px;
-      background:#fff;
-      border-radius:14px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255,199,44,.3);
+      gap:20px;
+      padding:22px 2px;
+      border-bottom: 1px solid var(--line);
     }
+    .benefits-list .benefit-item:first-child{ border-top: 1px solid var(--line); }
     .benefit-check{
-      width:42px; height:42px;
+      width:22px; height:22px;
       display:flex; align-items:center; justify-content:center;
-      background: #FFC72C;
-      color:#18140F;
-      border-radius:12px;
+      color: var(--yellow-deep);
       flex-shrink:0;
-      box-shadow: 0 6px 16px rgba(255,199,44,.30);
-      font-size:20px;
+      font-size:19px;
+      margin-top:2px;
     }
-    .benefit-item h3{ margin-bottom:4px; font-size:18px; color:#18140F; }
-    .benefit-item p{ color: var(--gray); }
+    .benefit-item h3{ margin-bottom:4px; font-size:17px; font-weight:600; letter-spacing:0; text-transform:none; color:var(--ink); }
+    .benefit-item p{ color: var(--steel); font-size:14.5px; }
 
     /* ===== Enterprise ===== */
     .approach-container{
-      background:#fff;
-      border-radius:18px;
+      background:var(--paper);
       padding:38px;
-      box-shadow: var(--shadow-soft);
       max-width:980px;
       margin:0 auto;
-      border: 2px solid #FFC72C;
+      border: 1px solid var(--line);
     }
     .approach-head{
       display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;
       justify-content:space-between;
-      margin-bottom:18px;
+      margin-bottom:22px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--line);
     }
-    .approach-head .note{ color: var(--gray); max-width:740px; }
+    .approach-head .note{ color: var(--steel); max-width:740px; }
     .approach-list{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
-      gap:14px;
-      margin-top:18px;
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
     }
     .approach-item{
-      padding:16px;
-      border-radius:14px;
-      border-left: 4px solid #FFC72C;
-      background:#EBE5D4;
-      border: 1px solid rgba(255,199,44,.3);
+      padding:18px 20px;
+      background:var(--paper);
     }
-    .approach-item h4{ margin-bottom:6px; color:#18140F; }
-    .approach-item p{ color: var(--gray); }
+    .approach-item h4{ margin-bottom:6px; color:var(--ink); font-weight:600; }
+    .approach-item p{ color: var(--steel); font-size:14.5px; }
 
     /* ===== Wishes ===== */
     .wishes-container{
-      max-width:900px;
+      max-width:820px;
       margin:0 auto;
-      background:#fff;
-      border-radius:18px;
-      padding:48px;
-      box-shadow: var(--shadow-soft);
-      border: 2px solid #FFC72C;
+      background:var(--paper);
+      padding:0;
     }
     .wishes-title{
-      font-size:28px;
-      margin-bottom:28px;
-      color: #18140F;
-      font-weight:900;
+      font-family:'Oswald',sans-serif;
+      font-size:24px;
+      margin-bottom:8px;
+      color: var(--ink);
+      font-weight:600; text-transform:uppercase; letter-spacing:.01em;
       text-align:left;
     }
     .wishes-list{
       list-style:none;
-      margin-bottom:32px;
+      margin-top:20px;
+      margin-bottom:0;
     }
     .wish-item{
       display:flex;
       align-items:center;
       gap:16px;
-      padding:16px 0;
-      font-size:17px;
-      color:#18140F;
-      border-bottom:1px solid rgba(0,0,0,.06);
+      padding:18px 2px;
+      font-size:16px;
+      color:var(--ink);
+      border-bottom:1px solid var(--line);
     }
-    .wish-item:last-child{
-      border-bottom:none;
-    }
+    .wishes-list .wish-item:first-child{ border-top:1px solid var(--line); }
     .wish-icon{
-      width:36px;
-      height:36px;
-      background:#FFC72C;
-      border-radius:10px;
+      width:22px;
+      height:22px;
+      color: var(--yellow-deep);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -853,24 +763,22 @@
       flex-shrink:0;
     }
     .wish-highlight{
-      background:linear-gradient(135deg, #EBE5D4 0%, #EBE5D4 100%);
-      border-radius:16px;
-      padding:24px 28px;
-      margin-top:24px;
-      border:2px solid #FFC72C;
-      text-align:center;
+      background:var(--ink);
+      padding:28px 32px;
+      margin-top:32px;
+      text-align:left;
     }
     .wish-highlight-text{
-      font-size:22px;
-      font-weight:900;
-      color:#18140F;
+      font-family:'Oswald',sans-serif;
+      font-size:20px;
+      font-weight:600; letter-spacing:.01em;
+      color:var(--paper);
       line-height:1.5;
     }
     .wish-highlight-text .accent{
-      color:#FFC72C;
-      background:#18140F;
+      color:var(--ink);
+      background:var(--yellow);
       padding:2px 12px;
-      border-radius:6px;
       display:inline-block;
     }
 
@@ -961,8 +869,8 @@
       to{ opacity:1; }
     }
     .modal-content{
-      background:#fff;
-      border-radius:20px;
+      background:var(--paper);
+      border-radius:14px;
       max-width:500px;
       width:100%;
       max-height:90vh;
@@ -1002,8 +910,8 @@
       color:#18140F;
     }
     .modal-title{
-      font-size:26px;
-      font-weight:900;
+      font-size:24px;
+      font-weight:700;
       margin-bottom:8px;
       color:#18140F;
     }
@@ -1032,16 +940,16 @@
     .form-input{
       width:100%;
       padding:12px 16px;
-      border:2px solid rgba(0,0,0,.1);
-      border-radius:12px;
+      border:1px solid var(--line);
+      border-radius:8px;
       font-size:15px;
-      transition:all 0.2s ease;
+      transition:border-color .18s ease;
       font-family:inherit;
+      background:var(--paper);
     }
     .form-input:focus{
       outline:none;
-      border-color:#FFC72C;
-      box-shadow:0 0 0 4px rgba(255,199,44,.1);
+      border-color:var(--yellow-deep);
     }
     .form-textarea{
       resize:vertical;
@@ -1051,19 +959,19 @@
     .form-submit{
       width:100%;
       padding:16px;
-      background:linear-gradient(135deg, #FFC72C 0%, #C98A0A 100%);
-      color:#18140F;
+      background:var(--yellow);
+      color:var(--ink);
       border:none;
-      border-radius:12px;
-      font-size:16px;
-      font-weight:900;
+      border-radius:999px;
+      font-family:'Oswald',sans-serif;
+      font-size:15px;
+      font-weight:600; text-transform:uppercase; letter-spacing:.02em;
       cursor:pointer;
-      transition:all 0.3s ease;
-      box-shadow:0 4px 12px rgba(255,199,44,.3);
+      transition:background .18s ease, transform .18s ease;
     }
     .form-submit:hover{
+      background:#FFD75C;
       transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(255,199,44,.4);
     }
     .form-submit:disabled{
       opacity:0.6;
@@ -1375,10 +1283,8 @@
     .flow-diagram{
       margin:36px auto 8px;
       max-width:980px;
-      background:linear-gradient(135deg,#EBE5D4 0%,#ffffff 100%);
-      border-radius:20px;
-      border:1px solid rgba(0,0,0,.07);
-      box-shadow:0 4px 32px rgba(0,0,0,.07);
+      background:var(--paper-2);
+      border:1px solid var(--line);
       padding:36px 28px 32px;
     }
     .flow-columns{
@@ -1402,24 +1308,18 @@
       text-align:center;
     }
     .flow-node{
-      background:#fff;
-      border:1.5px solid rgba(0,0,0,.08);
-      border-radius:10px;
+      background:var(--paper);
+      border:1px solid var(--line);
       padding:10px 14px;
       display:flex;
       align-items:center;
       gap:9px;
       font-size:13px;
       font-weight:600;
-      color:#18140F;
-      box-shadow:0 2px 8px rgba(0,0,0,.045);
-      transition:all 0.22s;
+      color:var(--ink);
+      transition:border-color .18s ease;
     }
-    .flow-node:hover{
-      border-color:var(--primary);
-      box-shadow:0 4px 16px rgba(255,199,44,.22);
-      transform:translateY(-2px);
-    }
+    .flow-node:hover{ border-color:var(--yellow-deep); }
     .flow-node-icon{ font-size:17px; flex-shrink:0; display:inline-flex; align-items:center; }
     .flow-arrow-col{
       display:flex;
@@ -1437,55 +1337,54 @@
       align-items:center;
     }
     .flow-core{
-      background:linear-gradient(145deg,#FFC72C 0%,#C98A0A 100%);
-      border-radius:18px;
+      background:var(--ink);
       padding:22px 18px 18px;
       text-align:center;
-      box-shadow:0 8px 32px rgba(255,199,44,.40), 0 0 0 4px rgba(255,199,44,.15);
       width:100%;
     }
     .flow-core-logo{
       width:44px;
       height:44px;
       border-radius:50%;
-      background:#fff;
+      background:var(--yellow);
       display:flex;
       align-items:center;
       justify-content:center;
       margin:0 auto 10px;
-      box-shadow:0 2px 8px rgba(0,0,0,.12);
       overflow:hidden;
     }
     .flow-core-logo img{ width:40px; height:40px; border-radius:50%; object-fit:cover; }
     .flow-core-title{
       font-size:16px;
-      font-weight:900;
-      color:#18140F;
+      font-weight:700;
+      color:var(--paper);
       line-height:1.2;
     }
     .flow-core-sub{
       font-size:10.5px;
-      color:rgba(0,0,0,.5);
+      color:rgba(244,241,232,.6);
       margin-top:3px;
       font-weight:600;
       letter-spacing:.04em;
+      font-family:'IBM Plex Mono',monospace;
+      text-transform:uppercase;
     }
     .flow-core-tags{
       display:flex;
       flex-wrap:wrap;
       gap:5px;
       justify-content:center;
-      margin-top:12px;
+      margin-top:14px;
     }
     .flow-core-tag{
-      background:rgba(0,0,0,.12);
-      border-radius:6px;
+      background:rgba(244,241,232,.12);
       padding:3px 8px;
       font-size:10px;
-      font-weight:700;
-      color:#18140F;
+      font-weight:600;
+      color:var(--paper);
+      font-family:'IBM Plex Mono',monospace;
     }
-    .flow-node.out{ border-color:rgba(255,199,44,.3); background:linear-gradient(135deg,#EBE5D4 0%,#fff 100%); }
+    .flow-node.out{ border-color:var(--line); background:var(--paper); }
     .flow-node.out:hover{ border-color:var(--primary); }
     .flow-legend{
       display:flex;
@@ -1800,11 +1699,14 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .hero-left h1{ font-size:40px; }
       .exec-grid{ grid-template-columns: 1fr; }
       .approach-list{ grid-template-columns: 1fr; }
       .cards-container{ grid-template-columns: 1fr; }
+      .metrics{ grid-template-columns: 1fr 1fr; }
+      .stat-strip .container{ grid-template-columns:1fr 1fr; }
+      .stat{ border-left:none; border-top:1px solid rgba(244,241,232,.12); padding-left:0; padding-top:18px; }
+      .stat:nth-child(odd){ padding-right:16px; }
+      .stat:first-child, .stat:nth-child(2){ border-top:none; padding-top:26px; }
       .gallery-grid{ grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); }
       .lightbox-nav.prev{ left:-10px; }
       .lightbox-nav.next{ right:-10px; }
@@ -1812,15 +1714,15 @@
     @media (max-width: 640px){
       .navLinks{ display:none; }
       .menu-toggle{ display:flex; }
-      .hero-left h1{ font-size:34px; }
-      .section-title{ font-size:26px; }
+      .section{ padding:56px 0; }
       .section-subtitle{ font-size:15px; }
       .btn{ width:100%; }
-      .kpi-grid{ grid-template-columns: 1fr; }
-      .exec{ padding:20px; }
+      .metrics{ grid-template-columns:1fr; }
+      .exec{ padding:20px 0 0; }
       .approach-container{ padding:20px; }
-      .wishes-container{ padding:24px; }
-      .wishes-title{ font-size:22px; }
+      .wishes-title{ font-size:20px; }
+      .wish-highlight{ padding:20px; }
+      .wish-highlight-text{ font-size:17px; }
       .gallery-grid{ grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); gap:8px; }
       .lightbox-nav{ width:40px; height:40px; font-size:20px; }
       .lightbox-close{ top:10px; right:10px; width:36px; height:36px; }
@@ -1833,16 +1735,17 @@
     }
   
 
-    /* ===== Display type (Oswald) — appended, see retheme.js ===== */
-    h1, h2, h3, h4,
-    .brandTitle, .footer-logo, .card-title, .exec h3, .wishes-title,
-    .modal-title, .approach-item h4, .benefit-item h3, .kpi .num,
-    .metric .value, .wish-highlight-text, .preloader-text, .flow-core-title,
-    .proof-title, .section-title, .hero-left h1 {
+    /* ===== Display type (Oswald) =====
+       Навмисно НЕ блокова h1-h4 — картки/бенефіти/approach-item тепер
+       навмисно на Inter (звичайна вага), Oswald лишається лише для
+       справжніх "вітринних" заголовків. */
+    .hero-left h1, .section-title, .exec h3, .wishes-title,
+    .modal-title, .preloader-text, .flow-core-title,
+    .brandTitle, .footer-logo {
       font-family:'Oswald',sans-serif;
       letter-spacing:.01em;
     }
-    .badge, .flow-col-title, .laptop-carousel-counter, .phone-carousel-counter,
+    .flow-col-title, .laptop-carousel-counter, .phone-carousel-counter,
     .proof-meta, .footer-copyright {
       font-family:'IBM Plex Mono',monospace;
     }
@@ -1908,58 +1811,51 @@
 
   <!-- HERO -->
   <header class="header" id="top">
+    <div class="hero-media">
+      <img src="background.png" alt="Пункт прийому металобрухту" loading="eager">
+    </div>
     <div class="container">
-      <div class="topline">
-        <div class="badge"><span class="dot"></span> Новий стандарт галузі • <b>Відкритий доступ</b></div>
-      </div>
-
       <div class="hero-grid">
-        <div class="hero-left">
-          <h1>ScrapMaster — програма для обліку металобрухту<br/><span style="font-size:0.55em; display:block; margin-top:12px; font-weight:600; opacity:0.85;">Інструмент для прийняття рішень та зручність для власників приймальних пунктів</span></h1>
-
-          <p class="hero-text" style="font-size:18px; font-weight:600; margin-bottom:20px; margin-top:18px;">
-            Не бухгалтерська програма — весь бізнес на одному екрані: облік • каса • аналітика • прибуток
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
-            <button class="btn btn-ghost" onclick="openModal()">Запросити демо</button>
-          </div>
+        <span class="eyebrow">Новий стандарт галузі</span>
+        <h1>ScrapMaster — програма для обліку металобрухту</h1>
+        <p class="hero-text">
+          Не бухгалтерська програма — інструмент для прийняття рішень. Облік, каса, аналітика і прибуток вашого пункту прийому — на одному екрані, в реальному часі.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register">Почати безкоштовно</a>
+          <button class="btn btn-ghost" onclick="openModal()">Запросити демо</button>
         </div>
-
-        <aside class="hero-right">
-          <div class="kpi-grid">
-            <div class="kpi">
-              <div class="num">24/7</div>
-              <div class="label">онлайн-контроль каси, складу, відвантажень</div>
-            </div>
-            <div class="kpi">
-              <div class="num">АУДИТ</div>
-              <div class="label">журнал змін, ролі, відповідальність</div>
-            </div>
-            <div class="kpi">
-              <div class="num">FIFO/LIFO</div>
-              <div class="label">собівартість на рівні ERP</div>
-            </div>
-            <div class="kpi">
-              <div class="num">ВІЗУАЛІЗАЦІЯ</div>
-              <div class="label">прибуток, витрати, залишки, динаміка</div>
-            </div>
-          </div>
-
-          <p class="micro">
-            Для реальних процесів: прийом, переміщення, продаж, відвантаження, корекції.
-          </p>
-        </aside>
       </div>
     </div>
   </header>
 
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="container">
+      <div class="stat">
+        <div class="num">24/7</div>
+        <div class="label">онлайн-контроль каси, складу, відвантажень</div>
+      </div>
+      <div class="stat">
+        <div class="num">АУДИТ</div>
+        <div class="label">журнал змін, ролі, відповідальність</div>
+      </div>
+      <div class="stat">
+        <div class="num">FIFO/LIFO</div>
+        <div class="label">собівартість на рівні ERP</div>
+      </div>
+      <div class="stat">
+        <div class="num">ВІЗУАЛІЗАЦІЯ</div>
+        <div class="label">прибуток, витрати, залишки, динаміка</div>
+      </div>
+    </div>
+  </div>
+
   <!-- PERSONA BANNER -->
-  <section style="background:#EBE5D4; border-bottom:1px solid rgba(255,199,44,.4); padding:16px 0;">
-    <div class="container" style="display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center;">
-      <span style="font-weight:800; color:#18140F; font-size:14.5px;">Ви приймальник на пункті прийому, а не власник бізнесу?</span>
-      <a href="zhurnal-pryymalnyka.html" style="color:#18140F; background:#FFC72C; padding:8px 16px; border-radius:10px; font-weight:900; text-decoration:none; font-size:13.5px; white-space:nowrap;">Електронний журнал приймальника →</a>
+  <section style="background:var(--paper-2); border-bottom:1px solid var(--line); padding:14px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; text-align:center;">
+      <span style="font-weight:600; color:var(--steel); font-size:14px;">Ви приймальник на пункті прийому, а не власник бізнесу?</span>
+      <a href="zhurnal-pryymalnyka.html" style="color:var(--yellow-deep); font-weight:700; text-decoration:underline; font-size:14px; white-space:nowrap;">Електронний журнал приймальника →</a>
     </div>
   </section>
 
@@ -1967,22 +1863,25 @@
        побачити приклад під свій сценарій. "Мережа" гортає до контенту нижче
        (він і так написаний під власника мережі); "Одна точка" веде на
        спрощену welcome.html, заточену під самостійного прийомника. -->
-  <section class="section" id="audiencePicker" style="padding:52px 0;">
+  <section class="section" id="audiencePicker" style="padding:56px 0;">
     <div class="container">
-      <h2 class="section-title">Як ви працюєте?</h2>
-      <p class="section-subtitle">Оберіть — і покажемо приклади саме для вашого сценарію.</p>
-      <div class="cards-container" style="max-width:860px; margin:0 auto;">
+      <div class="section-head center">
+        <span class="eyebrow">Перш ніж читати далі</span>
+        <h2 class="section-title">Як ви працюєте?</h2>
+        <p class="section-subtitle">Оберіть — і покажемо приклади саме для вашого сценарію.</p>
+      </div>
+      <div class="cards-container cards-container-2col" style="max-width:860px; margin:0 auto;">
         <div class="card" style="cursor:pointer;" onclick="pickHomeAudience('solo')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')pickHomeAudience('solo')">
           <div class="card-icon"><i class="ti ti-device-mobile"></i></div>
           <h3 class="card-title">Одна точка — веду сам</h3>
           <p class="card-text">Сам приймаю метал, рахую касу і стежу за залишками на своїй точці.</p>
-          <p style="margin-top:14px; font-weight:800; color:var(--primary-dark); font-size:14.5px;">Показати спрощений варіант →</p>
+          <p style="margin-top:14px; font-weight:700; color:var(--yellow-deep); font-size:13.5px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.04em;">Показати спрощений варіант →</p>
         </div>
         <div class="card" style="cursor:pointer;" onclick="pickHomeAudience('network')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')pickHomeAudience('network')">
           <div class="card-icon"><i class="ti ti-building-skyscraper"></i></div>
           <h3 class="card-title">Мережа точок</h3>
           <p class="card-text">Кілька пунктів прийому, є прийомники чи адміністратори — хочу бачити все з одного місця.</p>
-          <p style="margin-top:14px; font-weight:800; color:var(--primary-dark); font-size:14.5px;">Читати далі на цій сторінці ↓</p>
+          <p style="margin-top:14px; font-weight:700; color:var(--yellow-deep); font-size:13.5px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.04em;">Читати далі на цій сторінці ↓</p>
         </div>
       </div>
     </div>
@@ -1991,10 +1890,13 @@
   <!-- INTRO -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Для чого потрібна програма обліку металобрухту</h2>
-      <p class="section-subtitle">
-        Стабільність в бізнесі, прозорі цифри, сильні рішення та масштабування без хаосу. ScrapMaster — програма для автоматизації обліку металобрухту.
-      </p>
+      <div class="section-head">
+        <span class="eyebrow">Навіщо це вам</span>
+        <h2 class="section-title">Для чого потрібна програма обліку металобрухту</h2>
+        <p class="section-subtitle">
+          Стабільність в бізнесі, прозорі цифри, сильні рішення та масштабування без хаосу. ScrapMaster — програма для автоматизації обліку металобрухту.
+        </p>
+      </div>
 
       <div class="flow-diagram">
         <div class="flow-columns">
@@ -2083,6 +1985,7 @@
           <p>
             Це не бухгалтерська програма — це інструмент для прийняття рішень і зручність для власників приймальних пунктів.
             Каса, склад, FIFO/LIFO, аналітика, аудит і ролі — все на одному екрані без відкриття додаткових інструментів.
+          </p>
 
         <div class="exec-grid">
           <div class="exec-item">
@@ -2105,10 +2008,13 @@
   <!-- PRODUCT PROOF -->
   <section class="section" id="product" style="padding-top:30px;">
     <div class="container">
-      <h2 class="section-title">Інтерфейс програми для металобрухту</h2>
-      <p class="section-subtitle" style="margin-bottom:18px;">
-        Ось приклади інтерфейсів програми обліку металобрухту ScrapMaster. Натисніть на зображення для перегляду у повному розмірі.
-      </p>
+      <div class="section-head" style="margin-bottom:18px;">
+        <span class="eyebrow">Як це виглядає</span>
+        <h2 class="section-title">Інтерфейс програми для металобрухту</h2>
+        <p class="section-subtitle">
+          Ось приклади інтерфейсів програми обліку металобрухту ScrapMaster. Натисніть на зображення для перегляду у повному розмірі.
+        </p>
+      </div>
 
       <!-- Адміністративна частина -->
       <div class="proof" style="overflow:visible;">
@@ -2225,10 +2131,13 @@
   <!-- FACTS / METRICS -->
   <section class="section section-dark" id="facts">
     <div class="container">
-      <h2 class="section-title">Можливості програми для обліку металобрухту</h2>
-      <p class="section-subtitle">
-        Контроль, прозорість, відповідальність, масштабування — все для ефективного управління металобрухтом.
-      </p>
+      <div class="section-head">
+        <span class="eyebrow">Що всередині</span>
+        <h2 class="section-title">Можливості програми для обліку металобрухту</h2>
+        <p class="section-subtitle">
+          Контроль, прозорість, відповідальність, масштабування — все для ефективного управління металобрухтом.
+        </p>
+      </div>
 
       <div class="metrics">
         <div class="metric">
@@ -2291,8 +2200,11 @@
   <!-- BENEFITS -->
   <section class="section" id="benefits">
     <div class="container">
-      <h2 class="section-title">Переваги програми обліку металобрухту</h2>
-      <p class="section-subtitle">Функції ScrapMaster, які реально економлять час і гроші при роботі з металобрухтом.</p>
+      <div class="section-head">
+        <span class="eyebrow">Чому саме так</span>
+        <h2 class="section-title">Переваги програми обліку металобрухту</h2>
+        <p class="section-subtitle">Функції ScrapMaster, які реально економлять час і гроші при роботі з металобрухтом.</p>
+      </div>
 
       <div class="benefits-list">
         <div class="benefit-item">
@@ -2339,10 +2251,13 @@
   </section>
 
   <!-- ENTERPRISE -->
-  <section class="section" style="background:#EBE5D4;" id="enterprise">
+  <section class="section" style="background:var(--paper-2);" id="enterprise">
     <div class="container">
-      <h2 class="section-title">Для великих клієнтів — індивідуальний підхід</h2>
-      <p class="section-subtitle">Великий бізнес потребує акуратного впровадження.</p>
+      <div class="section-head">
+        <span class="eyebrow">Enterprise</span>
+        <h2 class="section-title">Для великих клієнтів — індивідуальний підхід</h2>
+        <p class="section-subtitle">Великий бізнес потребує акуратного впровадження.</p>
+      </div>
 
       <div class="approach-container">
         <div class="approach-head">
@@ -2380,7 +2295,10 @@
   <!-- CONTACT -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Місія ScrapMaster — новий стандарт для ломозаготівлі</h2>
+      <div class="section-head" style="max-width:820px; margin-left:auto; margin-right:auto;">
+        <span class="eyebrow">Наша місія</span>
+        <h2 class="section-title">Місія ScrapMaster — новий стандарт для ломозаготівлі</h2>
+      </div>
 
       <div class="wishes-container">
         <h3 class="wishes-title">Ми допомагаємо компаніям:</h3>
