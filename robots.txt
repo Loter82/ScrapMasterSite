@@ -3,4 +3,4 @@ Allow: /
 Disallow: /src/
 Disallow: /memory-bank/
 
-Sitemap: https://scrapmaster.store/sitemap.xml
+Sitemap: https://scrapmaster.com.ua/sitemap.xml

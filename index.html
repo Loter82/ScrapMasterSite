@@ -7,14 +7,14 @@
   <title>ScrapMaster — програма для обліку металобрухту | Автоматизація пунктів прийому</title>
 
   <meta name="description" content="ScrapMaster — програма для металобрухту: облік металобрухту, управління пунктами прийому, каса, склад, FIFO/LIFO, BI-аналітика. Автоматизація прийому та продажу вторинних металів." />
-  <meta name="keywords" content="програма для металобрухту, облік металобрухту, програма для пунктів прийому металобрухту, автоматизація металобрухту, облік вторсировини, програма для прийому металу, ScrapMaster, управління металобрухтом, облік пунктів прийому, програма для ломозаготівлі, облік чорного металу, облік кольорового металу, програма для скрапу, автоматизація ломозбору, софт для металобрухту, програма обліку лому, облік лому металів, ERP для металобрухту, BI аналітика металобрухт, FIFO LIFO металобрухт" />
+  <meta name="keywords" content="програма для металобрухту, облік металобрухту, програма для пунктів прийому металобрухту, автоматизація металобрухту, облік вторсировини, програма для прийому металу, ScrapMaster, Скрап Майстер, Скрапмайстер, Скрап Мастер, Скрапмастер, управління металобрухтом, облік пунктів прийому, програма для ломозаготівлі, облік чорного металу, облік кольорового металу, програма для скрапу, автоматизація ломозбору, софт для металобрухту, програма обліку лому, облік лому металів, ERP для металобрухту, BI аналітика металобрухт, FIFO LIFO металобрухт, программа для приема металлолома, учет металлолома, программа для пункта приема металлолома, автоматизация приема металлолома, программа для скупки металла, учет лома черных и цветных металлов" />
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://scrapmaster.store/" />
+  <link rel="canonical" href="https://scrapmaster.com.ua/" />
 
   <!-- Hreflang -->
-  <link rel="alternate" hreflang="uk" href="https://scrapmaster.store/" />
-  <link rel="alternate" hreflang="x-default" href="https://scrapmaster.store/" />
+  <link rel="alternate" hreflang="uk" href="https://scrapmaster.com.ua/" />
+  <link rel="alternate" hreflang="x-default" href="https://scrapmaster.com.ua/" />
 
   <!-- Robots -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -23,8 +23,8 @@
   <meta property="og:title" content="ScrapMaster — програма для обліку металобрухту" />
   <meta property="og:description" content="Автоматизація обліку металобрухту: каса, склад, FIFO/LIFO, BI-дешборд, аудит. Контроль фінансів та збільшення прибутку для пунктів прийому металу." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://scrapmaster.store/" />
-  <meta property="og:image" content="https://scrapmaster.store/logo.png" />
+  <meta property="og:url" content="https://scrapmaster.com.ua/" />
+  <meta property="og:image" content="https://scrapmaster.com.ua/logo.png" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
   <meta property="og:locale" content="uk_UA" />
@@ -34,7 +34,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ScrapMaster — програма для обліку металобрухту" />
   <meta name="twitter:description" content="Автоматизація обліку металобрухту: каса, склад, FIFO/LIFO, BI-дешборд, аудит." />
-  <meta name="twitter:image" content="https://scrapmaster.store/logo.png" />
+  <meta name="twitter:image" content="https://scrapmaster.com.ua/logo.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
@@ -48,7 +48,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- Icons: Tabler Icons (modern B2B SVG icon set) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <!-- Pinned version (not @latest — a stable, cacheable URL that won't change
+       under us) loaded non-render-blocking: the browser fetches it at low
+       priority and swaps it in once ready, instead of holding up first paint
+       for a third-party stylesheet. -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"></noscript>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-15JQHHNRLX"></script>
@@ -98,8 +103,10 @@
     }
   </script>
   
+  <!-- Only the actual hero/LCP image is worth preloading — logo.png renders
+       small (nav/footer marks) and competing for priority bandwidth with it
+       delays the real LCP element. -->
   <link rel="preload" as="image" href="background.png" />
-  <link rel="preload" as="image" href="logo.png" />
 
   <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -107,10 +114,10 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "ScrapMaster",
-    "alternateName": "Скрап Майстер",
+    "alternateName": ["Скрап Майстер", "Скрапмайстер", "Скрап Мастер", "Скрапмастер"],
     "description": "Програма для обліку металобрухту — автоматизація пунктів прийому: каса, склад, журнали, FIFO/LIFO, BI-аналітика, аудит. Професійний облік металобрухту та управління мережею.",
-    "url": "https://scrapmaster.store/",
-    "image": "https://scrapmaster.store/logo.png",
+    "url": "https://scrapmaster.com.ua/",
+    "image": "https://scrapmaster.com.ua/logo.png",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -141,8 +148,9 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ScrapMaster",
-    "url": "https://scrapmaster.store/",
-    "logo": "https://scrapmaster.store/logo.png",
+    "alternateName": ["Скрап Майстер", "Скрапмайстер", "Скрап Мастер", "Скрапмастер"],
+    "url": "https://scrapmaster.com.ua/",
+    "logo": "https://scrapmaster.com.ua/logo.png",
     "description": "Розробник програми для обліку металобрухту та автоматизації пунктів прийому вторинних металів."
   }
   </script>
@@ -153,7 +161,8 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ScrapMaster",
-    "url": "https://scrapmaster.store/"
+    "alternateName": ["Скрап Майстер", "Скрапмайстер", "Скрап Мастер", "Скрапмастер"],
+    "url": "https://scrapmaster.com.ua/"
   }
   </script>
 
@@ -192,7 +201,7 @@
         "name": "Як замовити демо ScrapMaster?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Натисніть кнопку 'Запросити демо' на сайті scrapmaster.store, заповніть форму — і наш менеджер зв'яжеться з вами протягом 24 годин."
+          "text": "Натисніть кнопку 'Запросити демо' на сайті scrapmaster.com.ua, заповніть форму — і наш менеджер зв'яжеться з вами протягом 24 годин."
         }
       }
     ]
@@ -1760,7 +1769,7 @@
     <div class="preloader-content">
       <div class="preloader-logo">
         <div class="preloader-spinner"></div>
-        <img src="logo.png" alt="ScrapMaster Logo">
+        <img width="512" height="512" src="logo.png" alt="ScrapMaster Logo">
       </div>
       <div class="preloader-text">Scrap<span>Master</span></div>
       <div class="preloader-subtitle">Завантаження...</div>
@@ -1773,7 +1782,7 @@
     <div class="container">
       <div class="inner">
         <div class="brand">
-          <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
+          <div class="logoBox"><img loading="lazy" width="512" height="512" src="logo.png" alt="ScrapMaster logo"></div>
           <div>
             <div class="brandTitle">Scrap<span>Master</span></div>
           </div>
@@ -1812,7 +1821,7 @@
   <!-- HERO -->
   <header class="header" id="top">
     <div class="hero-media">
-      <img src="background.png" alt="Пункт прийому металобрухту" loading="eager">
+      <img width="800" height="533" src="background.png" alt="Пункт прийому металобрухту" loading="eager">
     </div>
     <div class="container">
       <div class="hero-grid">
@@ -1833,20 +1842,20 @@
   <div class="stat-strip">
     <div class="container">
       <div class="stat">
-        <div class="num">24/7</div>
-        <div class="label">онлайн-контроль каси, складу, відвантажень</div>
+        <div class="num">ОБЛІК ОНЛАЙН</div>
+        <div class="label">контроль каси, складу, відвантажень 24/7</div>
       </div>
       <div class="stat">
-        <div class="num">АУДИТ</div>
-        <div class="label">журнал змін, ролі, відповідальність</div>
+        <div class="num">ПОВНИЙ АУДИТ</div>
+        <div class="label">хто, що і коли змінив — журнал дій і ролі</div>
       </div>
       <div class="stat">
-        <div class="num">FIFO/LIFO</div>
-        <div class="label">собівартість на рівні ERP</div>
+        <div class="num">ТОЧНА СОБІВАРТІСТЬ</div>
+        <div class="label">FIFO/LIFO, як у великих ERP-системах</div>
       </div>
       <div class="stat">
-        <div class="num">ВІЗУАЛІЗАЦІЯ</div>
-        <div class="label">прибуток, витрати, залишки, динаміка</div>
+        <div class="num">НАОЧНА АНАЛІТИКА</div>
+        <div class="label">прибуток, витрати, залишки — без Excel</div>
       </div>
     </div>
   </div>
@@ -1921,7 +1930,7 @@
           <!-- Центр — ScrapMaster -->
           <div class="flow-core-col">
             <div class="flow-core">
-              <div class="flow-core-logo"><img src="logo.png" alt="ScrapMaster"></div>
+              <div class="flow-core-logo"><img loading="lazy" width="512" height="512" src="logo.png" alt="ScrapMaster"></div>
               <div class="flow-core-title">Scrap<span style="color:#6B4400;">Master</span></div>
               <div class="flow-core-sub">ядро системи</div>
               <div class="flow-core-tags">
@@ -2020,7 +2029,7 @@
       <div class="proof" style="overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
-            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div class="miniLogo"><img loading="lazy" width="512" height="512" src="logo.png" alt=""></div>
             <div style="min-width:0;">
               <div class="proof-title">Адміністративна частина</div>
               <div class="proof-sub">аналітика • звіти • управління • налаштування</div>
@@ -2034,16 +2043,16 @@
             <div class="laptop-lid">
               <div class="laptop-screen-area" id="laptopScreenArea">
                 <div class="laptop-slides-track" id="laptopTrack">
-                  <div class="laptop-slide-item"><img src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 4.PNG" alt="Admin screenshot 4"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 5.PNG" alt="Admin screenshot 5"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 6.PNG" alt="Admin screenshot 6"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 7.PNG" alt="Admin screenshot 7"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 8.PNG" alt="Admin screenshot 8"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 9.PNG" alt="Admin screenshot 9"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 10.PNG" alt="Admin screenshot 10"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1456" height="893" src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1438" height="912" src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1440" height="895" src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1453" height="935" src="src/Записати 4.PNG" alt="Каса та фінансовий контроль ScrapMaster — адмін-панель"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1455" height="892" src="src/Записати 5.PNG" alt="Складський облік металобрухту в ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1440" height="890" src="src/Записати 6.PNG" alt="Мережевий режим — управління кількома пунктами прийому"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="902" height="944" src="src/Записати 7.PNG" alt="Ролі та доступи користувачів ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1160" height="409" src="src/Записати 8.PNG" alt="Журнал аудиту операцій з металобрухтом"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1400" height="929" src="src/Записати 9.PNG" alt="Прайс-лист і ціни на металобрухт в ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1142" height="946" src="src/Записати 10.PNG" alt="Звірка та контроль залишків металобрухту"></div>
                 </div>
               </div>
             </div>
@@ -2068,7 +2077,7 @@
       <div class="proof" style="margin-top:24px; overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
-            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div class="miniLogo"><img loading="lazy" width="512" height="512" src="logo.png" alt=""></div>
             <div style="min-width:0;">
               <div class="proof-title">Операторська частина</div>
               <div class="proof-sub">каса • склад • приймання • відпуск • документи</div>
@@ -2085,19 +2094,19 @@
               <div class="phone-frame">
                 <div class="phone-screen-area" id="phoneScreenArea">
                   <div class="phone-slides-track" id="phoneTrack">
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper1.PNG" alt="Операторський інтерфейс ScrapMaster — екран 1"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper2.PNG" alt="Операторський інтерфейс ScrapMaster — екран 2"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper3.PNG" alt="Операторський інтерфейс ScrapMaster — екран 3"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper4.PNG" alt="Операторський інтерфейс ScrapMaster — екран 4"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper5.PNG" alt="Операторський інтерфейс ScrapMaster — екран 5"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper6.PNG" alt="Операторський інтерфейс ScrapMaster — екран 6"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper7.PNG" alt="Операторський інтерфейс ScrapMaster — екран 7"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper8.PNG" alt="Операторський інтерфейс ScrapMaster — екран 8"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper9.PNG" alt="Операторський інтерфейс ScrapMaster — екран 9"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper10.PNG" alt="Операторський інтерфейс ScrapMaster — екран 10"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper11.PNG" alt="Операторський інтерфейс ScrapMaster — екран 11"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper12.PNG" alt="Операторський інтерфейс ScrapMaster — екран 12"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper13.PNG" alt="Операторський інтерфейс ScrapMaster — екран 13"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="844" src="src/screen_oper_new/oper1.PNG" alt="Операторський інтерфейс ScrapMaster — екран 1"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="844" src="src/screen_oper_new/oper2.PNG" alt="Операторський інтерфейс ScrapMaster — екран 2"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="841" src="src/screen_oper_new/oper3.PNG" alt="Операторський інтерфейс ScrapMaster — екран 3"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="843" src="src/screen_oper_new/oper4.PNG" alt="Операторський інтерфейс ScrapMaster — екран 4"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="387" height="843" src="src/screen_oper_new/oper5.PNG" alt="Операторський інтерфейс ScrapMaster — екран 5"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="838" src="src/screen_oper_new/oper6.PNG" alt="Операторський інтерфейс ScrapMaster — екран 6"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="385" height="841" src="src/screen_oper_new/oper7.PNG" alt="Операторський інтерфейс ScrapMaster — екран 7"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="383" height="839" src="src/screen_oper_new/oper8.PNG" alt="Операторський інтерфейс ScrapMaster — екран 8"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="383" height="843" src="src/screen_oper_new/oper9.PNG" alt="Операторський інтерфейс ScrapMaster — екран 9"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="390" height="841" src="src/screen_oper_new/oper10.PNG" alt="Операторський інтерфейс ScrapMaster — екран 10"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="843" src="src/screen_oper_new/oper11.PNG" alt="Операторський інтерфейс ScrapMaster — екран 11"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="838" src="src/screen_oper_new/oper12.PNG" alt="Операторський інтерфейс ScrapMaster — екран 12"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="382" height="839" src="src/screen_oper_new/oper13.PNG" alt="Операторський інтерфейс ScrapMaster — екран 13"></div>
                   </div>
                 </div>
                 <div class="phone-home-indicator"></div>
@@ -2398,7 +2407,7 @@
       <div class="footer-logo">Scrap<span style="color:#FFC72C;">Master</span></div>
 
       <div class="footer-tagline">
-        ScrapMaster — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.
+        ScrapMaster (Скрап Майстер, Скрап Мастер) — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.
       </div>
 
       <div class="footer-nav">
