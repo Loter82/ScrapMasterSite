@@ -48,7 +48,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- Icons: Tabler Icons (modern B2B SVG icon set) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <!-- Pinned version (not @latest — a stable, cacheable URL that won't change
+       under us) loaded non-render-blocking: the browser fetches it at low
+       priority and swaps it in once ready, instead of holding up first paint
+       for a third-party stylesheet. -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"></noscript>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-15JQHHNRLX"></script>
@@ -98,8 +103,10 @@
     }
   </script>
   
+  <!-- Only the actual hero/LCP image is worth preloading — logo.png renders
+       small (nav/footer marks) and competing for priority bandwidth with it
+       delays the real LCP element. -->
   <link rel="preload" as="image" href="background.png" />
-  <link rel="preload" as="image" href="logo.png" />
 
   <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -1762,7 +1769,7 @@
     <div class="preloader-content">
       <div class="preloader-logo">
         <div class="preloader-spinner"></div>
-        <img src="logo.png" alt="ScrapMaster Logo">
+        <img width="512" height="512" src="logo.png" alt="ScrapMaster Logo">
       </div>
       <div class="preloader-text">Scrap<span>Master</span></div>
       <div class="preloader-subtitle">Завантаження...</div>
@@ -1775,7 +1782,7 @@
     <div class="container">
       <div class="inner">
         <div class="brand">
-          <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
+          <div class="logoBox"><img loading="lazy" width="512" height="512" src="logo.png" alt="ScrapMaster logo"></div>
           <div>
             <div class="brandTitle">Scrap<span>Master</span></div>
           </div>
@@ -1814,7 +1821,7 @@
   <!-- HERO -->
   <header class="header" id="top">
     <div class="hero-media">
-      <img src="background.png" alt="Пункт прийому металобрухту" loading="eager">
+      <img width="800" height="533" src="background.png" alt="Пункт прийому металобрухту" loading="eager">
     </div>
     <div class="container">
       <div class="hero-grid">
@@ -1923,7 +1930,7 @@
           <!-- Центр — ScrapMaster -->
           <div class="flow-core-col">
             <div class="flow-core">
-              <div class="flow-core-logo"><img src="logo.png" alt="ScrapMaster"></div>
+              <div class="flow-core-logo"><img loading="lazy" width="512" height="512" src="logo.png" alt="ScrapMaster"></div>
               <div class="flow-core-title">Scrap<span style="color:#6B4400;">Master</span></div>
               <div class="flow-core-sub">ядро системи</div>
               <div class="flow-core-tags">
@@ -2022,7 +2029,7 @@
       <div class="proof" style="overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
-            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div class="miniLogo"><img loading="lazy" width="512" height="512" src="logo.png" alt=""></div>
             <div style="min-width:0;">
               <div class="proof-title">Адміністративна частина</div>
               <div class="proof-sub">аналітика • звіти • управління • налаштування</div>
@@ -2036,16 +2043,16 @@
             <div class="laptop-lid">
               <div class="laptop-screen-area" id="laptopScreenArea">
                 <div class="laptop-slides-track" id="laptopTrack">
-                  <div class="laptop-slide-item"><img src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 4.PNG" alt="Admin screenshot 4"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 5.PNG" alt="Admin screenshot 5"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 6.PNG" alt="Admin screenshot 6"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 7.PNG" alt="Admin screenshot 7"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 8.PNG" alt="Admin screenshot 8"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 9.PNG" alt="Admin screenshot 9"></div>
-                  <div class="laptop-slide-item"><img src="src/Записати 10.PNG" alt="Admin screenshot 10"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1456" height="893" src="src/Записати 1.PNG" alt="ScrapMaster адмін-панель — аналітика обліку металобрухту"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1438" height="912" src="src/Записати 2.PNG" alt="BI-дешборд програми для металобрухту"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1440" height="895" src="src/Записати 3.PNG" alt="Звіти обліку металобрухту ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1453" height="935" src="src/Записати 4.PNG" alt="Каса та фінансовий контроль ScrapMaster — адмін-панель"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1455" height="892" src="src/Записати 5.PNG" alt="Складський облік металобрухту в ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1440" height="890" src="src/Записати 6.PNG" alt="Мережевий режим — управління кількома пунктами прийому"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="902" height="944" src="src/Записати 7.PNG" alt="Ролі та доступи користувачів ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1160" height="409" src="src/Записати 8.PNG" alt="Журнал аудиту операцій з металобрухтом"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1400" height="929" src="src/Записати 9.PNG" alt="Прайс-лист і ціни на металобрухт в ScrapMaster"></div>
+                  <div class="laptop-slide-item"><img loading="lazy" width="1142" height="946" src="src/Записати 10.PNG" alt="Звірка та контроль залишків металобрухту"></div>
                 </div>
               </div>
             </div>
@@ -2070,7 +2077,7 @@
       <div class="proof" style="margin-top:24px; overflow:visible;">
         <div class="proof-head">
           <div class="proof-left">
-            <div class="miniLogo"><img src="logo.png" alt=""></div>
+            <div class="miniLogo"><img loading="lazy" width="512" height="512" src="logo.png" alt=""></div>
             <div style="min-width:0;">
               <div class="proof-title">Операторська частина</div>
               <div class="proof-sub">каса • склад • приймання • відпуск • документи</div>
@@ -2087,19 +2094,19 @@
               <div class="phone-frame">
                 <div class="phone-screen-area" id="phoneScreenArea">
                   <div class="phone-slides-track" id="phoneTrack">
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper1.PNG" alt="Операторський інтерфейс ScrapMaster — екран 1"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper2.PNG" alt="Операторський інтерфейс ScrapMaster — екран 2"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper3.PNG" alt="Операторський інтерфейс ScrapMaster — екран 3"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper4.PNG" alt="Операторський інтерфейс ScrapMaster — екран 4"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper5.PNG" alt="Операторський інтерфейс ScrapMaster — екран 5"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper6.PNG" alt="Операторський інтерфейс ScrapMaster — екран 6"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper7.PNG" alt="Операторський інтерфейс ScrapMaster — екран 7"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper8.PNG" alt="Операторський інтерфейс ScrapMaster — екран 8"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper9.PNG" alt="Операторський інтерфейс ScrapMaster — екран 9"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper10.PNG" alt="Операторський інтерфейс ScrapMaster — екран 10"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper11.PNG" alt="Операторський інтерфейс ScrapMaster — екран 11"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper12.PNG" alt="Операторський інтерфейс ScrapMaster — екран 12"></div>
-                    <div class="phone-slide-item"><img src="src/screen_oper_new/oper13.PNG" alt="Операторський інтерфейс ScrapMaster — екран 13"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="844" src="src/screen_oper_new/oper1.PNG" alt="Операторський інтерфейс ScrapMaster — екран 1"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="844" src="src/screen_oper_new/oper2.PNG" alt="Операторський інтерфейс ScrapMaster — екран 2"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="841" src="src/screen_oper_new/oper3.PNG" alt="Операторський інтерфейс ScrapMaster — екран 3"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="388" height="843" src="src/screen_oper_new/oper4.PNG" alt="Операторський інтерфейс ScrapMaster — екран 4"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="387" height="843" src="src/screen_oper_new/oper5.PNG" alt="Операторський інтерфейс ScrapMaster — екран 5"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="838" src="src/screen_oper_new/oper6.PNG" alt="Операторський інтерфейс ScrapMaster — екран 6"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="385" height="841" src="src/screen_oper_new/oper7.PNG" alt="Операторський інтерфейс ScrapMaster — екран 7"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="383" height="839" src="src/screen_oper_new/oper8.PNG" alt="Операторський інтерфейс ScrapMaster — екран 8"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="383" height="843" src="src/screen_oper_new/oper9.PNG" alt="Операторський інтерфейс ScrapMaster — екран 9"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="390" height="841" src="src/screen_oper_new/oper10.PNG" alt="Операторський інтерфейс ScrapMaster — екран 10"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="843" src="src/screen_oper_new/oper11.PNG" alt="Операторський інтерфейс ScrapMaster — екран 11"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="384" height="838" src="src/screen_oper_new/oper12.PNG" alt="Операторський інтерфейс ScrapMaster — екран 12"></div>
+                    <div class="phone-slide-item"><img loading="lazy" width="382" height="839" src="src/screen_oper_new/oper13.PNG" alt="Операторський інтерфейс ScrapMaster — екран 13"></div>
                   </div>
                 </div>
                 <div class="phone-home-indicator"></div>
