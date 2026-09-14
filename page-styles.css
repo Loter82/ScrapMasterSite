@@ -104,8 +104,12 @@ h1,h2,h3,h4 { font-family:'Oswald',sans-serif; text-transform:uppercase; letter-
   position:relative; overflow:hidden; color:var(--paper); padding:64px 0 52px;
   background:
     linear-gradient(100deg, rgba(24,20,15,.95) 0%, rgba(24,20,15,.82) 45%, rgba(24,20,15,.60) 100%),
-    url("background.png");
-  background-size:cover; background-position:center;
+    url("hero-2026.png");
+  /* hero-2026.png has its own logo/headline (top-left) and "було/стало"
+     card (bottom-left) baked in — crop toward the right/upper area
+     (worker + scrapyard + sky) so the real h1 below doesn't sit on top
+     of the image's own text. */
+  background-size:cover; background-position:78% 30%;
 }
 .page-hero::before {
   content:""; position:absolute; inset:0;
