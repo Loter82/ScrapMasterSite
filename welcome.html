@@ -29,7 +29,7 @@
   <meta property="og:description" content="Три кроки, щоб почати вести облік металобрухту в ScrapMaster." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://scrapmaster.com.ua/welcome.html" />
-  <meta property="og:image" content="https://scrapmaster.com.ua/hero-yard.jpg" />
+  <meta property="og:image" content="https://scrapmaster.com.ua/hero-2026.png" />
   <meta property="og:locale" content="uk_UA" />
   <meta property="og:site_name" content="ScrapMaster" />
   <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
@@ -128,7 +128,11 @@
       color:var(--white);
     }
     .hero-media{ position:absolute; inset:0; z-index:0; }
-    .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:60% 40%; }
+    /* hero-2026.png has its own logo/headline (top-left) and "було/стало"
+       card (bottom-left) baked in — bias the crop right/upper (worker +
+       scrapyard) so the real <h1> below-left doesn't sit on the image's
+       own text. */
+    .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:72% 35%; }
     .hero-media::after{
       content:''; position:absolute; inset:0;
       background:
@@ -411,7 +415,7 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero-media">
-      <img src="hero-yard.jpg" alt="Пункт прийому металобрухту" loading="eager">
+      <img src="hero-2026.png" alt="Пункт прийому металобрухту" loading="eager">
     </div>
     <div class="wrap hero-inner">
       <span class="eyebrow">Вітаємо на борту</span>
