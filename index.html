@@ -106,7 +106,7 @@
   <!-- Only the actual hero/LCP image is worth preloading — logo.png renders
        small (nav/footer marks) and competing for priority bandwidth with it
        delays the real LCP element. -->
-  <link rel="preload" as="image" href="background.png" />
+  <link rel="preload" as="image" href="hero-2026.png" />
 
   <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -388,46 +388,39 @@
       }
     }
 
-    /* ===== HERO ===== */
-    .header{
-      position:relative;
-      overflow:hidden;
-      color:#fff;
-      min-height:min(82vh, 660px);
-      display:flex;
-      align-items:flex-end;
+    /* ===== HERO =====
+       Готовий, уже повністю зверстаний банер (лого/заголовок/до-після/фото
+       всередині самого зображення) — тому просто на всю ширину зверху, без
+       затемнення й тексту поверх (це зіпсувало б власну композицію картинки).
+       Реальний <h1>/CTA — окремим блоком одразу під ним: і для SEO/доступності
+       (пошуковик і скрінрідер бачать справжній текст, не пікселі), і щоб не
+       конкурувати з тим, що вже намальовано на банері. */
+    .header{ line-height:0; }
+    .hero-banner-img{ display:block; width:100%; height:auto; }
+
+    .hero-below{
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      padding:44px 0 52px;
     }
-    .header .hero-media{ position:absolute; inset:0; z-index:0; }
-    .header .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:60% 45%; }
-    .header .hero-media::after{
-      content:''; position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(15,13,9,.94) 0%, rgba(15,13,9,.80) 32%, rgba(15,13,9,.32) 62%, rgba(15,13,9,.14) 100%),
-        linear-gradient(0deg, rgba(15,13,9,.55) 0%, rgba(15,13,9,0) 40%);
-    }
-
-    .header .container{ position:relative; z-index:1; padding-top:88px; padding-bottom:52px; }
-
-    .header .eyebrow{ color:var(--yellow); }
-    .header .eyebrow::before{ background:var(--yellow); }
-
     .hero-grid{ max-width:760px; }
-    .hero-left h1{
+    .hero-below h1{
       font-family:'Oswald',sans-serif;
-      font-size:clamp(32px,4.6vw,54px);
-      line-height:1.08;
+      font-size:clamp(30px,4.2vw,48px);
+      line-height:1.1;
       font-weight:700;
       letter-spacing:.01em;
       text-transform:uppercase;
-      margin-bottom:18px;
+      color:var(--ink);
+      margin-bottom:16px;
       text-wrap:balance;
     }
 
     .hero-text{
       max-width:640px;
-      font-size:18px;
-      color:rgba(244,241,232,.86);
-      margin-bottom:30px;
+      font-size:17px;
+      color:var(--steel);
+      margin-bottom:28px;
       line-height:1.6;
     }
 
@@ -463,10 +456,10 @@
     .btn-primary:hover{ background:#FFD75C; box-shadow: 0 20px 40px -12px rgba(255,199,44,.6); }
     .btn-ghost{
       background: transparent;
-      border: 1px solid rgba(244,241,232,.4);
-      color:#fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
     }
-    .btn-ghost:hover{ border-color:#fff; background:rgba(244,241,232,.08); }
+    .btn-ghost:hover{ border-color:var(--ink); background:rgba(24,20,15,.05); }
 
     .trust-line{
       font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:rgba(244,241,232,.7);
@@ -1756,7 +1749,7 @@
        Навмисно НЕ блокова h1-h4 — картки/бенефіти/approach-item тепер
        навмисно на Inter (звичайна вага), Oswald лишається лише для
        справжніх "вітринних" заголовків. */
-    .hero-left h1, .section-title, .exec h3, .wishes-title,
+    .hero-below h1, .section-title, .exec h3, .wishes-title,
     .modal-title, .preloader-text, .flow-step-title,
     .brandTitle, .footer-logo {
       font-family:'Oswald',sans-serif;
@@ -1828,9 +1821,10 @@
 
   <!-- HERO -->
   <header class="header" id="top">
-    <div class="hero-media">
-      <img width="800" height="533" src="background.png" alt="Пункт прийому металобрухту" loading="eager">
-    </div>
+    <img class="hero-banner-img" width="1672" height="941" src="hero-2026.png" alt="Скрап Майстер — пункт прийому металобрухту працює в цифрі: було (паперові записи) і стало (облік на планшеті прямо на точці)" loading="eager">
+  </header>
+
+  <section class="hero-below">
     <div class="container">
       <div class="hero-grid">
         <span class="eyebrow">Новий стандарт галузі</span>
@@ -1844,7 +1838,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- STAT STRIP -->
   <div class="stat-strip">
