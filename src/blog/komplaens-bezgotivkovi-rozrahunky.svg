@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1116"/>
+      <stop offset="100%" style="stop-color:#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="160" r="200" fill="rgba(255,212,59,0.06)"/>
+  <circle cx="880" cy="520" r="140" fill="rgba(255,212,59,0.04)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Shield + signed document icon -->
+  <g transform="translate(840, 70)">
+    <!-- Document -->
+    <rect x="10" y="10" width="190" height="250" rx="14" fill="rgba(255,212,59,0.1)" stroke="#ffd43b" stroke-width="2"/>
+    <rect x="34" y="46" width="140" height="10" rx="4" fill="rgba(255,212,59,0.35)"/>
+    <rect x="34" y="72" width="140" height="10" rx="4" fill="rgba(255,212,59,0.35)"/>
+    <rect x="34" y="98" width="90" height="10" rx="4" fill="rgba(255,212,59,0.25)"/>
+    <!-- signature squiggle -->
+    <path d="M34 190 C 50 170, 60 210, 76 190 C 92 170, 100 210, 118 192" stroke="#ffd43b" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="34" y="212" width="140" height="2" fill="rgba(255,212,59,0.4)"/>
+    <!-- Shield badge overlapping bottom-right -->
+    <g transform="translate(120, 168)">
+      <path d="M50 0 L96 18 V56 C96 92 74 116 50 128 C26 116 4 92 4 56 V18 Z" fill="#0e1116" stroke="#ffd43b" stroke-width="3"/>
+      <path d="M50 8 L88 24 V56 C88 86 70 106 50 118 C30 106 12 86 12 56 V24 Z" fill="rgba(255,212,59,0.15)"/>
+      <path d="M30 60 L44 76 L72 42" stroke="#ffd43b" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <rect x="60" y="56" width="150" height="30" rx="8" fill="rgba(255,212,59,0.15)"/>
+  <text x="76" y="75" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1">КОМПЛАЄНС</text>
+
+  <text x="60" y="190" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="50" font-weight="800" letter-spacing="-1">Безготівкові</text>
+  <text x="60" y="252" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="50" font-weight="800" letter-spacing="-1">розрахунки без</text>
+  <text x="60" y="314" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="50" font-weight="800" letter-spacing="-1">паперового хаосу</text>
+
+  <text x="60" y="390" fill="rgba(255,255,255,0.65)" font-family="'Segoe UI', sans-serif" font-size="22">Підпис, реквізити й акт приймання — все в одному місці</text>
+  <rect x="60" y="430" width="80" height="4" rx="2" fill="#ffd43b"/>
+
+  <text x="60" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">ScrapMaster</text>
+  <text x="180" y="570" fill="rgba(255,255,255,0.2)" font-family="'Segoe UI', sans-serif" font-size="18">•</text>
+  <text x="200" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">scrapmaster.com.ua</text>
+</svg>
