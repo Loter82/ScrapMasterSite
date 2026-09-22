@@ -73,10 +73,12 @@ h1,h2,h3,h4 { font-family:'Oswald',sans-serif; text-transform:uppercase; letter-
 .link:hover { color:var(--ink); background:var(--paper-2); }
 .link.active { background:var(--paper-2); color:var(--ink); }
 .link-cta {
-  background:var(--ink) !important;
-  color:var(--paper) !important; border:none !important; font-weight:700;
+  background:var(--yellow) !important;
+  color:var(--ink) !important; border:none !important; font-weight:700;
+  border-radius:999px !important;
+  box-shadow:0 10px 20px -10px rgba(255,199,44,.55);
 }
-.link-cta:hover { background:#000 !important; }
+.link-cta:hover { background:#FFD75C !important; box-shadow:0 14px 26px -10px rgba(255,199,44,.6); }
 /* .link-login intentionally plain — same as every other nav link, matching welcome.html */
 
 /* Mobile menu */
