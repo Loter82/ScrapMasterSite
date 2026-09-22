@@ -69,19 +69,31 @@
     .compare-table .bad{ color:#B5442B; }
     .compare-table .good{ color:var(--secondary); font-weight:700; }
 
-    /* Numbered step list — no product screenshots for this module yet, so
-       the "how it works" walkthrough is icon + text, not photo steps. */
-    .flow-steps{ max-width:760px; margin:0 auto; counter-reset:flow; }
-    .flow-step{ display:flex; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); }
-    .flow-step:last-child{ border-bottom:none; }
-    .flow-step-num{
-      counter-increment:flow; flex:0 0 auto;
-      width:40px; height:40px; border-radius:999px; background:var(--yellow); color:var(--ink);
-      display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px;
+    /* Photo step rows — same pattern as modul-bezgotivkovi-rozrahunky.html
+       and the blog walkthrough, now that real screenshots exist for this
+       module too. */
+    .step-row{ display:flex; gap:32px; align-items:flex-start; margin:26px 0 34px; }
+    .step-row .step-text{ flex:1; min-width:0; }
+    .step-shot{ flex:0 0 220px; }
+    .step-shot img{ width:100%; display:block; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-soft); }
+    .step-shot .cap{ display:block; text-align:center; font-size:13px; color:var(--muted); margin-top:8px; }
+    .step-num{
+      display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;
+      border-radius:999px; background:var(--yellow); color:var(--ink); font-weight:800; font-size:14px;
+      margin-right:8px; flex-shrink:0; vertical-align:middle;
     }
-    .flow-step-num::before{ content:counter(flow); }
-    .flow-step h3{ font-size:18px; margin-bottom:6px; }
-    .flow-step p{ color:var(--gray); margin:0; }
+    .office-shot{ margin:26px 0 34px; }
+    .office-shot img{ width:100%; display:block; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-soft); }
+    .office-shot .cap{ display:block; text-align:center; font-size:13px; color:var(--muted); margin-top:8px; }
+    .office-pair{ display:flex; gap:20px; align-items:flex-start; margin:26px 0 34px; }
+    .office-pair > div{ flex:1; min-width:0; }
+    .office-pair img{ width:100%; display:block; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-soft); }
+    .office-pair .cap{ display:block; text-align:center; font-size:13px; color:var(--muted); margin-top:8px; }
+    @media (max-width:760px){
+      .step-row{ flex-direction:column; }
+      .step-shot{ flex:none; width:200px; margin:0 auto; }
+      .office-pair{ flex-direction:column; }
+    }
 
     .growth-note{ max-width:820px; margin:0 auto; text-align:center; padding-top:32px; border-top:1px solid var(--line); }
     .growth-note p{ color:var(--gray); margin-bottom:14px; }
@@ -246,45 +258,101 @@
   <section class="section">
     <div class="container">
       <span class="eyebrow">Як це працює</span>
-      <h2 class="section-title">Від посилки до проведеної партії — 5 кроків</h2>
-      <p class="section-subtitle">Ніякого окремого процесу для онлайн-приймання не потрібно вивчати — це той самий wizard, яким оператор уже користується щодня.</p>
+      <h2 class="section-title">Від посилки до проведеної партії</h2>
+      <p class="section-subtitle">Ніякого окремого процесу для онлайн-приймання не потрібно вивчати — це той самий wizard, яким оператор уже користується щодня, лише з новим стартовим пунктом і кількома додатковими екранами.</p>
 
-      <div class="flow-steps">
-        <div class="flow-step reveal">
-          <div class="flow-step-num"></div>
-          <div>
-            <h3>Оператор розкриває посилку і зважує</h3>
-            <p>По кожній позиції — матеріал, фактична вага на вагах, заявлена вага з листочка, засміченість, ціна, фото — так само, як під час звичайного приймання.</p>
-          </div>
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">1</span><strong>Онлайн-приймання — окрема плитка на головному екрані.</strong> З'являється лише коли модуль увімкнено для тенанта, поруч зі Складом, Касою, Залишками.</p>
         </div>
-        <div class="flow-step reveal">
-          <div class="flow-step-num"></div>
-          <div>
-            <h3>Здавальник і номер ТТН</h3>
-            <p>Оператор обирає здавальника (або створює нового) і за потреби вказує номер накладної.</p>
-          </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-1.jpg" alt="Стартовий екран оператора з плиткою «Онлайн»" loading="lazy">
+          <span class="cap">Плитка «Онлайн» на головному екрані</span>
         </div>
-        <div class="flow-step reveal">
-          <div class="flow-step-num"></div>
-          <div>
-            <h3>«Сформувати акт» і поділитися посиланням</h3>
-            <p>Замість «Зберегти» — кнопка «Сформувати акт». Партія ще не потрапляє на склад: спершу здавальник має все побачити. Посилання надсилається в Telegram, SMS чи Viber.</p>
-          </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">2</span><strong>Оператор розкриває посилку й додає позиції.</strong> Номер ТТН — необов'язкове поле зверху; кнопка «Очікують підтвердження» одразу показує, скільки актів ще чекають на дію.</p>
         </div>
-        <div class="flow-step reveal">
-          <div class="flow-step-num"></div>
-          <div>
-            <h3>Здавальник переглядає і тисне «Погоджено»</h3>
-            <p>Публічна сторінка без логіну: усі позиції, заявлена й фактична вага, ціна, сума, фото — здавальник бачить те саме, що й оператор.</p>
-          </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-2.jpg" alt="Список позицій онлайн-приймання з полем ТТН" loading="lazy">
+          <span class="cap">Список позицій і номер ТТН</span>
         </div>
-        <div class="flow-step reveal">
-          <div class="flow-step-num"></div>
-          <div>
-            <h3>Оператор проводить партію</h3>
-            <p>На екрані «Очікують підтвердження» оператор бачить підтвердження і тисне «Провести партію» — склад і каса оновлюються звичайним, уже перевіреним шляхом.</p>
-          </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">3</span><strong>На кожній позиції — заявлена вага поруч із фактичною.</strong> Заявлена вага береться з листочка в посилці й потрібна лише для порівняння в акті — розрахунки завжди йдуть від фактичної.</p>
         </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-3.jpg" alt="Екран позиції з полями фактичної й заявленої ваги" loading="lazy">
+          <span class="cap">Фактична й заявлена вага поруч</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">4</span><strong>Огляд — здавальник обов'язковий.</strong> На відміну від звичайної закупівлі, для онлайн-приймання дані здавальника потрібні завжди: саме йому піде акт на підтвердження.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-4.jpg" alt="Екран огляду з обов'язковим полем здавальника і кнопкою Сформувати акт" loading="lazy">
+          <span class="cap">Огляд і кнопка «Сформувати акт»</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">5</span><strong>Акт сформовано — партія ще не на складі.</strong> Оператор ділиться посиланням зі здавальником (Telegram, SMS, Viber) прямо з банера й одразу бачить, скільки таких актів ще очікують.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-5.jpg" alt="Банер з номером сформованого акту і кнопкою Поділитися" loading="lazy">
+          <span class="cap">Акт № 22/2026 сформовано</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">6</span><strong>Здавальник переглядає акт і тисне «Погоджено».</strong> Публічна сторінка без логіну: позиції, фактична й заявлена вага, ціна, сума, фото — і кнопка підтвердження, видима лише поки партія ще не проведена.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/onlayn-pryymannya/screen-6.jpg" alt="Публічна сторінка акту з позиціями, фото і кнопкою Погоджено" loading="lazy">
+          <span class="cap">Погляд здавальника — акт з фото позицій</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation + posting -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">Далі</span>
+      <h2 class="section-title">Підтвердження — і партія на складі</h2>
+      <p class="section-subtitle">Екран «Очікують підтвердження» показує статус кожного акту в реальному часі. Підтвердження — м'яка рекомендація, а не хардблок: оператор може провести партію й без нього, якщо впевнений.</p>
+
+      <div class="office-pair">
+        <div>
+          <img src="src/blog/onlayn-pryymannya/screen-7.jpg" alt="Акт зі статусом Очікує на екрані Очікують підтвердження" loading="lazy">
+          <span class="cap">Щойно сформований акт — статус «Очікує»</span>
+        </div>
+        <div>
+          <img src="src/blog/onlayn-pryymannya/screen-8.jpg" alt="Той самий акт зі статусом Підтверджено після натискання Погоджено здавальником" loading="lazy">
+          <span class="cap">Здавальник підтвердив — статус «Підтверджено»</span>
+        </div>
+      </div>
+      <p class="section-subtitle" style="margin-top:8px;">Оператор обирає спосіб оплати (готівка чи безготівка) і тисне «Провести партію» — склад і каса оновлюються тим самим, уже перевіреним шляхом, що й для звичайної закупівлі.</p>
+    </div>
+  </section>
+
+  <!-- What the office sees -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Контроль з офісу</span>
+      <h2 class="section-title">Що бачить офіс</h2>
+      <p class="section-subtitle">Проведена онлайн-партія одразу видна в загальному журналі складу — з окремою позначкою, незалежно від способу оплати.</p>
+      <div class="office-shot">
+        <img src="src/blog/onlayn-pryymannya/screen-9.jpg" alt="Журнал операцій складу з позначкою Онлайн та розділом Онлайн-приймання в меню" loading="lazy">
+        <span class="cap">Журнал складу — бейдж «Онлайн» і пункт меню «Онлайн-приймання»</span>
       </div>
     </div>
   </section>
