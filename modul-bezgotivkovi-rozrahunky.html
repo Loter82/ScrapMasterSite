@@ -70,6 +70,22 @@
     .compare-table .bad{ color:#B5442B; }
     .compare-table .good{ color:var(--secondary); font-weight:700; }
 
+    /* Mobile: 3 columns squeezed side by side forced horizontal scroll,
+       which people don't expect on a comparison table. Below 640px, drop
+       the grid entirely and stack each row into its own card — the two
+       comparison cells become labeled lines instead of columns. */
+    @media (max-width:640px){
+      .compare-table thead{ display:none; }
+      .compare-table, .compare-table tbody, .compare-table tr, .compare-table td{
+        display:block; width:100%;
+      }
+      .compare-table tr{ padding:14px 16px; border-bottom:1px solid var(--line); }
+      .compare-table td{ padding:3px 0; text-align:left !important; }
+      .compare-table td:first-child{ font-weight:700; margin-bottom:6px; font-size:15px; color:var(--ink); }
+      .compare-table td:nth-child(2)::before{ content:"Без модуля: "; font-weight:600; color:var(--gray); }
+      .compare-table td:nth-child(3)::before{ content:"З модулем: "; font-weight:600; color:var(--gray); }
+    }
+
     /* Step rows with real product screenshots (same assets as the blog
        walkthrough — this is the same real feature, just presented as a
        product page instead of an article). */
