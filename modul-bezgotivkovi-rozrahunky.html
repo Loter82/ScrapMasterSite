@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c7850b18-c7ed-4902-920d-022a92d4d283" type="text/javascript" async></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Модуль безготівкових розрахунків для пункту прийому металобрухту — ScrapMaster</title>
+  <meta name="description" content="Модуль «Комплаєнс»: приймайте метал з розрахунком на картку і не турбуйтесь про порядок. Дані здавальника, підпис, фото реквізитів, акт приймання-здавання та контроль оплати офісом — в одній системі." />
+  <meta name="keywords" content="безготівкові розрахунки металобрухт, модуль комплаєнс, акт приймання здавання металобрухту, оплата на картку металобрухт, підпис здавальника, контроль оплати пункт прийому" />
+  <link rel="canonical" href="https://scrapmaster.com.ua/modul-bezgotivkovi-rozrahunky.html" />
+  <link rel="alternate" hreflang="uk" href="https://scrapmaster.com.ua/modul-bezgotivkovi-rozrahunky.html" />
+  <link rel="alternate" hreflang="x-default" href="https://scrapmaster.com.ua/modul-bezgotivkovi-rozrahunky.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Модуль безготівкових розрахунків для пункту прийому металобрухту — ScrapMaster" />
+  <meta property="og:description" content="Здавальник, підпис, реквізити й акт приймання-здавання — оплата на картку задокументована від початку до кінця." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scrapmaster.com.ua/modul-bezgotivkovi-rozrahunky.html" />
+  <meta property="og:image" content="https://scrapmaster.com.ua/logo.png" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta property="og:site_name" content="ScrapMaster" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Модуль безготівкових розрахунків для пункту прийому металобрухту — ScrapMaster" />
+  <meta name="twitter:description" content="Здавальник, підпис, реквізити й акт приймання-здавання — оплата на картку задокументована від початку до кінця." />
+  <meta name="twitter:image" content="https://scrapmaster.com.ua/logo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15JQHHNRLX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-15JQHHNRLX');</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1SVZWPDXH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P1SVZWPDXH');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KBLQ7XG8V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9KBLQ7XG8V');
+  </script>
+  <link rel="stylesheet" href="page-styles.css" />
+  <style>
+    .eyebrow{
+      font-family:'IBM Plex Mono',ui-monospace,monospace;
+      font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--primary-dark);
+      display:flex; justify-content:center; align-items:center; gap:10px;
+      margin-bottom:14px;
+    }
+    .eyebrow::before{ content:''; width:22px; height:2px; background:var(--primary-dark); display:inline-block; }
+
+    /* Pain/compare table — same flat pattern as zhurnal-pryymalnyka.html */
+    .compare-wrap{ overflow-x:auto; border:1px solid var(--line); }
+    .compare-table{ width:100%; border-collapse:collapse; background:#fff; }
+    .compare-table thead tr{ background:var(--dark); color:#fff; }
+    .compare-table th{ padding:16px 20px; text-align:left; font-weight:700; }
+    .compare-table th:nth-child(2),.compare-table th:nth-child(3){ text-align:center; }
+    .compare-table th:nth-child(3){ background:rgba(255,199,44,.15); font-weight:700; }
+    .compare-table td{ padding:14px 20px; }
+    .compare-table tr{ border-bottom:1px solid var(--line); }
+    .compare-table tr:last-child{ border-bottom:none; }
+    .compare-table td:first-child{ font-weight:600; }
+    .compare-table td:nth-child(2),.compare-table td:nth-child(3){ text-align:center; }
+    .compare-table .bad{ color:#B5442B; }
+    .compare-table .good{ color:var(--secondary); font-weight:700; }
+
+    /* Step rows with real product screenshots (same assets as the blog
+       walkthrough — this is the same real feature, just presented as a
+       product page instead of an article). */
+    .step-row{ display:flex; gap:32px; align-items:flex-start; margin:26px 0 34px; }
+    .step-row .step-text{ flex:1; min-width:0; }
+    .step-shot{ flex:0 0 220px; }
+    .step-shot img{ width:100%; display:block; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-soft); }
+    .step-shot .cap{ display:block; text-align:center; font-size:13px; color:var(--muted); margin-top:8px; }
+    .step-num{
+      display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;
+      border-radius:999px; background:var(--yellow); color:var(--ink); font-weight:800; font-size:14px;
+      margin-right:8px; flex-shrink:0; vertical-align:middle;
+    }
+    @media (max-width:760px){
+      .step-row{ flex-direction:column; }
+      .step-shot{ flex:none; width:200px; margin:0 auto; }
+    }
+
+    /* Trial request modal — page-local copy of zhurnal-pryymalnyka.html's
+       pattern (not in the shared page-styles.css). */
+    .trial-modal-overlay{ position:fixed; inset:0; background:rgba(24,20,15,.55); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+    .trial-modal-overlay.active{ display:flex; }
+    .trial-modal{ background:#fff; border-radius:14px; max-width:440px; width:100%; padding:36px 32px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,.3); max-height:90vh; overflow-y:auto; }
+    .trial-modal-close{ position:absolute; top:14px; right:14px; background:none; border:none; font-size:26px; cursor:pointer; color:#867E6E; line-height:1; }
+    .trial-modal-close:hover{ color:#18140F; }
+    .trial-modal h3{ font-family:'Oswald',sans-serif; font-size:21px; font-weight:600; letter-spacing:.01em; text-transform:uppercase; margin-bottom:8px; color:#18140F; }
+    .trial-modal .trial-modal-sub{ color:var(--gray); font-size:14px; margin-bottom:22px; line-height:1.5; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <div class="nav">
+    <div class="container">
+      <div class="inner">
+        <div class="brand">
+          <a href="./">
+            <div class="logoBox"><img src="logo.png" alt="ScrapMaster logo"></div>
+            <div><div class="brandTitle">Scrap<span>Master</span></div></div>
+          </a>
+        </div>
+        <div class="navLinks">
+          <a class="link" href="features.html">Можливості</a>
+          <a class="link active" href="modules.html">Модулі</a>
+          <a class="link" href="pricing.html">Тарифи</a>
+          <a class="link" href="use-cases.html">Кейси</a>
+          <a class="link" href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
+          <a class="link" href="blog.html">Блог</a>
+          <a class="link" href="contact.html">Запросити демо</a>
+          <a class="link link-login" href="https://cabinet.scrapmaster.com.ua/login">Увійти</a>
+          <a class="link link-cta" href="#" onclick="openTrialModal(event)">Почати безкоштовно</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="./">Головна</a>
+    <a href="features.html">Можливості</a>
+    <a href="modules.html">Модулі</a>
+    <a href="pricing.html">Тарифи</a>
+    <a href="use-cases.html">Кейси</a>
+    <a href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
+    <a href="blog.html">Блог</a>
+    <a href="contact.html">Запросити демо</a>
+    <a href="https://cabinet.scrapmaster.com.ua/login" style="border:1.5px solid rgba(24,20,15,.2);">Увійти</a>
+    <a href="#" onclick="openTrialModal(event)" style="background:#FFC72C; color:#18140F; font-weight:900;">Почати безкоштовно</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="./">Головна</a> <span>›</span> <a href="modules.html">Модулі</a> <span>›</span> <span>Безготівкові розрахунки</span>
+      </div>
+      <h1>Безготівкові розрахунки зі здавальниками — без хаосу і паперу</h1>
+      <p>Модуль «Комплаєнс» перетворює переказ на картку на задокументовану операцію: дані здавальника, підпис на екрані, фото реквізитів отримувача й акт приймання-здавання — усе в одній системі, від оператора до офісу.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+        <a class="btn btn-primary" href="#" onclick="openTrialModal(event)">Спробувати безкоштовно</a>
+        <a class="btn btn-outline" href="contact.html">Запросити демо</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Навіщо це потрібно</span>
+      <h2 class="section-title">Готівка — просто. А переказ на картку?</h2>
+      <p class="section-subtitle">Заплатили готівкою — видали, все на виду. А коли ви розраховуєтесь зі здавальником переказом? Хто цей здавальник? Куди пішли гроші? Хто підтвердив, що оплата дійсно відбулась? Без чіткого процесу через місяць це просто скріншот переказу в Telegram і питання «а хто це схвалив?».</p>
+
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Що важливо знати</th>
+              <th>Без модуля</th>
+              <th>З модулем «Комплаєнс»</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Хто здавальник</td>
+              <td class="bad">Пам'ятаємо на слово ✗</td>
+              <td class="good">ПІБ, телефон, ІПН зафіксовані ✓</td>
+            </tr>
+            <tr>
+              <td>Підтвердження угоди</td>
+              <td class="bad">Усно, без сліду ✗</td>
+              <td class="good">Підпис здавальника на екрані ✓</td>
+            </tr>
+            <tr>
+              <td>Куди пішли гроші</td>
+              <td class="bad">Скріншот у месенджері ✗</td>
+              <td class="good">Фото реквізитів у системі ✓</td>
+            </tr>
+            <tr>
+              <td>Статус оплати</td>
+              <td class="bad">Невідомо, поки хтось не згадає ✗</td>
+              <td class="good">Видно в журналі: підтверджено чи ні ✓</td>
+            </tr>
+            <tr>
+              <td>Документ по операції</td>
+              <td class="bad">Немає або саморобний бланк ✗</td>
+              <td class="good">Акт приймання-здавання з номером і PDF ✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">Що входить у модуль</span>
+      <h2 class="section-title">П'ять речей, які модуль робить автоматично</h2>
+      <p class="section-subtitle">Оператору не потрібно нічого рахувати чи оформлювати окремо — все відбувається під час звичайного прийому металу.</p>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-user-check"></i></div>
+          <h3>Особа здавальника</h3>
+          <p>ПІБ, телефон, ІПН і за потреби документ — фіксуються прямо під час прийому, за кілька секунд.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-signature"></i></div>
+          <h3>Підпис на екрані</h3>
+          <p>Здавальник підписується пальцем прямо на телефоні чи планшеті оператора — підтверджує, що дані вказано вірно.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-camera"></i></div>
+          <h3>Фото реквізитів</h3>
+          <p>Оператор фотографує банківські реквізити отримувача — окремо від фото прийнятого металу.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-file-certificate"></i></div>
+          <h3>Акт приймання-здавання</h3>
+          <p>Формується автоматично, з унікальним номером і публічним посиланням — доступний з офісу будь-якої миті.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-checkbox"></i></div>
+          <h3>Контроль оплати</h3>
+          <p>Офіс бачить статус переказу і підтверджує його одним натисканням — видно, хто і коли це зробив.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-filter"></i></div>
+          <h3>Фільтри в журналі</h3>
+          <p>Безготівкові операції позначені окремим бейджем — можна миттєво відібрати за статусом оплати.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works for the operator -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Як це виглядає</span>
+      <h2 class="section-title">Як це працює для оператора</h2>
+      <p class="section-subtitle">Оператор приймає метал так само, як завжди, — через покроковий wizard на телефоні чи планшеті. Різниця з'являється на екрані підсумку операції.</p>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">1</span><strong>Вибір способу оплати.</strong> На екрані «Огляд і збереження» оператор перемикає операцію на «Безготівка» замість «Готівка».</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/komplaens/screen-1.jpg" alt="Екран огляду операції з перемикачем Готівка/Безготівка" loading="lazy">
+          <span class="cap">Перемикач способу оплати</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">2</span><strong>Дані здавальника.</strong> З'являється форма: ПІБ, телефон, ІПН, за потреби — номер документа й адреса. Здавальник просто називає дані, оператор вводить за кілька секунд.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/komplaens/screen-2.jpg" alt="Форма даних здавальника: ПІБ, телефон, ІПН" loading="lazy">
+          <span class="cap">Дані здавальника</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">3</span><strong>Підпис і реквізити.</strong> Здавальник підписується пальцем прямо на екрані. Тут-таки оператор фотографує банківські реквізити отримувача — наприклад, QR-код чи екран банківського застосунку здавальника.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/komplaens/screen-3.jpg" alt="Підпис здавальника і завантаження фото реквізитів" loading="lazy">
+          <span class="cap">Підпис + фото реквізитів</span>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-text">
+          <p><span class="step-num">4</span><strong>Готово.</strong> Операція збережена, акт приймання-здавання сформований автоматично з унікальним номером — доступний з офісу в будь-який момент.</p>
+        </div>
+        <div class="step-shot">
+          <img src="src/blog/komplaens/screen-5.jpg" alt="Банер з номером акту після збереження операції" loading="lazy">
+          <span class="cap">Акт сформовано</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What the office sees -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">Контроль з офісу</span>
+      <h2 class="section-title">Що бачить офіс</h2>
+      <p class="section-subtitle">Усе, що оператор щойно зробив на приймальні, миттєво стає видимим в офісі — без дзвінків і повідомлень.</p>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-list-check"></i></div>
+          <h3>Журнал складу</h3>
+          <p>Безготівкові партії позначені бейджем «Безготівка». Поки оплата не підтверджена — видно одразу; щойно офіс підтвердить — з'являється зелена галочка.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-file-invoice"></i></div>
+          <h3>Картка операції</h3>
+          <p>Здавальник, акт з посиланням і PDF, статус оплати та фото реквізитів — окремо від звичайних фото прийнятого металу.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="ti ti-share"></i></div>
+          <h3>Акт як документ</h3>
+          <p>Публічне посилання і PDF-версія акту — можна відкрити або переслати навіть через кілька місяців після операції.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why the owner needs this -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Навіщо це власнику</span>
+      <div style="max-width:900px; margin:0 auto; border-left:3px solid var(--yellow); background:var(--paper-2); padding:20px 24px;">
+        <ul style="margin:0; padding-left:20px; color:var(--gray);">
+          <li style="margin-bottom:8px;"><strong style="color:#18140F;">Порядок замість хаосу.</strong> Кожна безготівкова операція має здавальника, підпис і документ — а не видалений скріншот у Telegram.</li>
+          <li style="margin-bottom:8px;"><strong style="color:#18140F;">Контроль над грошима.</strong> Офіс завжди бачить, які перекази вже здійснені, а які ще чекають.</li>
+          <li style="margin-bottom:8px;"><strong style="color:#18140F;">Захист у спірних ситуаціях.</strong> Є підпис здавальника, дата й акт — аргумент, якщо виникнуть питання щодо операції.</li>
+          <li style="margin:0;"><strong style="color:#18140F;">Швидкість без паперу.</strong> Для оператора весь процес — кілька дотиків на екрані, без бланків і ручок.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related reading -->
+  <section class="section section-alt" style="text-align:center;">
+    <div class="container">
+      <p class="section-subtitle" style="margin-bottom:0;">Хочете детальніше побачити процес на скріншотах крок за кроком? Читайте <a href="blog/komplaens-bezgotivkovi-rozrahunky.html" style="color:var(--primary-dark); font-weight:700; text-decoration:underline;">розбір модуля «Комплаєнс» у блозі</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <span class="eyebrow">Наступний крок</span>
+      <h2 class="section-title">Приведіть безготівкові розрахунки в порядок</h2>
+      <p class="section-subtitle">Модуль вмикається для вашого тенанта окремо — спробуйте на одному пункті прийому чи запросіть демонстрацію.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="#" onclick="openTrialModal(event)" style="font-size:18px; padding:18px 36px;">Почати безкоштовно</a>
+        <a class="btn btn-outline" href="contact.html" style="font-size:18px; padding:18px 36px;">Запросити демо</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Scrap<span style="color:#FFC72C;">Master</span></div>
+      <div class="footer-tagline">ScrapMaster (Скрап Майстер, Скрап Мастер) — програма для металобрухту, коли облік перестає бути проблемою і стає конкурентною перевагою.</div>
+      <div class="footer-nav">
+        <a href="./">Головна</a>
+        <a href="features.html">Можливості</a>
+        <a href="modules.html">Модулі</a>
+        <a href="pricing.html">Тарифи</a>
+        <a href="use-cases.html">Кейси</a>
+        <a href="zhurnal-pryymalnyka.html">Журнал приймальника</a>
+        <a href="blog.html">Блог</a>
+        <a href="about.html">Про нас</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Контакти</a>
+      </div>
+      <div class="footer-legal">
+        <a href="terms.html">Умови використання</a>
+        <a href="privacy.html">Політика конфіденційності</a>
+      </div>
+      <div class="footer-copyright">© 2025–2026 ScrapMaster. Усі права захищені.</div>
+    </div>
+  </footer>
+
+  <!-- Trial request modal -->
+  <div class="trial-modal-overlay" id="trialModalOverlay">
+    <div class="trial-modal">
+      <button type="button" class="trial-modal-close" onclick="closeTrialModal()" aria-label="Закрити">&times;</button>
+
+      <div id="trialModalFormWrap">
+        <h3>Спробувати безкоштовно</h3>
+        <p class="trial-modal-sub">Залиште контакти — ми зв'яжемося з вами і підключимо модуль безготівкових розрахунків.</p>
+        <form id="trialForm" onsubmit="submitTrialForm(event)">
+          <div class="form-group">
+            <label class="form-label">Ім'я<span class="required">*</span></label>
+            <input type="text" class="form-input" name="name" required placeholder="Ваше ім'я" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Телефон<span class="required">*</span></label>
+            <input type="tel" class="form-input" name="phone" required placeholder="+380" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email<span class="required">*</span></label>
+            <input type="email" class="form-input" name="email" required placeholder="your@email.com" />
+          </div>
+          <input type="hidden" name="form_type" value="Спробувати безкоштовно — Модуль безготівкових розрахунків" />
+          <div class="form-group" style="display:flex; gap:8px; align-items:flex-start;">
+            <input type="checkbox" id="trial-privacy-consent" name="privacy_consent" required style="margin-top:4px; width:18px; height:18px; cursor:pointer;" />
+            <label for="trial-privacy-consent" style="font-size:13px; color:#867E6E; line-height:1.5; cursor:pointer;">
+              Я погоджуюся з <a href="privacy.html" target="_blank" style="color:var(--primary-dark); text-decoration:underline;">політикою конфіденційності</a> та надаю згоду на обробку моїх персональних даних<span class="required">*</span>
+            </label>
+          </div>
+          <button type="submit" class="form-submit">Відправити</button>
+        </form>
+      </div>
+
+      <div id="trialModalSuccess" style="display:none; text-align:center; padding:20px 0;">
+        <div style="font-size:56px; margin-bottom:16px;">✓</div>
+        <h4 style="font-size:22px; font-weight:900; color:var(--secondary); margin-bottom:8px;">Заявку відправлено!</h4>
+        <p style="font-size:15px; color:var(--gray); line-height:1.6;">Дякуємо. Наш менеджер зв'яжеться з вами найближчим часом і підключить модуль безготівкових розрахунків.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobileMenu');
+    mt.addEventListener('click',()=>{mt.classList.toggle('active');mm.classList.toggle('active');});
+    document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{mt.classList.remove('active');mm.classList.remove('active');}));
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+
+  <script>
+    // Trial request modal — same pattern as zhurnal-pryymalnyka.html
+    const trialOverlay = document.getElementById('trialModalOverlay');
+
+    function openTrialModal(e) {
+      if (e) e.preventDefault();
+      trialOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeTrialModal() {
+      trialOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    trialOverlay.addEventListener('click', function(e) {
+      if (e.target === trialOverlay) closeTrialModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && trialOverlay.classList.contains('active')) closeTrialModal();
+    });
+
+    function submitTrialForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const data = Object.fromEntries(new FormData(form));
+      btn.disabled = true;
+      btn.textContent = 'Відправка...';
+      fetch('https://script.google.com/macros/s/AKfycbz7TFBQs0rEztPeujR5Onk-EII9a0lOTTveWr5zhMcusbKWKvcq2LpX7IvdD1JZJym64g/exec', {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(() => {
+        if (typeof gtag !== 'undefined') { gtag('event', 'conversion_event_submit_lead_form'); }
+        document.getElementById('trialModalFormWrap').style.display = 'none';
+        document.getElementById('trialModalSuccess').style.display = 'block';
+      }).catch(() => {
+        document.getElementById('trialModalFormWrap').style.display = 'none';
+        document.getElementById('trialModalSuccess').style.display = 'block';
+      }).finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Відправити';
+      });
+    }
+  </script>
+</body>
+</html>

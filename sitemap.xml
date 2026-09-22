@@ -32,6 +32,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Модулі -->
+  <url>
+    <loc>https://scrapmaster.com.ua/modules.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/modul-bezgotivkovi-rozrahunky.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/modul-onlayn-pryymannya.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://scrapmaster.com.ua/blog.html</loc>
     <lastmod>2026-05-29</lastmod>
