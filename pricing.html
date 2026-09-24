@@ -33,6 +33,12 @@
   <link rel="stylesheet" href="page-styles.css" />
   <style>
     .pricing-hero-note{max-width:720px;margin:18px auto 0;color:var(--gray);font-size:17px;line-height:1.65}
+    .trial-banner-section{padding:0 0 18px}
+    .trial-banner{background:var(--ink);color:#fff;border:2px solid var(--yellow-deep);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 10px 30px rgba(24,20,15,.12)}
+    .trial-banner-kicker{color:var(--yellow-deep);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+    .trial-banner h2{font-size:30px;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
+    .trial-banner p{color:#d8d4cc;font-size:16px;line-height:1.55;margin:0;max-width:700px}
+    .trial-banner-btn{white-space:nowrap;flex-shrink:0}
     .pricing-grid{align-items:stretch}
     .price-card{position:relative;background:#fff;border:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column}
     .price-card.featured{border:2px solid var(--yellow-deep);padding:33px 29px}
@@ -89,6 +95,9 @@
     .step-card p{color:var(--gray);line-height:1.55}
     @media(max-width:760px){
       .calc-layout,.modules-grid,.simple-steps{grid-template-columns:1fr}
+      .trial-banner{padding:24px;display:block}
+      .trial-banner h2{font-size:25px}
+      .trial-banner-btn{display:block;margin-top:20px;width:100%;text-align:center}
       .calculator{padding:24px}
       .calc-result{padding:24px}
       .price-card,.price-card.featured{padding:28px 22px}
@@ -140,6 +149,19 @@
       <div class="breadcrumb" style="justify-content:center;"><a href="./">Головна</a> <span>›</span> <span>Тарифи</span></div>
       <h1>Скільки коштує ScrapMaster?</h1>
       <p class="pricing-hero-note">Просто: одна прийомка — від 999 грн/міс. Маєте мережу — додаєте Ядро. Потрібні додаткові можливості — підключаєте окремі модулі.</p>
+    </div>
+  </section>
+
+  <section class="trial-banner-section">
+    <div class="container">
+      <div class="trial-banner reveal">
+        <div class="trial-banner-copy">
+          <div class="trial-banner-kicker">Спробуйте ScrapMaster без ризику</div>
+          <h2>Перший місяць — абсолютно безкоштовно</h2>
+          <p>Без зобов’язань оплати. Реєструйтесь самостійно — всього за декілька простих кроків.</p>
+        </div>
+        <a class="btn btn-primary trial-banner-btn" href="https://cabinet.scrapmaster.com.ua/register">Зареєструватися безкоштовно</a>
+      </div>
     </div>
   </section>
 
