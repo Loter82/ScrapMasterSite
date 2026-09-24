@@ -61,7 +61,6 @@
     .range-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
     .range-value{font-size:28px;font-weight:900}
     input[type=range]{width:100%;accent-color:var(--yellow-deep);cursor:pointer}
-    .discount-note{margin-top:12px;font-size:14px;color:var(--gray)}
     .module-options{display:grid;gap:10px;margin-top:28px}
     .module-option{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);padding:14px 16px;cursor:pointer}
     .module-option:hover{background:var(--paper-2)}
@@ -76,7 +75,6 @@
     .calc-breakdown{border-top:1px solid rgba(255,255,255,.16);padding-top:16px}
     .calc-line{display:flex;justify-content:space-between;gap:20px;padding:7px 0;color:#e9e6df}
     .calc-line strong{color:#fff}
-    .discount-pill{display:inline-block;margin-top:10px;padding:5px 9px;background:rgba(255,199,44,.16);color:var(--yellow-deep);font-size:12px;font-weight:800}
     .modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:980px;margin:0 auto}
     .module-price-card{background:#fff;border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;border-top:3px solid var(--yellow-deep)}
     .module-price-card h3{font-size:23px;margin:10px 0 5px}
@@ -165,7 +163,6 @@
           <h3>Мережа</h3>
           <div class="price">€25 <small>/ прийомка / міс</small></div>
           <p class="desc">Єдина система для мережі прийомок. Ядро вже включено у вартість.</p>
-          <div class="network-highlight"><strong>50 прийомок — €1 187,50/міс</strong>Зі знижкою 5% на мережу.</div>
           <ul><li>Єдина система для всіх прийомок</li><li>Ядро включено</li><li>Централізоване керування</li><li>Ролі та права доступу</li><li>Зведена інформація по мережі</li><li>Масштабування без окремої оплати Ядра</li></ul>
           <a class="btn btn-outline" href="#calculator" style="width:100%;">Розрахувати мережу</a>
         </div>
@@ -194,7 +191,7 @@
   <section class="section section-alt" id="calculator">
     <div class="container">
       <h2 class="section-title">Розрахуйте вартість мережі</h2>
-      <p class="section-subtitle">Оберіть кількість прийомок. Для 50 прийомок діє знижка 5%.</p>
+      <p class="section-subtitle">Оберіть кількість прийомок. €25 за кожну прийомку.</p>
       <div class="calculator reveal">
         <div class="calc-layout">
           <div>
@@ -202,7 +199,6 @@
             <p class="calc-subtitle">Тариф «Мережа»: €25 за прийомку. Ядро включено.</p>
             <div class="range-row"><strong>Кількість прийомок</strong><span class="range-value" id="pointCount">2</span></div>
             <input id="pointRange" type="range" min="2" max="50" value="2" aria-label="Кількість прийомок">
-            <div class="discount-note" id="discountNote">2–49 прийомок: €25 за прийомку</div>
           </div>
           <div class="calc-result">
             <div class="eyebrow">Щомісячна вартість</div>
@@ -210,31 +206,10 @@
             <div class="calc-result-note">Ядро включено · без прихованих платежів</div>
             <div class="calc-breakdown">
               <div class="calc-line"><span>Прийомки + Ядро</span><strong id="pointsCost">€50</strong></div>
-              <div class="calc-line" id="discountLine" style="display:none;"><span>Знижка 5%</span><strong id="discountValue">−€0</strong></div>
-              <div id="discountPill" class="discount-pill" style="display:none;"></div>
             </div>
             <a class="btn btn-primary" href="https://cabinet.scrapmaster.com.ua/register" style="width:100%;margin-top:24px;">Почати безкоштовно</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Знижка для мережі</h2>
-      <p class="section-subtitle">Для 50 прийомок застосовується 5% знижка.</p>
-      <div class="pricing-rules">
-        <table class="pricing-table">
-          <thead><tr><th>Кількість прийомок</th><th>Ціна</th><th>Знижка</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>€15/міс</td><td>—</td></tr>
-            <tr><td>2–49</td><td>€25 за прийомку/міс</td><td>—</td></tr>
-            <tr><td>50</td><td>€1 187,50/міс</td><td>5%</td></tr>
-            <tr><td>51+</td><td>Індивідуально</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p style="color:var(--gray);font-size:14px;margin-top:12px;">Для мереж понад 50 прийомок узгодимо індивідуальну ціну.</p>
       </div>
     </div>
   </section>
@@ -288,7 +263,6 @@
       <div class="faq-list">
         <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Що входить у тариф «Соло»?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Повноцінна система для однієї прийомки: приймання металу, облік складу та залишків, каса, рух грошей, операції з металом, звіти та історія операцій.</p></div></div>
         <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Що входить у тариф «Мережа»?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Тариф «Мережа» коштує €25 за прийомку на місяць. Ядро, централізоване керування, ролі та права доступу і зведена інформація по мережі вже включені.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Скільки коштує 50 прийомок?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Базова вартість 50 прийомок — €1 250/міс. Із 5% знижкою — €1 187,50/міс.</p></div></div>
         <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Скільки коштує Онлайн-приймання?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Модуль Онлайн-приймання коштує €15/міс додатково. Для однієї прийомки тариф разом із модулем становить €30/міс.</p></div></div>
         <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Чи є індивідуальний тариф?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Так. Для великих мереж, нестандартних вимог та індивідуальних інтеграцій ціну узгоджуємо окремо.</p></div></div>
         <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>Чи є безкоштовний пробний період?</span><span class="faq-arrow">▼</span></div><div class="faq-answer"><p>Так, перший місяць ScrapMaster можна використовувати безкоштовно, щоб перевірити систему перед оплатою.</p></div></div>
@@ -317,33 +291,14 @@
     const countEl=document.getElementById('pointCount');
     const totalEl=document.getElementById('calcTotal');
     const pointsCostEl=document.getElementById('pointsCost');
-    const discountNote=document.getElementById('discountNote');
-    const discountPill=document.getElementById('discountPill');
-    const discountLine=document.getElementById('discountLine');
-    const discountValue=document.getElementById('discountValue');
-
-    function networkDiscount(n){ return n===50 ? 0.05 : 0; }
     function euro(n){ return '€' + new Intl.NumberFormat('uk-UA',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2}).format(n); }
 
     function updatePrice(){
       const n=Number(range.value);
-      const discount=networkDiscount(n);
-      const base=n*25;
-      const saving=base*discount;
-      const total=base-saving;
+      const total=n*25;
       countEl.textContent=n;
       pointsCostEl.textContent=euro(total);
       totalEl.textContent=euro(total);
-      discountLine.style.display=discount?'flex':'none';
-      discountValue.textContent='−'+euro(saving);
-      if(n===50){
-        discountNote.textContent='50 прийомок: 5% знижка';
-        discountPill.textContent='Економія '+euro(saving)+' на місяць';
-        discountPill.style.display='inline-block';
-      } else {
-        discountNote.textContent='2–49 прийомок: €25 за прийомку';
-        discountPill.style.display='none';
-      }
     }
     range.addEventListener('input',updatePrice);
     updatePrice();
