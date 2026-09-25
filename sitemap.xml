@@ -77,13 +77,25 @@
   </url>
   <url>
     <loc>https://scrapmaster.com.ua/terms.html</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://scrapmaster.com.ua/privacy.html</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/cookies.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/personal-data.html</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
