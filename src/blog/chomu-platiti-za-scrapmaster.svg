@@ -9,6 +9,6 @@
 <text x="110" y="370" font-family="Arial,sans-serif" font-size="30" fill="#D8D0C5">Контроль грошей, металу та операцій</text>
 <text x="110" y="414" font-family="Arial,sans-serif" font-size="30" fill="#D8D0C5">з конкретними цифрами та прикладами.</text>
 <rect x="110" y="465" width="300" height="58" rx="14" fill="#FFC72C"/>
-<text x="260" y="503" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#18140F">999 грн / місяць</text>
-<text x="1040" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="92" font-weight="800" fill="#FFC72C">₴</text>
+<text x="260" y="503" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#18140F">€15 / місяць</text>
+<text x="1040" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="92" font-weight="800" fill="#FFC72C">€</text>
 </svg>
