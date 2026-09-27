@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1116"/>
+      <stop offset="100%" style="stop-color:#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#f5c62c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="160" r="200" fill="rgba(255,212,59,0.06)"/>
+  <circle cx="880" cy="520" r="140" fill="rgba(255,212,59,0.04)"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Ranking podium icon -->
+  <g transform="translate(830, 120)">
+    <rect x="0" y="150" width="70" height="90" rx="8" fill="rgba(255,212,59,0.12)" stroke="#ffd43b" stroke-width="2"/>
+    <text x="35" y="205" fill="#ffd43b" font-family="'Oswald', sans-serif" font-size="30" font-weight="700" text-anchor="middle">2</text>
+    <rect x="80" y="90" width="70" height="150" rx="8" fill="rgba(255,212,59,0.2)" stroke="#ffd43b" stroke-width="2"/>
+    <text x="115" y="175" fill="#ffd43b" font-family="'Oswald', sans-serif" font-size="34" font-weight="700" text-anchor="middle">1</text>
+    <rect x="160" y="180" width="70" height="60" rx="8" fill="rgba(255,212,59,0.08)" stroke="#ffd43b" stroke-width="2"/>
+    <text x="195" y="220" fill="#ffd43b" font-family="'Oswald', sans-serif" font-size="26" font-weight="700" text-anchor="middle">3</text>
+    <!-- star above bar 1 -->
+    <path d="M115 20 L124 42 L148 44 L130 60 L136 84 L115 71 L94 84 L100 60 L82 44 L106 42 Z" fill="#ffd43b"/>
+  </g>
+
+  <rect x="60" y="56" width="90" height="30" rx="8" fill="rgba(255,212,59,0.15)"/>
+  <text x="76" y="75" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1">ВИБІР</text>
+
+  <text x="60" y="190" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="46" font-weight="800" letter-spacing="-1">Яку програму</text>
+  <text x="60" y="248" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="46" font-weight="800" letter-spacing="-1">обрати для пункту</text>
+  <text x="60" y="306" fill="#ffd43b" font-family="'Segoe UI', sans-serif" font-size="46" font-weight="800" letter-spacing="-1">прийому у 2026</text>
+
+  <text x="60" y="382" fill="rgba(255,255,255,0.65)" font-family="'Segoe UI', sans-serif" font-size="22">5 типів рішень за 7 критеріями — чесне порівняння</text>
+  <rect x="60" y="422" width="80" height="4" rx="2" fill="#ffd43b"/>
+
+  <text x="60" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">ScrapMaster</text>
+  <text x="180" y="570" fill="rgba(255,255,255,0.2)" font-family="'Segoe UI', sans-serif" font-size="18">•</text>
+  <text x="200" y="570" fill="rgba(255,255,255,0.4)" font-family="'Segoe UI', sans-serif" font-size="18">scrapmaster.com.ua</text>
+</svg>
