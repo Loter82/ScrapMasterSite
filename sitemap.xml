@@ -142,6 +142,49 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Здати металобрухт у Київській області — за містами -->
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-boryspil.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-brovary.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-bucha.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-bila-tserkva.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-vyshhorod.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-obukhiv.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-fastiv.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <!-- Модулі -->
   <url>
     <loc>https://scrapmaster.com.ua/modules.html</loc>
