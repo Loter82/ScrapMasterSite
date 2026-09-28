@@ -81,6 +81,67 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Здати металобрухт у Києві — за районами -->
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-holosiivskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-darnytskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-desnianskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-dniprovskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-obolonskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-pecherskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-podilskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-sviatoshynskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-solomianskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scrapmaster.com.ua/zdati-metalobrukht-kyiv-shevchenkivskyi.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <!-- Модулі -->
   <url>
     <loc>https://scrapmaster.com.ua/modules.html</loc>
